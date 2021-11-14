@@ -8,6 +8,7 @@ import { DB_CONNECTION_STRING } from './config/constants.js';
 
 const app = express();
 
+app.use(express.json());
 app.use(cors());
 app.use(router);
 

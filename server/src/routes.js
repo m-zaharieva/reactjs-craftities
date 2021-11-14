@@ -1,16 +1,10 @@
-import { Router } from "./../node_modules/express/index.js";
+import { Router } from "express";
 
+import userController from './controllers/userController.js';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-   res.send('New File here') 
-});
-
-router.get('/api', (req, res) => {
-   console.log('API get request');
-   res.status(200).json({message: 'Hello from server side'});
-});
+router.use('/user', userController)
 
 export default router;
 

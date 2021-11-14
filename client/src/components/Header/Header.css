@@ -1,20 +1,41 @@
-nav {
+header .navigation {
+    border-top: 3px solid  #00adc6;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+}
+
+header .navigation ul {
     display: flex;
     justify-content: space-between;
+    width: 70%;
 }
 
-nav .brand {
-    width: 60px;
+header .banner {
+    width: 100%;
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-nav .brand img {
+header .banner img {
     width: 100%;
 }
 
-nav ul {
-    display: flex;
+header .banner h1 {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-nav ul li {
-    padding: 20px;
+header .banner .brand {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-size: 30px;
+    color: #117521;
+    font-weight: 700;
 }
+
