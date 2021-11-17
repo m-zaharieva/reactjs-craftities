@@ -1,8 +1,17 @@
 header .navigation {
     border-top: 3px solid  #00adc6;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 25px;
+    align-items: baseline;
+}
+
+header .navigation .brand {
+    margin-left: 20px;
+}
+
+.brand-logo {
+    color: #117521;
 }
 
 header .navigation ul {
@@ -11,7 +20,7 @@ header .navigation ul {
     width: 70%;
 }
 
-header .banner {
+header .page-banner {
     width: 100%;
     position: relative;
     height: 350px;
@@ -19,18 +28,18 @@ header .banner {
     border-radius: 10px;
 }
 
-header .banner img {
+header .page-banner img {
     width: 100%;
 }
 
-header .banner h1 {
+header .page-banner h1 {
     position: absolute;
     top: 170px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-header .banner .brand {
+header .page-banner .brand {
     position: absolute;
     top: 20px;
     left: 40px;

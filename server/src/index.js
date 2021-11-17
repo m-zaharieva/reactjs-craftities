@@ -8,8 +8,8 @@ import { DB_CONNECTION_STRING } from './config/constants.js';
 
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(router);
 
 
@@ -17,7 +17,7 @@ app.use(router);
 db(DB_CONNECTION_STRING)
     .then(() => {
         app.listen(PORT, () => {
-            console.log(`Application is running on http://localhost:${PORT}...`)
+            console.log(`Server is running on http://localhost:${PORT}...`)
         })
     })
     .catch(error => {

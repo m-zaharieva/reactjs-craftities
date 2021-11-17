@@ -1,0 +1,1 @@
+[ ] Check if both passwords on registration are equal before send the request to the server.

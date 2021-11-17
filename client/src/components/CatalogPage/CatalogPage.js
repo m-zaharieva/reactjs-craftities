@@ -1,11 +1,25 @@
-import './TopItems.css';
+import { useState, useEffect } from 'react';
 
-function TopItems() {
+import { allPosts } from '../../services/postService.js';
+import './CatalogPage.css';
+
+function CatalogPage() {
+    let [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        allPosts()
+            .then(res => res.json())
+            .then(allPosts => {
+                console.log(allPosts);
+                setPosts(allPosts);
+            })
+    }, []);
+
     return (
-        <section className="top-items-section">
+        <section className="catalog-section">
             <div className="container">
-                <h2>Top Items Right Now</h2>
-                <div className="top-items">
+                <h2>Catalogue</h2>
+                <div className="row">
                     <article>
                         <div>
                             <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
@@ -26,10 +40,14 @@ function TopItems() {
                             <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
                         </div>
                         <div>
-                            <h3>Item</h3>
+                            <h3>DIY Midnight Owl</h3>
                         </div>
                         <div>
                             <p>description</p>
+                            <p>Rating</p>
+                            <p>Prise</p>
+                            <p>User</p>
+                            <p>Details =&gt;</p>
                         </div>
                     </article>
                     <article>
@@ -37,10 +55,14 @@ function TopItems() {
                             <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
                         </div>
                         <div>
-                            <h3>Item</h3>
+                            <h3>DIY Midnight Owl</h3>
                         </div>
                         <div>
                             <p>description</p>
+                            <p>Rating</p>
+                            <p>Prise</p>
+                            <p>User</p>
+                            <p>Details =&gt;</p>
                         </div>
                     </article>
                     <article>
@@ -48,18 +70,20 @@ function TopItems() {
                             <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
                         </div>
                         <div>
-                            <h3>Item</h3>
+                            <h3>DIY Midnight Owl</h3>
                         </div>
                         <div>
                             <p>description</p>
+                            <p>Rating</p>
+                            <p>Prise</p>
+                            <p>User</p>
+                            <p>Details =&gt;</p>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
-    );
+    )
 }
 
-export default TopItems;
-
+export default CatalogPage;

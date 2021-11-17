@@ -1,12 +1,14 @@
 export const register = (e) => {
+    e.preventDefault();
     let data = {
         firstName: 'Miroslava',
         lastName: 'Zaharieva',
         email: 'miroslava.zaharieva@gmail.com',
         password: 'asdasdasd',
+        rePassword: 'asdasdasd',
     }
     
-    return fetch('/user/register', {
+    return fetch('/users/register', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -14,7 +16,12 @@ export const register = (e) => {
         body: JSON.stringify(data),
         
     })
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => {
+        // TODO Error handler
+        console.log(err);
+    });
 }
 
 

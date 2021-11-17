@@ -1,0 +1,19 @@
+.top-items-section {
+    margin-top: 50px;
+}
+
+.top-items {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.top-items article {
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    width: 220px;
+}
+
+.top-items img {
+    width: 100%;
+}

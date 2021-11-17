@@ -1,0 +1,11 @@
+.catalog-section .row {
+    display: flex;
+    justify-content: space-between;
+}
+.catalog-section article {
+    width: 20%;
+}
+
+.catalog-section article img {
+    width: 100%;
+}
