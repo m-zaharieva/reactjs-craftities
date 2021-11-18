@@ -10,17 +10,12 @@ function Header() {
 							<p className="brand-logo">Craftities</p>
 						</div>
 						<ul className="nav-list">
+							{/* Guests */}
 							<li className="list-item">
 								<a className="nav-link" href="/">Home</a>
 							</li>
 							<li className="list-item">
 								<a className="nav-link" href="/catalogue">Catalogue</a>
-							</li>
-							<li className="list-item">
-								<a className="nav-link" href="/create">Sell on Craftities</a>
-							</li>
-							<li className="list-item">
-								<a className="nav-link" href="/user/profile">Profile</a>
 							</li>
 							<li className="list-item">
 								<a className="nav-link" href="/contacts">Contacts</a>
@@ -31,9 +26,17 @@ function Header() {
 							<li className="list-item">
 								<a className="nav-link" href="/user/login">Login</a>
 							</li>
+
+							{/* User */}
+							{/* <li className="list-item">
+								<a className="nav-link" href="/create">Sell on Craftities</a>
+							</li>
+							<li className="list-item">
+								<a className="nav-link" href="/user/profile">Profile</a>
+							</li>
 							<li className="list-item">
 								<a className="nav-link" href="/user/logout">Logout</a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>

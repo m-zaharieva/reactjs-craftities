@@ -17,7 +17,7 @@ header .navigation .brand {
 header .navigation ul {
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 40%;
 }
 
 header .page-banner {

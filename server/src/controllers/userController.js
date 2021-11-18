@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import * as userService from "../services/userService.js";
-import { TOKEN_SECRET } from './../config/constants.js';
 
 const router = Router();
 
