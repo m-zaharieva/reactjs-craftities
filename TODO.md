@@ -16,3 +16,5 @@ When a user is logged in, instead the slogan written in the banner, we can write
 [ ] Contacts page with a contact form. 
 
 [ ] Error 404 Page
+
+[ ] Need to change my server's endpoints. When a client is making a request, there is no need the url to be the same as the url of the client's page. The thing is, that it may accure that more then one page is making the same request. So the url of the request may look like: /data/posts, auth/users, ... etc. 
