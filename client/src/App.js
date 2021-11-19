@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 import Header from './components/Header/Header.js';
+import PageBanner from './components/PageBanner/PageBanner.js';
 import TopItems from './components/TopItems/TopItems.js';
 import RegisterForm from './components/RegisterForm/RegisterForm.js';
 import LoginForm from './components/LoginForm/LoginForm.js';
@@ -19,6 +20,7 @@ function App() {
     return (
         <div className="App">
             <Header />
+            {/* <PageBanner /> */}
             <TopItems />
             <RegisterForm />
             <LoginForm />
