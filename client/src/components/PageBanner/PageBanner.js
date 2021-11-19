@@ -1,19 +1,21 @@
-
+import './PageBanner.css';
 
 function PageBanner() {
 
     return (
-        <div className="container">
-            <div className="page-banner">
-                <div className="background-image">
-                    <img src="/img/layers-colored-papers.jpg" alt="Ad banner" />
-                </div>
-                <div className="banner-title">
-                    <h1>Make your art a life story. Make yourself a winner</h1>
+        <section className="banner-section">
+            <div className="container page-banner">
+                <div className="banner-image-hilder col-10">
+                    <img src="/img/explosion-colored-powder-white-background.jpg" alt="" />
                 </div>
 
+                <div className="banner-content col-9">
+                    <h1>Some Trendy Title Here</h1>
+                    <p>Some subtitle here</p>
+                </div>
             </div>
-        </div>
+
+        </section>
     )
 }
 

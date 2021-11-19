@@ -20,7 +20,7 @@ function App() {
     return (
         <div className="App">
             <Header />
-            {/* <PageBanner /> */}
+            <PageBanner />
             <TopItems />
             <RegisterForm />
             <LoginForm />

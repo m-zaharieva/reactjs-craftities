@@ -1,50 +1,24 @@
-header .navigation {
-    border-top: 3px solid  #00adc6;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 25px;
-    align-items: baseline;
+.header-section {
+    background-color: #ffffff;
+    box-shadow: 0px 5px 20px #cccccc;
+    padding: 20px 0;
 }
 
-header .navigation .brand {
-    margin-left: 20px;
+.navigation {
+    align-items: center;
 }
 
-.brand-logo {
-    color: #117521;
-}
-
-header .navigation ul {
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-}
-
-header .page-banner {
-    width: 100%;
-    position: relative;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-header .page-banner img {
-    width: 100%;
-}
-
-header .page-banner h1 {
-    position: absolute;
-    top: 170px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-header .page-banner .brand {
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    font-size: 30px;
-    color: #117521;
+.nav-brand {
+    color: #b8602e;
+    font-size: 20px;
     font-weight: 700;
 }
 
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-item {
+    margin-left: 30px;
+}
