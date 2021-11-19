@@ -5,7 +5,7 @@ function Header() {
 		<header className="header-section">
 			<nav className="container row navigation">
 				<div className="nav-brand col-4">
-					<p>Craftiites</p>
+					<p>Craftities</p>
 				</div>
 				<div className="col-8">
 					<ul className="nav-list">

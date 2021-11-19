@@ -5,56 +5,83 @@ function TopItems() {
         <section className="top-items-section">
             <div className="container">
                 <h2>Top Items Right Now</h2>
-                <div className="top-items">
-                    <article>
-                        <div>
-                            <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
-                        </div>
-                        <div>
-                            <h3>DIY Midnight Owl</h3>
-                        </div>
-                        <div>
-                            <p>description</p>
-                            <p>Rating</p>
-                            <p>Prise</p>
-                            <p>User</p>
-                            <p>Details =&gt;</p>
-                        </div>
-                    </article>
-                    <article>
-                        <div>
-                            <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
-                        </div>
-                        <div>
-                            <h3>Item</h3>
-                        </div>
-                        <div>
-                            <p>description</p>
-                        </div>
-                    </article>
-                    <article>
-                        <div>
-                            <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
-                        </div>
-                        <div>
-                            <h3>Item</h3>
-                        </div>
-                        <div>
-                            <p>description</p>
-                        </div>
-                    </article>
-                    <article>
-                        <div>
-                            <img src="img/1c069cbc813fd2a6eb83b8cafb471a8c.jpg" alt="Nackle" />
-                        </div>
-                        <div>
-                            <h3>Item</h3>
-                        </div>
-                        <div>
-                            <p>description</p>
-                        </div>
-                    </article>
+                <div className="row">
+                    <div className="col-3 card-white">
+                        <article>
+                            <div className="card-image-holder">
+                                <img src="img/Western-Seas-Bracelet-Custom-Jewelry-2.jpg" alt="" />
+                            </div>
+                            <div className="card-details-holder">
 
+                                <h3>Project Name Here</h3>
+                                <p>John Doe</p>
+                                <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
+
+                                <div className="row card-prise-info-holder">
+                                    <p className="col-7"><span className="card-prise">35.00</span> BGN</p>
+                                    {/* Optional */}
+                                    <p className="col-5"><span className="card-delivery-note">FREE delivery</span></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div className="col-3 card-white">
+                        <article>
+                            <div className="card-image-holder">
+                                <img src="img/images.jpg" alt="" />
+                            </div>
+                            <div className="card-details-holder">
+
+                                <h3>Project Name Here</h3>
+                                <p>John Doe</p>
+                                <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
+
+                                <div className="row card-prise-info-holder">
+                                    <p className="col-7"><span className="card-prise">35.00</span> BGN</p>
+                                    {/* Optional */}
+                                    <p className="col-5"><span className="card-delivery-note">FREE delivery</span></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div className="col-3 card-white">
+                        <article>
+                            <div className="card-image-holder">
+                                <img src="img/fposter,small,wall_texture,product,750x1000.u1.jpg" alt="" />
+                            </div>
+                            <div className="card-details-holder">
+
+                                <h3>Project Name Here</h3>
+                                <p>John Doe</p>
+                                <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
+
+                                <div className="row card-prise-info-holder">
+                                    <p className="col-7"><span className="card-prise">35.00</span> BGN</p>
+                                    {/* Optional */}
+                                    <p className="col-5"><span className="card-delivery-note">FREE delivery</span></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div className="col-3 card-white">
+                        <article>
+                            <div className="card-image-holder">
+                                <img src="img/433b3a1e0d93d40d4e5c96e9f7b61001.jpg" alt="" />
+                            </div>
+                            <div className="card-details-holder">
+
+                                <h3>Project Name Here</h3>
+                                <p>John Doe</p>
+                                <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
+
+                                <div className="row card-prise-info-holder">
+                                    <p className="col-7"><span className="card-prise">35.00</span> BGN</p>
+                                    {/* Optional */}
+                                    <p className="col-5"><span className="card-delivery-note">FREE delivery</span></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>

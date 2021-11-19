@@ -1,6 +1,7 @@
 .header-section {
     background-color: #ffffff;
-    box-shadow: 0px 5px 20px #cccccc;
+    /* box-shadow: 0px 5px 20px #cccccc; */
+    /* border-bottom: 1px solid #b8602e; */
     padding: 20px 0;
 }
 

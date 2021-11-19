@@ -18,7 +18,7 @@
 .banner-content {
     position: absolute;
     background-color: #ffcd37;
-    top: 0;
+    top: 30px;
     right: 0;
     padding: 80px 20px;
     text-align: center;
