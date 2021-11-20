@@ -7,7 +7,8 @@ import TopItems from './components/TopItems/TopItems.js';
 import RegisterForm from './components/RegisterForm/RegisterForm.js';
 import LoginForm from './components/LoginForm/LoginForm.js';
 import CreatePost from './components/CreatePost/CreatePost.js';
-import CatalogPage from './components/CatalogPage/CatalogPage.js';
+import Footer from './components/Footer/Footer';
+import HomeCategories from './components/HomeCategories/HomeCategories';
 
 function App() {
 
@@ -22,10 +23,11 @@ function App() {
             <Header />
             <PageBanner />
             <TopItems />
-            <RegisterForm />
-            <LoginForm />
-            <CreatePost />
-            <CatalogPage />
+            <HomeCategories />
+            {/* <RegisterForm /> */}
+            {/* <LoginForm /> */}
+            {/* <CreatePost /> */}
+            <Footer />
         </div>
     );
 }

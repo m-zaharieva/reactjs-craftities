@@ -5,7 +5,7 @@ function PageBanner() {
     return (
         <section className="banner-section">
             <div className="container page-banner">
-                <div className="banner-image-hilder col-11">
+                <div className="banner-image-hilder col-12">
                     <img src="/img/explosion-colored-powder-white-background.jpg" alt="" />
                 </div>
 
