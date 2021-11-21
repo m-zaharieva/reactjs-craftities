@@ -1,4 +1,4 @@
-import PageBanner from './../PageBanner/PageBanner.js';
+import PageBanner from './PageBanner/PageBanner.js';
 import TopItems from './TopItems/TopItems.js';
 import HomeCategories from './HomeCategories/HomeCategories';
 

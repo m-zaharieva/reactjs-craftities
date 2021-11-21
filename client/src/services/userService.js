@@ -1,4 +1,4 @@
-export const register = (e) => {
+export const registerFormHandler = (e) => {
     e.preventDefault();
     let data = {
         firstName: 'Miroslava',
@@ -25,3 +25,7 @@ export const register = (e) => {
 }
 
 
+export const loginFormHandler = (e) => {
+    e.preventDefault();
+    
+};
