@@ -28,7 +28,7 @@ function HomeCategories() {
                     </div>
                 </div>
                 <div className="more-button">
-                    <a href="">More categories</a>
+                    <a href="/categories">More categories</a>
                 </div>
             </div>
         </section>

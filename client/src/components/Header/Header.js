@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 import './Header.css';
 
 function Header() {
@@ -11,19 +13,19 @@ function Header() {
 					<ul className="nav-list">
 						{/* Guests */}
 						<li className="list-item">
-							<a className="nav-link" href="/">Home</a>
+							<NavLink className="nav-link" exact activeClassName="active-nav-link" to="/">Home</NavLink>
 						</li>
 						<li className="list-item">
-							<a className="nav-link" href="/catalogue">Catalogue</a>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/catalogue">Catalogue</NavLink>
 						</li>
 						<li className="list-item">
-							<a className="nav-link" href="/contacts">Contacts</a>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>
 						</li>
 						<li className="list-item">
-							<a className="nav-link" href="user/register">Register</a>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/register">Register</NavLink>
 						</li>
 						<li className="list-item">
-							<a className="nav-link" href="/user/login">Login</a>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/login">Login</NavLink>
 						</li>
 
 						{/* User */}

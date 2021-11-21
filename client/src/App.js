@@ -1,33 +1,37 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './App.css';
+
 import Header from './components/Header/Header.js';
-import PageBanner from './components/PageBanner/PageBanner.js';
-import TopItems from './components/TopItems/TopItems.js';
-import RegisterForm from './components/RegisterForm/RegisterForm.js';
-import LoginForm from './components/LoginForm/LoginForm.js';
-import CreatePost from './components/CreatePost/CreatePost.js';
 import Footer from './components/Footer/Footer';
-import HomeCategories from './components/HomeCategories/HomeCategories';
+
+import Home from './components/Home/Home.js';
+import AuthForm from './components/AuthForm/AuthForm.js';
+import CreatePost from './components/CreatePost/CreatePost.js';
+
+
+
 
 function App() {
 
-    let routes = {
-        '/user/register': <RegisterForm />,
-        '/user/login': <LoginForm />,
-        '/post/create': <CreatePost />,
-    }
-
     return (
         <div className="App">
-            <Header />
-            <PageBanner />
-            <TopItems />
-            <HomeCategories />
-            {/* <RegisterForm /> */}
-            {/* <LoginForm /> */}
-            {/* <CreatePost /> */}
-            <Footer />
+            <BrowserRouter>
+                <Header />
+                <main>
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/user/login" component={AuthForm} />
+                    <Route path="/user/register" component={AuthForm} />
+                    <Route path="/post/create" component={CreatePost} />
+                    <Route path="/post/:postId/details" />
+                    <Route path="/post/:postId/edit" />
+                    <Route path="/post/:postId/delete" />
+                </Switch>
+                </main>
+                <Footer />
+            </BrowserRouter>
         </div>
     );
 }

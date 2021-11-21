@@ -1,10 +1,10 @@
 /* Colors */
 
-/* #80add7 */
-/* #0abda0 */
-/* #ebf2ea */
-/* #d4dca9 */
-/* #bf9d7a */
+/* #80add7  blue*/ 
+/* #0abda0  Green */ 
+/* #ebf2ea  gray */
+/* #d4dca9  lightgreen */
+/* #bf9d7a  brown */
 
 
 /* General Rules for the application */
@@ -43,6 +43,7 @@ p {
 a {
   text-decoration: none;
   color: #333333;
+  transition: all 0.1s ease-out;
 }
 
 a:hover {
@@ -53,6 +54,10 @@ ul {
   list-style-type: none;
   padding-left: 10px;
   margin: 0;
+}
+
+main {
+  min-height: calc(100vh - 280px);
 }
 
 .margin-auto {
