@@ -77,36 +77,8 @@
     margin-bottom: 20px;
 }
 
-.input-wrapper label {
-    margin-bottom: 4px;
-    color: #aaaaaa;
-}
-
 .required {
     color: red;
     font-weight: 700;
 }
 
-.input-wrapper input {
-    border: 1px solid #cccccc;
-    padding: 7px;
-    border-radius: 7px;
-    background-color: #f7f7f7;
-    transition: all ease-in-out 0.2s;
-}
-
-.input-wrapper input:focus {
-    background-color: #ffffff;
-    outline: 1px solid #80add7;
-    font-size: 16px;
-}
-
-.auth-form input[type="submit"] {
-    border: none;
-    background-color: #80add7;
-    color: #ffffff;
-    padding: 10px 30px;
-    font-size: 16px;
-    border-radius: 4px;
-    float: right;
-}

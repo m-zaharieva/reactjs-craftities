@@ -6,10 +6,10 @@ function Header() {
 	return (
 		<header className="header-section">
 			<nav className="container row navigation">
-				<div className="nav-brand col-4">
+				<div className="nav-brand col-3">
 					<p>Craftities</p>
 				</div>
-				<div className="col-8">
+				<div className="col-9">
 					<ul className="nav-list">
 						{/* Guests */}
 						<li className="list-item">
@@ -17,6 +17,15 @@ function Header() {
 						</li>
 						<li className="list-item">
 							<NavLink className="nav-link" activeClassName="active-nav-link" to="/catalogue">Catalogue</NavLink>
+						</li>
+						<li className="list-item">
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/post/create">Create</NavLink>
+						</li>
+						<li className="list-item">
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/posts">Your posts</NavLink>
+						</li>
+						<li className="list-item">
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/favourites">Favourites</NavLink>
 						</li>
 						<li className="list-item">
 							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>
@@ -27,17 +36,9 @@ function Header() {
 						<li className="list-item">
 							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/login">Login</NavLink>
 						</li>
-
-						{/* User */}
-						{/* <li className="list-item">
-								<a className="nav-link" href="/create">Sell on Craftities</a>
-							</li>
-							<li className="list-item">
-								<a className="nav-link" href="/user/profile">Profile</a>
-							</li>
-							<li className="list-item">
-								<a className="nav-link" href="/user/logout">Logout</a>
-							</li> */}
+						<li className="list-item">
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout">Logout</NavLink>
+						</li>
 					</ul>
 				</div>
 			</nav>

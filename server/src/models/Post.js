@@ -17,6 +17,16 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    prise: {
+        type: Number,
+        required: true,
+        default: 'free',
+    },
+    shipping: {
+        type: String,
+        required: true,
+        default: 'FREE shipping',
+    },
     author: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
