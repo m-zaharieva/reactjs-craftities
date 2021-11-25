@@ -5,6 +5,11 @@ export const allPosts = () => {
     return Post.find({});
 }
 
+export const topFourItems = () => {
+    return Post.find({}).limit(4);
+    // TODO the filtering of  the top four items
+}
+
 export const create = (data) => {
     return Post.create({...data});
 }

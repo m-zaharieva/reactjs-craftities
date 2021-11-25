@@ -8,7 +8,18 @@ const router = Router();
 router.get('/catalog', (req, res) => {
     postService.allPosts()
         .then(posts => {
-            res.json(posts)
+            res.json(posts);
+        })
+        .catch(error => {
+            // TODO Error Handler
+            console.log('Post Controller Catalog ' + error.message);
+        });
+});
+
+router.get('/topItems', (req, res) => {
+    postService.topFourItems()
+        .then(result => {
+            res.json(result);
         })
         .catch(error => {
             // TODO Error Handler

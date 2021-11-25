@@ -20,7 +20,7 @@ const postSchema = new mongoose.Schema({
     prise: {
         type: Number,
         required: true,
-        default: 'free',
+        default: 0,
     },
     shipping: {
         type: String,
