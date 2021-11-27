@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
 import './TopItems.css';
-import { topItems } from './../../../services/postService.js'
+import * as postService from './../../../services/postService.js'
 import PostCard from './PostCard/PostCard.js';
 
 function TopItems() {
     let [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        topItems()
+        postService.topItems()
             .then(res => res.json())
             .then(result => {
                 setPosts(result);

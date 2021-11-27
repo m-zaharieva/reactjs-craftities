@@ -1,7 +1,7 @@
 import './PostCard.css';
 
 function PostCard(props) {
-    console.log(props);
+    // console.log(props);
     return (
         <div className="col-3 card-white">
             <article>

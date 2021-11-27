@@ -7,8 +7,6 @@ const router = Router();
 router.post('/register', (req, res) => {
     let data = req.body;
 
-    // ! Delete this log
-    console.log('User Controller Register ' + data);
 
     userService.register(data)
         .then(user => {
@@ -26,9 +24,7 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     let data = req.body;
 
-    console.log('User Controller Login ' + {...data});
-
-    userService.login(data.email)
+    userService.login(data)
         .then(user => {
             return userService.createToken(user)
         })

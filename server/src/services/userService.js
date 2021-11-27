@@ -6,7 +6,7 @@ import User from "../models/User.js";
 
 
 export const register = (data) => {
-       return findUser(data.email)
+       return findUserByEmail(data.email)
         .then(user => {
             if (user) {
                 throw new Error ('This email is already taken. Would you like to login instead?');
@@ -20,10 +20,16 @@ export const register = (data) => {
         });
 };
 
-export const login = (email) => {
-    return findUser(email)
+export const login = (data) => {
+    return findUserByEmail(data.email)
         .then(user => {
             if (!user) {
+                throw new Error ('Incorrect email or password.');
+            }
+            return Promise.all([bcrypt.compare(data.password, user.password), user]);
+        })
+        .then(([isValid, user]) => {
+            if (!isValid) {
                 throw new Error ('Incorrect email or password.');
             }
 
@@ -32,7 +38,7 @@ export const login = (email) => {
 }
 
 
-export const findUser = (email) => {
+export const findUserByEmail = (email) => {
     return User.findOne({email});
 }
 
