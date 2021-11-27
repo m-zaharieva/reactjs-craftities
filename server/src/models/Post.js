@@ -24,7 +24,6 @@ const postSchema = new mongoose.Schema({
     },
     shipping: {
         type: String,
-        required: true,
         default: 'FREE shipping',
     },
     author: {

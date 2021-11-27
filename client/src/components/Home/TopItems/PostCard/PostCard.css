@@ -21,7 +21,6 @@
     height: 100%;
 }
 
-
 .card-details-holder {
     padding: 5px 10px;
     /* align-items: flex-end; */
@@ -57,5 +56,3 @@
     border-radius: 10px;
     display: inline-block;
 }
-
-

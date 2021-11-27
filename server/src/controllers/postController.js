@@ -30,18 +30,11 @@ router.get('/topItems', (req, res) => {
 
 router.post('/create', (req, res) => {
 
-    // ! Delete after client successful request from form
-    let data = {
-        title: 'Handmade bracelet',
-        description: 'Lorem ipsum dolor sit ammet',
-        imageUrl: 'https://image.shutterstock.com/image-photo/natural-mineral-stone-beads-yoga-260nw-1616070955.jpg',
-        category: 'Jewelry',
-        author: '6193d026978424a7c0d1f24b', 
-    };
-
+    let postData = req.body;
+    console.log(postData);
 
     // let data = req.body;
-    postService.create(data)
+    postService.create(postData)
         .then(newPost => {
             res.json(newPost);
         })

@@ -12,11 +12,11 @@ function TopItems() {
             .then(res => res.json())
             .then(result => {
                 setPosts(result);
-            })
-        }, []);
-        
-        return (
-            <section className="top-items-section">
+            });
+    }, []);
+
+    return (
+        <section className="top-items-section">
             <div className="container">
                 <h2>Top Items Right Now</h2>
                 <div className="row">
