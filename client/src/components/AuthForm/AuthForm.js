@@ -1,4 +1,4 @@
-import { NavLink, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import * as userService from './../../services/userService.js';

@@ -9,7 +9,8 @@
 }
 
 .category-card img {
-    width: 80px;
+    margin-top: 20px;
+    height: 110px;
 }
 
 .more-button {
