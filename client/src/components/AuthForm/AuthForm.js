@@ -1,40 +1,41 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { useState } from 'react';
 
 import * as userService from './../../services/userService.js';
-import { TOKEN_SECRET } from './../../config/constants.js';
-
 import './AuthForm.css';
 
 
 function AuthForm({ match, history }) {
+    let [error, setError] = useState('');
+
     let register = match.path.includes('login') ? false : true;
 
     let repeatPassword = (
         <div className="input-wrapper">
-            <label htmlFor="">Repeat password <span className="required">*</span></label>
-            <input type="password" name="repeatPassword" />
+            <label htmlFor="repeat-password">Repeat password <span className="required">*</span></label>
+            <input type="password" name="repeatPassword" id="repeat-password" />
         </div>
     );
 
     let registerNames = (
         <div className="name-wrapper">
             <div className="input-wrapper">
-                <label htmlFor="">First name <span className="required">*</span></label>
-                <input type="text" name="firstName" />
+                <label htmlFor="first-name">First name <span className="required">*</span></label>
+                <input type="text" name="firstName" id="first-name" />
             </div>
             <div className="input-wrapper">
-                <label htmlFor="">Last name <span className="required">*</span></label>
-                <input type="text" name="lastName" />
+                <label htmlFor="last-name">Last name <span className="required">*</span></label>
+                <input type="text" name="lastName" id="last-name" />
             </div>
         </div>
     );
 
     const userRegisterHandler = (e) => {
         e.preventDefault();
+        
         let formData = new FormData(e.currentTarget);
-
         if (formData.get('password') !== formData.get('repeatPassword')) {
-            throw new Error('Passwords don\'t match.')
+            setError('Passwords don\'t match.');
         }
 
         let userData = {
@@ -50,14 +51,14 @@ function AuthForm({ match, history }) {
                 history.push('/')
             })
             .catch(err => {
-                //TODO Error handler
+                setError(err.message);
             });
     }
 
     const userLoginHandler = (e) => {
         e.preventDefault();
-        let formData = new FormData(e.currentTarget);
 
+        let formData = new FormData(e.currentTarget);
         let userData = {
             email: formData.get('email'),
             password: formData.get('password'),
@@ -69,7 +70,7 @@ function AuthForm({ match, history }) {
                 history.push('/')
             })
             .catch(err => {
-                //TODO Error handler
+                setError(err.message);
             });
     }
 
@@ -93,17 +94,25 @@ function AuthForm({ match, history }) {
                             {register && registerNames}
 
                             <div className="input-wrapper">
-                                <label htmlFor="">Email <span className="required">*</span></label>
-                                <input type="text" name="email" />
+                                <label htmlFor="email">Email <span className="required">*</span></label>
+                                <input type="text" name="email" id="email" />
                             </div>
                             <div className="input-wrapper">
-                                <label htmlFor="">Password <span className="required">*</span></label>
-                                <input type="password" name="password" />
+                                <label htmlFor="password">Password <span className="required">*</span></label>
+                                <input type="password" name="password" id="password" />
                             </div>
 
                             {register && repeatPassword}
 
                             <input type="submit" value={register ? 'Register' : 'Login'} />
+
+                            {error
+                                ?
+                                <div className="error-message">
+                                    <p>{error}</p>
+                                </div>
+                                : null
+                            }
                         </form>
                     </div>
                 </div>

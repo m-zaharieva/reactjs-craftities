@@ -1,6 +1,9 @@
 import * as jwt from '../helpers/jwt.js';
 import { TOKEN_SECRET } from '../config/constants.js';
 
+
+
+
 export const registerUser = (userData) => {      
     return fetch('/users/register', {
         method: 'POST',
@@ -11,7 +14,6 @@ export const registerUser = (userData) => {
     })
     .then(res => res.json());
 }
-
 
 export const loginUser = (userData) => {
     return fetch('/users/login', {
@@ -24,11 +26,14 @@ export const loginUser = (userData) => {
     .then(res => res.json());
 };
 
-
 export const sessionDataHandler = (token) => {
     localStorage.setItem('AUTH_TOKEN', token);
     jwt.verify(token, TOKEN_SECRET)
         .then(data => {
             localStorage.setItem('user', {...data});
         })
+}
+
+export const getUser = () => {
+    return localStorage.getItem('user');
 }

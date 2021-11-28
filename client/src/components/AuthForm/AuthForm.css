@@ -82,3 +82,10 @@
     font-weight: 700;
 }
 
+.error-message {
+    background-color: rgb(201, 109, 109);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+}
