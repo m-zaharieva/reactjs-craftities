@@ -28,9 +28,9 @@ jobs:
          - name: Install Dependencies for server application.
            working-directory: ./server
            run: npm install
-         - name: Run Client Tests
-           working-directory: ./client
-           run: npm run test
+        #  - name: Run Client Tests
+        #    working-directory: ./client
+        #    run: npm run test
          - name: Build client application.
            working-directory: ./client
            run: npm run build
