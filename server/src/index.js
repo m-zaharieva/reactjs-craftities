@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from ('path');
 
 import { PORT } from './config/constants.js';
 import router from './routes.js';
@@ -10,6 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve('./src/public')))
 app.use(router);
 
 
