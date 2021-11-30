@@ -18,17 +18,8 @@ import Catalogue from './components/Catalogue/Catalogue.js';
 
 function App() {
     let [user, setUser] = useState({});
-    let [isAuth, setIsAuth] = useState({ isAuth: false, user: '' });
 
-    useEffect(() => {
-        let user = userService.getUser();
-        if (user) {
-            setIsAuth({
-                isAuth: true,
-                user: user,
-            })
-        }
-    }, [])
+    
 
     const userContext = (userData) => {
         return setUser(userData);
