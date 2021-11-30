@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import * as userService from './services/userService.js';
 
+import AuthContext from './contexts/AuthContext.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer';
 
@@ -16,7 +17,8 @@ import Catalogue from './components/Catalogue/Catalogue.js';
 
 
 function App() {
-    let [isAuth, setIsAuth] = useState({isAuth: false, user: ''});
+    let [user, setUser] = useState({});
+    let [isAuth, setIsAuth] = useState({ isAuth: false, user: '' });
 
     useEffect(() => {
         let user = userService.getUser();
@@ -28,26 +30,32 @@ function App() {
         }
     }, [])
 
+    const userContext = (userData) => {
+        return setUser(userData);
+    }
 
     return (
-        <div className="App">
-            <BrowserRouter>
-                <Header isAuth={isAuth} />
-                <main>
-                    <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/catalogue" exact component={Catalogue} />
-                        <Route path="/user/login" component={AuthForm} />
-                        <Route path="/user/register" component={AuthForm} />
-                        <Route path="/post/create" component={CreatePost} />
-                        <Route path="/post/:postId/details" />
-                        <Route path="/post/:postId/edit" />
-                        <Route path="/post/:postId/delete" />
-                    </Switch>
-                </main>
-                <Footer />
-            </BrowserRouter>
-        </div>
+        <AuthContext.Provider value={{userContext, user}}>
+            <div className="App">
+                <BrowserRouter>
+                    <Header />
+                    <main>
+                        <Switch>
+                            <Route path="/" exact component={Home} />
+                            {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
+                            <Route path="/catalogue" exact component={Catalogue} />
+                            <Route path="/user/login" component={AuthForm} />
+                            <Route path="/user/register" component={AuthForm} />
+                            <Route path="/post/create" component={CreatePost} />
+                            <Route path="/post/:postId/details" />
+                            <Route path="/post/:postId/edit" />
+                            <Route path="/post/:postId/delete" />
+                        </Switch>
+                    </main>
+                    <Footer />
+                </BrowserRouter>
+            </div>
+        </AuthContext.Provider>
     );
 }
 

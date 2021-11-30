@@ -1,14 +1,73 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
 
-import * as userService from './../../services/userService.js';
 import './AuthForm.css';
+import * as userService from './../../services/userService.js';
+import AuthContext from '../../contexts/AuthContext.js';
 
 
 function AuthForm({ match, history }) {
+    const { userContext } = useContext(AuthContext);
     let [error, setError] = useState('');
-
     let register = match.path.includes('login') ? false : true;
+
+
+    const userRegisterHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        if (formData.get('password') !== formData.get('repeatPassword')) {
+            setError('Passwords don\'t match.');
+        }
+
+        let userData = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            password: formData.get('password'),
+        }
+
+        userService.registerUser(userData)
+            .then(({ token, userId }) => {
+                userContext({
+                    firstName: userData.firstName,
+                    lastName: userData.lastName,
+                    email: userData.email,
+                    _id: userId,
+                });
+
+                userService.sessionDataHandler(token, userId);
+                history.push('/')
+            })
+            .catch(err => {
+                setError(err.message);
+            });
+    }
+
+    const userLoginHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let userData = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        }
+
+        userService.loginUser(userData)
+            .then(({ token, userId }) => {
+                userContext({
+                    email: userData.email,
+                    _id: userId,
+                });
+                userService.sessionDataHandler(token, userId);
+                history.push('/')
+            })
+            .catch(err => {
+                setError(err.message);
+            });
+    }
+
 
     let repeatPassword = (
         <div className="input-wrapper">
@@ -29,50 +88,6 @@ function AuthForm({ match, history }) {
             </div>
         </div>
     );
-
-    const userRegisterHandler = (e) => {
-        e.preventDefault();
-        
-        let formData = new FormData(e.currentTarget);
-        if (formData.get('password') !== formData.get('repeatPassword')) {
-            setError('Passwords don\'t match.');
-        }
-
-        let userData = {
-            firstName: formData.get('firstName'),
-            lastName: formData.get('lastName'),
-            email: formData.get('email'),
-            password: formData.get('password'),
-        }
-
-        userService.registerUser(userData)
-            .then(token => {
-                userService.sessionDataHandler(token);
-                history.push('/')
-            })
-            .catch(err => {
-                setError(err.message);
-            });
-    }
-
-    const userLoginHandler = (e) => {
-        e.preventDefault();
-
-        let formData = new FormData(e.currentTarget);
-        let userData = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-        }
-
-        userService.loginUser(userData)
-            .then(token => {
-                userService.sessionDataHandler(token);
-                history.push('/')
-            })
-            .catch(err => {
-                setError(err.message);
-            });
-    }
 
 
 

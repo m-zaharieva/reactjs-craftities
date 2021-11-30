@@ -11,10 +11,15 @@ router.post('/register', (req, res) => {
 
     userService.register(data)
         .then(user => {
-            return userService.createToken(user)
+            // return userService.createToken(user)
+            return Promise.all([userService.createToken(user), user]) 
         })
-        .then(token => {
-            res.json(token);
+        .then(([token, user]) => {
+            let result = {
+                token: token,
+                userId: user._id,
+            }
+            res.json(result); 
         })
         .catch(error => {
             // TODO error handler
@@ -28,10 +33,14 @@ router.post('/login', (req, res) => {
 
     userService.login(data)
         .then(user => {
-            return userService.createToken(user)
+            return Promise.all([userService.createToken(user), user])
         })
-        .then(token => {
-            res.json(token);
+        .then(([token, user]) => {
+            let result = {
+                token: token,
+                userId: user._id,
+            }
+            res.json(result); 
         })
         .catch(error => {
             // TODO error handler

@@ -1,8 +1,3 @@
-import * as jwt from '../helpers/jwt.js';
-import { TOKEN_SECRET } from '../config/constants.js';
-
-
-
 
 export const registerUser = (userData) => {      
     return fetch('/users/register', {
@@ -26,12 +21,9 @@ export const loginUser = (userData) => {
     .then(res => res.json());
 };
 
-export const sessionDataHandler = (token) => {
+export const sessionDataHandler = (token, userId) => {
     localStorage.setItem('AUTH_TOKEN', token);
-    jwt.verify(token, TOKEN_SECRET)
-        .then(data => {
-            localStorage.setItem('user', {...data});
-        })
+    localStorage.setItem('userId', userId);
 }
 
 export const getUser = () => {

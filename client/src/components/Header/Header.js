@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
-
+import { useContext } from 'react';
 import './Header.css';
+import AuthContext from '../../contexts/AuthContext.js';
 
-function Header({ isAuth }) {
-	
-	let guest = (
+function Header() {
+	let { user } = useContext(AuthContext)
+
+	let guestInputs = (
 		<>
 			<li className="list-item">
 				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/register">Register</NavLink>
@@ -15,7 +17,7 @@ function Header({ isAuth }) {
 		</>
 	);
 
-	let user = (
+	let userInputs = (
 		<>
 			<li className="list-item">
 				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/posts">Your posts</NavLink>
@@ -51,9 +53,9 @@ function Header({ isAuth }) {
 							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>
 						</li>
 
-						{isAuth.isAuth
-							? user
-							: guest
+						{user.email
+							? userInputs
+							: guestInputs
 						}
 
 					</ul>

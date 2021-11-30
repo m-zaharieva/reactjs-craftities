@@ -1,5 +1,6 @@
-export const allPosts = async () => {
-    return await fetch('/catalog');
+export const allPosts = () => {
+    return fetch('/post/catalog')
+        .then(res => res.json());
 }
 
 export const topItems = async () => {
