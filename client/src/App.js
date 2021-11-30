@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 import './App.css';
-import * as userService from './services/userService.js';
 
 import AuthContext from './contexts/AuthContext.js';
 import Header from './components/Header/Header.js';
