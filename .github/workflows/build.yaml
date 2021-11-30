@@ -42,10 +42,10 @@ jobs:
            uses: JesseTG/rm@v1.0.2
            with:
               path: ./client
-         - name: Remove .idea folder
-           uses: JesseTG/rm@v1.0.2
-           with:
-              path: ./.idea
+        #  - name: Remove .idea folder
+        #    uses: JesseTG/rm@v1.0.2
+        #    with:
+        #       path: ./.idea
          - name: Remove .vscode folder
            uses: JesseTG/rm@v1.0.2
            with:
