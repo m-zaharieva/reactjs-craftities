@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import path from ('path');
+import path from 'path';
 
 import { PORT } from './config/constants.js';
 import router from './routes.js';
