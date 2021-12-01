@@ -31,7 +31,7 @@ function App() {
                     <Header />
                     <main>
                         <Switch>
-                            <Route path="/" exact component={Home} />
+                            <Route path="/api/" exact component={Home} />
                             {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                             <Route path="/catalogue" exact component={Catalogue} />
                             <Route path="/user/login" component={AuthForm} />

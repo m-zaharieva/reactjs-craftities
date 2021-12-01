@@ -15,7 +15,7 @@ router.use('/api/post', postController);
 
 router.use('/api/*', (req, res) => {
     res.status(404)
-            .send(`Endpoint ${req.method.toUpperCase()} ${req.baseUrl}${req.path.slice(0, -1)} NOT FOUND!`);
+            .send(JSON.stringify(`Endpoint ${req.method.toUpperCase()} ${req.baseUrl}${req.path.slice(0, -1)} NOT FOUND!`));
 })
 
 router.use('*', (req, res) => {
