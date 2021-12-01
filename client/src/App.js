@@ -35,7 +35,7 @@ function App() {
                             {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                             <Route path="/catalogue" exact component={Catalogue} />
                             <Route path="/user/login" component={AuthForm} />
-                            <Route path="/user/register" component={AuthForm} />
+                            <Route path="/api/user/register" component={AuthForm} />
                             <Route path="/post/create" component={CreatePost} />
                             <Route path="/post/:postId/details" />
                             <Route path="/post/:postId/edit" />
