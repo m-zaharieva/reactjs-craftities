@@ -9,10 +9,10 @@ function Header() {
 	let guestInputs = (
 		<>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/register">Register</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/user/register">Register</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/login">Login</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/user/login">Login</NavLink>
 			</li>
 		</>
 	);
@@ -20,16 +20,16 @@ function Header() {
 	let userInputs = (
 		<>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/posts">Your posts</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/user/posts">Your posts</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/favourites">Favourites</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/user/favourites">Favourites</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/post/create">Create</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/post/create">Create</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout">Logout</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/user/logout">Logout</NavLink>
 			</li>
 		</>
 	);
@@ -44,13 +44,13 @@ function Header() {
 				<div className="col-9">
 					<ul className="nav-list">
 						<li className="list-item">
-							<NavLink className="nav-link" exact activeClassName="active-nav-link" to="/">Home</NavLink>
+							<NavLink className="nav-link" exact activeClassName="active-nav-link" to="/api">Home</NavLink>
 						</li>
 						<li className="list-item">
-							<NavLink className="nav-link" activeClassName="active-nav-link" to="/catalogue">Catalogue</NavLink>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/catalogue">Catalogue</NavLink>
 						</li>
 						<li className="list-item">
-							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/api/contacts">Contacts</NavLink>
 						</li>
 
 						{user.email
