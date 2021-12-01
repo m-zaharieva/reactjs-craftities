@@ -1,14 +1,14 @@
 export const allPosts = () => {
-    return fetch('/api/post/catalog')
+    return fetch('/post/catalog')
         .then(res => res.json());
 }
 
 export const topItems = async () => {
-    return await fetch('/api/post/topItems');
+    return await fetch('/post/topItems');
 }
 
 export const addItem = (postData) => {
-    return fetch('/api/post/create', {
+    return fetch('/post/create', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'

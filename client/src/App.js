@@ -31,15 +31,15 @@ function App() {
                     <Header />
                     <main>
                         <Switch>
-                            <Route path="/api/" exact component={Home} />
+                            <Route path="/" exact component={Home} />
                             {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
-                            <Route path="/api/catalogue" exact component={Catalogue} />
-                            <Route path="/api/user/login" component={AuthForm} />
-                            <Route path="/api/user/register" component={AuthForm} />
-                            <Route path="/api/post/create" component={CreatePost} />
-                            <Route path="/api/post/:postId/details" />
-                            <Route path="/api/post/:postId/edit" />
-                            <Route path="/api/post/:postId/delete" />
+                            <Route path="/catalogue" exact component={Catalogue} />
+                            <Route path="/user/login" component={AuthForm} />
+                            <Route path="/user/register" component={AuthForm} />
+                            <Route path="/post/create" component={CreatePost} />
+                            <Route path="/post/:postId/details" />
+                            <Route path="/post/:postId/edit" />
+                            <Route path="/post/:postId/delete" />
                         </Switch>
                     </main>
                     <Footer />

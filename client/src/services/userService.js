@@ -1,6 +1,6 @@
 
 export const registerUser = (userData) => {      
-    return fetch('/api/users/register', {
+    return fetch('/users/register', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -11,7 +11,7 @@ export const registerUser = (userData) => {
 }
 
 export const loginUser = (userData) => {
-    return fetch('/api/users/login', {
+    return fetch('/users/login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

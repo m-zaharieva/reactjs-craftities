@@ -8,9 +8,9 @@ import homeController from './controllers/homeController.js';
 
 const router = Router();
 
-router.use('/api', homeController);
-router.use('/api/users', userController);
-router.use('/api/post', postController);
+router.use('/', homeController);
+router.use('/users', userController);
+router.use('/post', postController);
 
 
 
