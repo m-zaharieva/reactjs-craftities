@@ -1,7 +1,7 @@
 {
   "name": "reactjs-craftities",
   "version": "1.0.0",
-  "description": "Full stack web application with rReactJS and NodeJS",
+  "description": "Full stack web application with ReactJS and NodeJS",
   "engines": {
     "node": "16.x" 
   },
