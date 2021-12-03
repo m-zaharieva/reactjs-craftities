@@ -12,6 +12,7 @@ import Home from './components/Home/Home.js';
 import AuthForm from './components/AuthForm/AuthForm.js';
 import CreatePost from './components/CreatePost/CreatePost.js';
 import Catalogue from './components/Catalogue/Catalogue.js';
+import PostDetails from './components/PostDetails/PostDetails.js';
 
 
 
@@ -37,7 +38,7 @@ function App() {
                             <Route path="/user/login" component={AuthForm} />
                             <Route path="/user/register" component={AuthForm} />
                             <Route path="/post/create" component={CreatePost} />
-                            <Route path="/post/:postId/details" />
+                            <Route path="/post/:postId/details" component={PostDetails} />
                             <Route path="/post/:postId/edit" />
                             <Route path="/post/:postId/delete" />
                         </Switch>

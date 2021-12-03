@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HomeCategories.css';
 
 function HomeCategories() {
@@ -7,38 +8,38 @@ function HomeCategories() {
                 <h2>Categories you may like</h2>
                 <div className="row">
                     <div className="col-2">
-                        <a href="/catalogue" className="category-card">
+                        <Link to="/catalogue" className="category-card">
                             <img src="img/jewellery.svg" alt="" />
                             <h4>Jewellery &amp; Accessories</h4>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-2 category-card">
-                        <a href="/catalogue" className="category-card">
+                        <Link to="/catalogue" className="category-card">
                             <img src="img/party.svg" alt="" />
                             <h4>Wedding &amp; Party</h4>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-2 category-card">
-                        <a href="/catalogue" className="category-card">
+                        <Link to="/catalogue" className="category-card">
                             <img src="img/home.svg" alt="" />
                             <h4>Home &amp; Living</h4>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-2 category-card">
-                        <a href="/catalogue" className="category-card">
+                        <Link to="/catalogue" className="category-card">
                             <img src="img/toys.svg" alt="" />
                             <h4>Toys &amp; Entertainment</h4>
-                        </a>
+                        </Link>
                     </div>
                     <div className="col-2 category-card">
-                        <a href="/catalogue" className="category-card">
+                        <Link to="/catalogue" className="category-card">
                             <img src="img/clothes.svg" alt="" />
                             <h4>Clothes &amp; Shoes</h4>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="more-button">
-                    <a href="/categories">More categories</a>
+                    <Link to="/catalogue">More categories</Link>
                 </div>
             </div>
         </section>

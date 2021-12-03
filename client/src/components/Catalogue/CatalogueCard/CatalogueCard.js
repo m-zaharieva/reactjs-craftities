@@ -1,4 +1,4 @@
-// import './CatalogueCard.css';
+import {Link} from 'react-router-dom';
 
 function CatalogueCard({props}) {
     return (
@@ -9,7 +9,7 @@ function CatalogueCard({props}) {
                 </div>
                 <div className="card-details-holder">
 
-                    <h3>{props.title}</h3>
+                    <Link to={`/post/${props._id}/details`}><h3>{props.title}</h3></Link>
                     <p>{props.author}</p>
                     <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
 

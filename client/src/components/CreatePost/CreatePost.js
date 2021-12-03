@@ -1,28 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { storage } from '../../firebaseConfig/firevaseConfig.js';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 
 import * as postService from '../../services/postService';
 import './CreatePost.css';
 
 function CreatePost({ history }) {
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState('');
+    const [progress, setProgress] = useState(0);
+    const [error, setError] = useState('');
+
+
+    const changeHandler = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const fileType = file['type'];
+            const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+            if (validImageTypes.includes(fileType)) {
+                setError("");
+                setImage(file);
+            } else {
+                setError('Please select an image to upload.')
+            }
+        }
+    }
+
+    const uploadImageHandler = (e) => {
+
+        if (image) {
+            const storageRef = ref(storage, `posts-images/ + ${image.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, image);
+
+            uploadTask.on("state_change",
+                (snapshot) => {
+                    const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    setProgress(progress);
+                    //TODO Progress bar
+                },
+
+                (error) => {
+                    setError(error)
+                },
+
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref)
+                        .then(url => {
+                            setUrl(url);
+                            setProgress(0);
+                        });
+                }
+            );
+
+        } else {
+            setError("Ups! You forgot to select an image to upload.")
+        }
+    }
+
     // console.log(history);
     const addPostHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let title = formData.get('title');
-        let description = formData.get('description');
-        let category = formData.get('category');
-        let prise = formData.get('prise');
-        let shipping = formData.get('shipping');
-        let imageUrl = formData.get('imageUrl');
-
         let postData = {
-            title,
-            description,
-            category,
-            prise,
-            shipping,
-            imageUrl,
+            title: formData.get('title'),
+            description: formData.get('description'),
+            category: formData.get('category'),
+            prise: formData.get('prise'),
+            shipping: formData.get('shipping'),
+            imageUrl: formData.get('imageUrl'),
         }
 
         postService.addItem(postData)
@@ -40,10 +87,15 @@ function CreatePost({ history }) {
                     <h2>Add New Post</h2>
                     <form className="create-form row" onSubmit={addPostHandler} >
                         <div className="input-wrapper col-5">
-                            <div className="image-preview"></div>
+                            <div className="image-preview">
+                                {error
+                                    ? <p>{error}</p>
+                                    : ''}
+                            </div>
                             <label htmlFor="imageUrl">Image</label>
-                            <input type="text" id="imageUrl" name="imageUrl" />
-                            {/* <input type="file" id="upload-image" name="uploadImage" /> */}
+                            {progress > 0 ? <progress value={progress} max="100" /> : ""}
+                            <input type="file" id="upload-image" name="uploadImage" onChange={changeHandler} />
+                            <button onClick={uploadImageHandler}>Upload</button>
                         </div>
                         <div className="col-6">
                             <div className="input-wrapper">

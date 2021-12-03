@@ -19,7 +19,7 @@ export const postUpdate = (id, data) => {
 }
 
 export const postDetails = (id) => {
-    return Post.findById(id);
+    return Post.findById(id).populate('author').lean();
 }
 
 export const postDelete = (id) => {

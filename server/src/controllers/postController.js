@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import * as postService from './../services/postService.js';
+import { authMiddleware } from './../middlewares/authMiddleware.js';
 
 const router = Router();
 
@@ -28,8 +29,7 @@ router.get('/topItems', (req, res) => {
 });
 
 
-router.post('/create', (req, res) => {
-
+router.post('/create', authMiddleware, (req, res) => {
     let postData = req.body;
     console.log(postData);
 
@@ -70,7 +70,7 @@ router.get('/:postId', (req, res) => {
         })
         .catch(error => {
             //TODO Error handler
-            console.log('Post Controller Update: ' + error.message);
+            console.log('Post Controller Details: ' + error.message);
         })
 });
 
@@ -79,11 +79,11 @@ router.delete('/:postId/delete', (req, res) => {
 
     postService.postDelete(postId)
         .then(() => {
-            res.json({message: 'Post was deleted successfully'})
+            res.json({ message: 'Post was deleted successfully' })
         })
         .catch(error => {
             //TODO Error handler
-            console.log('Post Controller Update: ' + error.message);
+            console.log('Post Controller Delete: ' + error.message);
         })
 });
 

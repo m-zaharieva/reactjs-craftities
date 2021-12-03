@@ -17,7 +17,6 @@ app.use(router);
 
 
 
-
 db(DB_CONNECTION_STRING)
     .then(() => {
         app.listen(PORT, () => {
