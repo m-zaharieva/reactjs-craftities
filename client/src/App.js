@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
@@ -19,14 +19,29 @@ import PostDetails from './components/PostDetails/PostDetails.js';
 function App() {
     let [user, setUser] = useState({});
 
-    
+    useEffect(() => {
+        let userId = localStorage.getItem('userId');
+        if (userId) {
+            fetch(`/users/${userId}`)
+                .then(res => res.json())
+                .then(user => {
+                    setUser({
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        _id: user._id,
+                    });
+                })
+        }
+
+    }, [])
 
     const userContext = (userData) => {
         return setUser(userData);
     }
 
     return (
-        <AuthContext.Provider value={{userContext, user}}>
+        <AuthContext.Provider value={{ userContext, user }}>
             <div className="App">
                 <BrowserRouter>
                     <Header />

@@ -53,8 +53,13 @@ router.get('/logout'), (req, res) => {
     console.log(req.headers);
 }
 
-router.get('/me', (req, res) => {
-    // TODO 
+router.get('/:userId', (req, res) => {
+    let userId = req.params.userId;
+    userService.findUserById(userId)
+        .then(user => {
+            console.log(user);
+            res.json(user);
+        });
 })
 
 export default router;

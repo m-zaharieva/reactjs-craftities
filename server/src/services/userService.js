@@ -42,6 +42,11 @@ export const findUserByEmail = (email) => {
     return User.findOne({email});
 }
 
+export const findUserById = (id) => {
+    return User.findById(id);
+}
+
+
 export const createToken = (user) => {
     let payload = {
         firstName: user.firstName,
