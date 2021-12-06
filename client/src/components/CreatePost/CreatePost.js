@@ -11,7 +11,7 @@ function CreatePost({ history }) {
     const { user } = useContext(AuthContext);
     const [image, setImage] = useState('https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'); //TODO Edit the defailt photo
     const [imageFile, setImageFile] = useState('');
-    const [url, setUrl] = useState('');
+    // const [url, setUrl] = useState('');
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState('');
 
@@ -74,13 +74,11 @@ function CreatePost({ history }) {
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref)
                         .then(dataUrl => {
-                            setUrl(dataUrl);
+                            // setUrl(dataUrl);
                             setProgress(0);
                             postData.imageUrl = dataUrl;
-
                             postService.addItem(postData)
                                 .then(result => {
-                                    console.log(result);
                                     return history.push('/')
                                 });
                         });

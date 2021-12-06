@@ -9,7 +9,7 @@ function CatalogueCard({props}) {
                 </div>
                 <div className="card-details-holder">
 
-                    <Link to={`/post/${props._id}/details`}><h3>{props.title}</h3></Link>
+                    <Link to={`/post/${props._id}`}><h3>{props.title}</h3></Link>
                     <p>{props.author}</p>
                     <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
 

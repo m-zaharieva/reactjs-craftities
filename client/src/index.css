@@ -1,13 +1,12 @@
-/* Colors */
-
-/* #80add7  blue*/ 
-/* #0abda0  Green */ 
-/* #ebf2ea  gray */
-/* #d4dca9  lightgreen */
-/* #bf9d7a  brown */
-
-
 /* General Rules for the application */
+
+:root {
+  --blue: #80add7;
+  --green: #0abda0;
+  --gray: #ebf2ea;
+  --light-green: #d4dca9;
+  --brown: #bf9d7a;
+}
 
 * {
   box-sizing: border-box;

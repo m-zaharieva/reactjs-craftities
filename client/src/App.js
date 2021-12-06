@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 import AuthContext from './contexts/AuthContext.js';
+import PostContext from './contexts/PostContext.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer';
 
@@ -13,11 +14,13 @@ import AuthForm from './components/AuthForm/AuthForm.js';
 import CreatePost from './components/CreatePost/CreatePost.js';
 import Catalogue from './components/Catalogue/Catalogue.js';
 import PostDetails from './components/PostDetails/PostDetails.js';
+import PostEdit from './components/PostEdit/PostEdit.js';
 
 
 
 function App() {
     let [user, setUser] = useState({});
+    let [post, setPost] = useState({});
 
     useEffect(() => {
         let userId = localStorage.getItem('userId');
@@ -40,6 +43,10 @@ function App() {
         return setUser(userData);
     }
 
+    const postContext = (postData) => {
+        return setPost(postData);
+    }
+
     return (
         <AuthContext.Provider value={{ userContext, user }}>
             <div className="App">
@@ -53,9 +60,13 @@ function App() {
                             <Route path="/user/login" component={AuthForm} />
                             <Route path="/user/register" component={AuthForm} />
                             <Route path="/post/create" component={CreatePost} />
-                            <Route path="/post/:postId/details" component={PostDetails} />
-                            <Route path="/post/:postId/edit" />
-                            <Route path="/post/:postId/delete" />
+
+                            <PostContext.Provider value={{postContext, post}}>
+                                <Route path="/post/:postId" exact component={PostDetails} />
+                                <Route path="/post/:postId/edit" component={PostEdit} />
+                                <Route path="/post/:postId/delete" />
+                            </PostContext.Provider>
+                            
                         </Switch>
                     </main>
                     <Footer />

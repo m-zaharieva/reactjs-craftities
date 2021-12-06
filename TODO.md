@@ -1,28 +1,40 @@
-[ ] - Details Page and Comments
+Client
 
-[ ] - Sales Basket
+[ ] - Ask/ navigate to a new page before delete an item. Dialog, Modal, Pannel?
+[ ] - Error handling and error notifications
+[ ] - Delete an item
+[ ] - Edit an Item
+[ ] - Deploy to GitPages or other service.
+[ ] - Header User dropdown with "My profile", "Favourites", "Logout", "Create".
+[ ] - Idea! In "My items for sale" they can be displayed as a table, like in mongoose Compas app.  
+[ ] - Idea! When Creating new item - the server to add the owner automatically. 
+[ ] - Contact page
+[ ] - To refactor the persistanse of the data from function, to hook, as Ivo showed us Authentication Workshop. May be the items, saved to localstorage, should be an user object, where accesstoken is part of. And on page load to check if there is an user object and after that, to check if the token is expired. The idea is the header to be changed before loading the page, if there is a token, but it is expired. 
+[ ] - Filter the top 4 items on home page. 
+[ ] - To add Context API to the Details. So the information about the currently selected item can be used by the other nested operations. 
+[ ] - Try to use React Redux
+[ ] - User profile upgrade.
+[ ] - History bar.
+[X] - File storage connected to our app. 
 
-[ ] Home page will have a navigation, a welcome banner. The rest of the page will endorse the advantages in using Craftities, Show the top selling products and authors, to suggest products.
-When a user is logged in, instead the slogan written in the banner, we can write: 'Welcome to Crafties, <username>'.
 
-[ ] Page Catalogue, where will have different categories. Every user (guest or logged in) will be able to visit this page and search through the catalogue. 
 
-[ ] Every item will have a details page, where a user can find additional information about it - more photos, description, prise, likes. Only logged in users will be able to add it to 'My favorites', buy it, send message to the owner. 
 
-[ ] Logout function - to clear the user session. 
 
-[ ] Profile  - will show you the items you are selling on the market. 
 
-[ ] Contacts page with a contact form. 
+Server
+[ ] - Global error handler
+[ ] - Deploy to Heroku
+[ ] - 
+[ ] - 
+[ ] - 
+[ ] - 
 
-[ ] Error 404 Page
 
-[ ] Need to change my server's endpoints. When a client is making a request, there is no need the url to be the same as the url of the client's page. The thing is, that it may accure that more then one page is making the same request. So the url of the request may look like: /data/posts, auth/users, ... etc. 
 
-[ ] Additional option- when creating a new post to have a categorie to add it to. 
 
-[ ] - Documentation
 
-[x] Register Page - Register new user. 
-
-[x] Login page - Login new user. 
+Project
+[ ] - Create a README file for the app.
+[ ] - 
+[ ] - 
