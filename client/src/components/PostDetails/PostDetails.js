@@ -15,10 +15,10 @@ function PostDetails({ match }) {
     useEffect(() => {
         PostService.getOnePopulated(postId)
             .then(data => {
-                postContext(data)
                 setPost(data);
+                postContext(data);
             })
-    }, [postId, postContext])
+    }, [postId])
 
 
     return (
@@ -40,9 +40,9 @@ function PostDetails({ match }) {
                             <p className="shipping">{post.shipping}</p>
                         </div>
                         <div className="details-buttons">
-                            <Link to={`/post/${post._id}/edit`}>Edit</Link>
-                            <Link to={`/post/${post._id}/delete`}>Delete</Link>
-                            <Link to={`/post/${post._id}/like`}>Like</Link>
+                            <Link className="link" to={`/post/${post._id}/edit`}>Edit</Link>
+                            <Link className="link" to={`/post/${post._id}/delete`}>Delete</Link>
+                            <Link className="link" to={`/post/${post._id}/like`}>Like</Link>
                             <p>Likes: 44</p>
                         </div>
                     </div>

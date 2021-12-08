@@ -65,7 +65,6 @@ router.get('/:postId', (req, res) => {
 
     postService.postDetails(postId)
         .then(post => {
-            console.log(post);
             res.json(post)
         })
         .catch(error => {

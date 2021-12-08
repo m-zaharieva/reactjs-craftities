@@ -3,8 +3,9 @@ Client
 [ ] - Ask/ navigate to a new page before delete an item. Dialog, Modal, Pannel?
 [ ] - Error handling and error notifications
 [ ] - Delete an item
-[ ] - Edit an Item
-[ ] - Deploy to GitPages or other service.
+[ ] - Edit an Item.
+[ ] - to create an SVG image to be shown when there is no uploaded image yet.
+[ ] - Deploy to GitPages/Netlify or other service.
 [ ] - Header User dropdown with "My profile", "Favourites", "Logout", "Create".
 [ ] - Idea! In "My items for sale" they can be displayed as a table, like in mongoose Compas app.  
 [ ] - Idea! When Creating new item - the server to add the owner automatically. 
@@ -15,6 +16,8 @@ Client
 [ ] - Try to use React Redux
 [ ] - User profile upgrade.
 [ ] - History bar.
+[X] - Logout user.
+[X] - Change the header when the session token has expired.
 [X] - File storage connected to our app. 
 
 
@@ -25,7 +28,7 @@ Client
 Server
 [ ] - Global error handler
 [ ] - Deploy to Heroku
-[ ] - 
+[X] - Logout user
 [ ] - 
 [ ] - 
 [ ] - 

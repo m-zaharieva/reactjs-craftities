@@ -37,6 +37,10 @@ export const login = (data) => {
         });
 }
 
+export const logout = (token) => {
+    console.log('logout service');
+    return jwt.verify(token, TOKEN_SECRET);
+}
 
 export const findUserByEmail = (email) => {
     return User.findOne({email});
@@ -45,7 +49,6 @@ export const findUserByEmail = (email) => {
 export const findUserById = (id) => {
     return User.findById(id);
 }
-
 
 export const createToken = (user) => {
     let payload = {
@@ -56,4 +59,8 @@ export const createToken = (user) => {
     }
 
     return jwt.sign(payload, TOKEN_SECRET);
+}
+
+export const varifyToken = (token) => {
+    return jwt.verify(token, TOKEN_SECRET);
 }

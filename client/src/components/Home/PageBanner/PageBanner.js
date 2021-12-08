@@ -10,8 +10,11 @@ function PageBanner() {
                 </div>
 
                 <div className="banner-content">
-                    <h1>Some Trendy Title Here</h1>
-                    <p>Some subtitle here</p>
+                    <div className="container">
+                        <h1>Wellcome to Craftities.<br/>We give your work a space to shine.</h1>
+                        <p>We make things our way, so to give the best you deserve.<br/>Lorem ipsum dolor sit amet</p>
+                        <p></p>
+                    </div>
                 </div>
             </div>
 

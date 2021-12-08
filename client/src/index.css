@@ -1,11 +1,13 @@
 /* General Rules for the application */
 
 :root {
-  --blue: #80add7;
-  --green: #0abda0;
-  --gray: #ebf2ea;
-  --light-green: #d4dca9;
-  --brown: #bf9d7a;
+  --light-cornflower-blue: #8ECAE6;
+  --blue-green: #219EBC;
+  --blue-sapphire: #126782;
+  --prussian-blue: #023047;
+  --honey-yellow: #FFB703;
+  --orange-peel: #FD9E02;
+  --orange: #FB8500;
 }
 
 * {

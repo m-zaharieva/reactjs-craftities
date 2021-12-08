@@ -24,8 +24,15 @@ function App() {
 
     useEffect(() => {
         let userId = localStorage.getItem('userId');
+        let token = localStorage.getItem('AUTH_TOKEN');
+        
         if (userId) {
-            fetch(`/users/${userId}`)
+            fetch(`/users/${userId}`, {
+                method: 'GET',
+                headers: {
+                    'user-authorization': token,
+                }
+            })
                 .then(res => res.json())
                 .then(user => {
                     setUser({
@@ -34,6 +41,10 @@ function App() {
                         email: user.email,
                         _id: user._id,
                     });
+                })
+                .catch(err => {
+                    console.log(err);
+                    // TODO Show error when the session token has expired
                 })
         }
 
@@ -58,6 +69,7 @@ function App() {
                             {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                             <Route path="/catalogue" exact component={Catalogue} />
                             <Route path="/user/login" component={AuthForm} />
+                            <Route path="/user/logout" />
                             <Route path="/user/register" component={AuthForm} />
                             <Route path="/post/create" component={CreatePost} />
 
@@ -66,7 +78,7 @@ function App() {
                                 <Route path="/post/:postId/edit" component={PostEdit} />
                                 <Route path="/post/:postId/delete" />
                             </PostContext.Provider>
-                            
+
                         </Switch>
                     </main>
                     <Footer />
@@ -77,3 +89,23 @@ function App() {
 }
 
 export default App;
+
+
+                        // <Switch>
+                        //     <Route path="/" exact component={Home} />
+                        //     <Route path="/categories" exact component={Categories} /> {/* Catalogue */}
+                        //     <Route path="/categories/categorie" exact component={Categorie} /> {/* Catalogue */}
+
+                        //     <Route path="/listing/:postId" exact component={PostDetails} />
+                        //     <Route path="/listing/:postId/edit" component={PostEdit} />
+                        //     <Route path="/listing/:postId/delete" />
+
+                        //     <Route path="/user/register" component={AuthForm} />
+                        //     <Route path="/user/login" component={AuthForm} />
+                        //     <Route path="/user/logout" component={AuthForm} />
+                        //     <Route path="/user/profile" component={AuthForm} />
+                        //     <Route path="/user/profile/my-listings" component={AuthForm} />
+                        //     <Route path="/user/profile/my-listings/create" component={AuthForm} />
+                        //     <Route path="/user/profile/favourites" component={AuthForm} />
+                        //     <Route path="/user/profile/bucket" component={AuthForm} />
+                        // </Switch>

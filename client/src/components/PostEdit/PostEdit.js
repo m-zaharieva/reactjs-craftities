@@ -92,6 +92,7 @@ function PostEdit({
         }
     }
 
+    console.log(post);
     return (
         <section className="create-form-section">
             <div className="container">
@@ -104,7 +105,7 @@ function PostEdit({
 
                                 {error
                                     ? <p>{error}</p>
-                                    : <img src={image} alt="" style={{ width: "100%", height: "100%" }} />
+                                    : <img src={image || `${post.imageUrl}`} alt="" style={{ width: "100%", height: "100%" }} />
                                 }
 
                             </div>

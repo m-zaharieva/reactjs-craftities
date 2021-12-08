@@ -1,10 +1,22 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useContext } from 'react';
+
 import './Header.css';
 import AuthContext from '../../contexts/AuthContext.js';
+import * as userService from './../../services/userService.js';
 
 function Header() {
-	let { user } = useContext(AuthContext)
+	let { user, userContext } = useContext(AuthContext);
+	let history = useHistory();
+
+	const logoutHandler = (e) => {
+		userService.logout()
+			.then(message => {
+				// TODO Show message for successfull/unsuccessful logout before redirect;
+				userContext({});
+				history.push('/');
+			});
+	}
 
 	let guestInputs = (
 		<>
@@ -29,7 +41,7 @@ function Header() {
 				<NavLink className="nav-link" activeClassName="active-nav-link" to="/post/create">Create</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout">Logout</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout" onClick={logoutHandler}>Logout</NavLink>
 			</li>
 		</>
 	);

@@ -70,6 +70,20 @@
     font-weight: 700;
 }
 
+.details-buttons {
+    padding: 10px 0px 10px 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-buttons .link {
+    background-color: #dddddd;
+    padding: 8px 40px;
+    border-radius: 5px;
+}
+
 .comments {
     margin-top: 40px;
 }
@@ -78,6 +92,8 @@
     font-size: 25px;
     color: #276b65;
 }
+
+
 
 
 

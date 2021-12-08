@@ -1,5 +1,5 @@
 
-export const registerUser = (userData) => {      
+export const registerUser = (userData) => {
     return fetch('/users/register', {
         method: 'POST',
         headers: {
@@ -19,6 +19,21 @@ export const loginUser = (userData) => {
         body: JSON.stringify(userData),
     })
     .then(res => res.json());
+};
+
+export const logout = () => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+
+
+    return fetch('/users/logout', {
+        method: 'GET', 
+        headers: {
+            'user-authorization': token,
+        }
+    })
+    .then(res => {
+        localStorage.clear();
+        res.json()});
 };
 
 export const sessionDataHandler = (token, userId) => {

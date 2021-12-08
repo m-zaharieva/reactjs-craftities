@@ -10,7 +10,7 @@
 }
 
 .nav-brand {
-    color: #0abda0;
+    color: var(--blue-green);
     font-size: 20px;
     font-weight: 700;
 }
@@ -26,7 +26,7 @@
 
 .active-nav-link {
     padding: 8px;
-    border-bottom: 2px solid #80add7;
+    border-bottom: 2px solid var(--blue-green);
     font-size: 14px;
 }
 
