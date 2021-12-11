@@ -90,7 +90,7 @@ router.delete('/:postId/delete', (req, res) => {
 
     postService.postDelete(postId)
         .then(() => {
-            res.json({ message: 'Post was deleted successfully' })
+            res.json({status: 200, message: 'Post was deleted successfully' })
         })
         .catch(error => {
             //TODO Error handler

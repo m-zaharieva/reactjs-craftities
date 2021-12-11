@@ -1,0 +1,76 @@
+.delete-section {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #000000b6;
+}
+
+.delete-dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.dialog-header {
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+}
+
+.dialog-header h1 {
+    color: var(--warrning);
+}
+
+.dialog-header p {
+    color: var(--blue-sapphire);
+}
+
+.delete-dialog-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.delete-dialog-buttons a {
+    padding: 8px 40px;
+    border-radius: 6px;
+}
+
+.delete-dialog-buttons a:first-child {
+    background-color: var(--blue-sapphire);
+    color: #ffffff;
+}
+
+.delete-dialog-buttons a:last-child {
+    background-color: var(--warrning);
+    color: #ffffff;
+}
+
+.dialog-messages {
+    margin-top: 20px;
+    border-top: 1px solid #cccccc;
+    padding-top: 10px;
+}
+
+.dialog-messages p {
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.dialog-messages .successfull {
+    background-color: var(--success);
+}
+
+.dialog-messages .failed {
+    background-color: var(--warrning);
+}
+

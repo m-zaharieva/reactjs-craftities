@@ -69,12 +69,11 @@ function App() {
                             <Route path="/user/profile/favourites" />
                             <Route path="/user/profile/my-listings" />
                             <Route path="/user/profile/add-new-listing"  component={CreatePost} />
-
                             <Route path="/c" exact component={Categories} />
                             <Route path="/c/:category" exact component={Category} />
                             <Route path="/listing/:listingId" exact  component={ListingDetails} />
                             <Route path="/listing/:listingId/edit"  component={ListingEdit} />
-                            <Route path="/listing/:listingId/delete" />
+                            {/* <Route path="/listing/:listingId/delete" component={ListingDelete} /> */}
 
                         </Switch>
                     </main>

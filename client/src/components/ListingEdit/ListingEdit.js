@@ -156,35 +156,3 @@ function ListingEdit({ history, match }) {
 
 export default ListingEdit;
 
-
-
-
-    // const uploadImageHandler = (e) => {
-    //     if (image) {
-    //         const storageRef = ref(storage, `posts-images/ + ${image.name}`);
-    //         const uploadTask = uploadBytesResumable(storageRef, image);
-
-    //         uploadTask.on("state_change",
-    //             (snapshot) => {
-    //                 const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-    //                 setProgress(progress);
-    //                 //TODO Progress bar
-    //             },
-
-    //             (error) => {
-    //                 setError(error)
-    //             },
-
-    //             () => {
-    //                 getDownloadURL(uploadTask.snapshot.ref)
-    //                     .then(url => {
-    //                         setUrl(url);
-    //                         setProgress(0);
-    //                     });
-    //             }
-    //         );
-
-    //     } else {
-    //         setError("Ups! You forgot to select an image to upload.")
-    //     }
-    // }
