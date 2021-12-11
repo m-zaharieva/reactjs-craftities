@@ -31,3 +31,17 @@ export const addItem = (postData) => {
     })
         .then(res => res.json());
 } 
+
+export const updateItem = (listingId, listingData) => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+
+    return fetch(`/post/${listingId}/edit`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+        body: JSON.stringify(listingData)
+    })
+    .then(res => res.json())
+}

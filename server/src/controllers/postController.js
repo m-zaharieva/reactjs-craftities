@@ -76,7 +76,6 @@ router.put('/:postId/edit', (req, res) => {
 
     postService.postUpdate(postId, data)
         .then(updatedPost => {
-            console.log(updatedPost);
             res.json(updatedPost)
         })
         .catch(error => {

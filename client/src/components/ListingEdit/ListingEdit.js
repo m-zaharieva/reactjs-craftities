@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { storage } from '../../firebaseConfig/firevaseConfig.js';
-import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './ListingEdit.css';
 import * as listingService from '../../services/listingService.js';
@@ -8,7 +8,7 @@ import AuthContext from '../../contexts/AuthContext.js';
 
 function ListingEdit({ history, match }) {
     const { user } = useContext(AuthContext);
-    const [image, setImage] = useState(''); 
+    const [image, setImage] = useState('');
     const [imageFile, setImageFile] = useState('');
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState('');
@@ -64,8 +64,7 @@ function ListingEdit({ history, match }) {
             imageUrl: listing.imageUrl,
         }
 
-        if (imageFile && imageFile.name !== listing.imageUrl) {
-            
+        if (imageFile) {
             const storageRef = ref(storage, `posts-images/ + ${imageFile.name}`);
             const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
@@ -84,16 +83,21 @@ function ListingEdit({ history, match }) {
                             // setUrl(dataUrl);
                             setProgress(0);
                             postData.imageUrl = dataUrl;
-                            listingService.addItem(postData)
+                            listingService.updateItem(listingId, postData)
                                 .then(result => {
-                                    return history.push('/')
+                                    return history.push(`/listing/${listingId}`)
                                 });
                         });
                 }
             );
 
+        } else if (!imageFile) {
+            listingService.updateItem(listingId, postData)
+                .then(result => {
+                    return history.push(`/listing/${listingId}`)
+                });
         } else {
-            setError("Ups! You forgot to select an image to upload.")
+            setError('Unable to update this listing. Your session has expired. Please login to your profile and try again')
         }
     }
 
@@ -141,7 +145,7 @@ function ListingEdit({ history, match }) {
                                 <label htmlFor="shipping">Shipping</label>
                                 <input type="shipping" id="shipping" name="shipping" />
                             </div> */}
-                            <input type="submit" value="Create" />
+                            <input type="submit" value="Update" />
                         </div>
                     </form>
                 </div>
