@@ -1,11 +1,16 @@
 
-export const getOnePopulated = (postId) => {
-    return fetch(`/post/${postId}`)
+export const getOnePopulated = (listingId) => {
+    return fetch(`/post/${listingId}/details`)
         .then(res => res.json());
 }
 
 export const allPosts = () => {
     return fetch('/post/catalog')
+        .then(res => res.json());
+}
+
+export const listingsForCategory = (category) => {
+    return fetch(`/post/${category}`)
         .then(res => res.json());
 }
 

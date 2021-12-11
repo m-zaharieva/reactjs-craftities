@@ -5,15 +5,15 @@
 .card-white article {
     border: 1px solid #e1e1e1;
     border-radius: 7px;
-    
+    position: relative;
+    height: 100%;
 }
 
 .card-image-holder {
-    width: 100%;
+    width: auto;
     overflow: hidden;
-    height: 200px;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    height: 100%;
+    border-radius: 7px;
 }
 
 .card-image-holder img {
@@ -22,37 +22,48 @@
 }
 
 .card-details-holder {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 5px 10px;
-    /* align-items: flex-end; */
+    width: 100%;
+    height: 0%;
+    transition: ease-in-out 0.5s, height 0.5s;
+}
+
+.card-white article:hover .card-details-holder {
+    background-color: var(--honey-yellow-tr);
+    height: 100%;
+}
+
+.card-details-holder a {
+    color: transparent;
+}
+
+.card-white article:hover .card-details-holder a {
+    color: var(--prussian-blue);
 }
 
 .card-details-holder h3 {
-    text-align: left;
-    font-weight: 600;
-    /* margin-bottom: 0px; */
-}
-
-.card-votes {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 24px;
 }
 
-.card-prise {
-    font-size: 18px;
-    font-weight: 700;
+.card-details-holder h3:hover {
+    border-bottom: 1px solid var(--prussian-blue)
 }
 
-.card-prise-info-holder {
-    padding-top: 15px;
-    border-top: 1px solid #e1e1e1;
+
+.card-details-holder p span {
+    /* text-align: left; */
+    font-weight: 500;
+    font-size: 20px;
 }
 
-.card-delivery-note {
-    background-color: #8bb9af;
-    color: #294640;
-    padding: 3px 12px;
-    font-size: 10px;
-    text-align: center;
-    border-radius: 10px;
-    display: inline-block;
+.card-details-holder p span:hover {
+    border-bottom: 1px solid var(--prussian-blue);
 }

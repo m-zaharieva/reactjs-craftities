@@ -1,21 +1,26 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { storage } from '../../firebaseConfig/firevaseConfig.js';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
 
-import './PostEdit.css';
-import * as postService from '../../services/postService';
-import AuthContext from './../../contexts/AuthContext.js';
-import PostContext from './../../contexts/PostContext.js';
+import './ListingEdit.css';
+import * as listingService from '../../services/listingService.js';
+import AuthContext from '../../contexts/AuthContext.js';
 
-function PostEdit({
-    history,
-}) {
+function ListingEdit({ history, match }) {
     const { user } = useContext(AuthContext);
-    const { post } = useContext(PostContext);
-    const [image, setImage] = useState('https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'); //TODO Edit the defailt photo
+    const [image, setImage] = useState(''); 
     const [imageFile, setImageFile] = useState('');
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState('');
+    const [listing, setListing] = useState({});
+
+    let listingId = match.params.listingId;
+    useEffect(() => {
+        listingService.getOnePopulated(listingId)
+            .then(result => {
+                setListing(result);
+            })
+    }, []);
 
     const changeHandler = (e) => {
         const file = e.target.files[0];
@@ -46,7 +51,7 @@ function PostEdit({
 
 
     // console.log(history);
-    const addPostHandler = (e) => {
+    const updatePostHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -55,12 +60,12 @@ function PostEdit({
             description: formData.get('description'),
             category: formData.get('category'),
             prise: formData.get('prise'),
-            shipping: formData.get('shipping'),
             author: user._id,
-            imageUrl: '',
+            imageUrl: listing.imageUrl,
         }
 
-        if (imageFile) {
+        if (imageFile && imageFile.name !== listing.imageUrl) {
+            
             const storageRef = ref(storage, `posts-images/ + ${imageFile.name}`);
             const uploadTask = uploadBytesResumable(storageRef, imageFile);
 
@@ -79,7 +84,7 @@ function PostEdit({
                             // setUrl(dataUrl);
                             setProgress(0);
                             postData.imageUrl = dataUrl;
-                            postService.addItem(postData)
+                            listingService.addItem(postData)
                                 .then(result => {
                                     return history.push('/')
                                 });
@@ -92,20 +97,19 @@ function PostEdit({
         }
     }
 
-    console.log(post);
     return (
         <section className="create-form-section">
             <div className="container">
                 <div className="col-10 create-form-wrapper">
                     <h2>Add New Post</h2>
-                    <form className="create-form row" onSubmit={addPostHandler} >
+                    <form className="create-form row" onSubmit={updatePostHandler} >
 
                         <div className="input-wrapper col-5">
                             <div className="image-preview">
 
                                 {error
                                     ? <p>{error}</p>
-                                    : <img src={image || `${post.imageUrl}`} alt="" style={{ width: "100%", height: "100%" }} />
+                                    : <img src={image || listing.imageUrl} alt="" style={{ width: "100%", height: "100%" }} />
                                 }
 
                             </div>
@@ -119,24 +123,24 @@ function PostEdit({
                         <div className="col-6">
                             <div className="input-wrapper">
                                 <label htmlFor="title">Title</label>
-                                <input type="text" id="title" name="title" value={post.title} />
+                                <input type="text" id="title" name="title" defaultValue={listing.title} />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="description">Description</label>
-                                <textarea type="text" id="description" name="description" placeholder="Short description..." value={post.description}></textarea>
+                                <textarea type="text" id="description" name="description" placeholder="Short description..." defaultValue={listing.description}></textarea>
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="category">Category</label>
-                                <input type="category" id="category" name="category" value={post.category} />
+                                <input type="category" id="category" name="category" defaultValue={listing.category} />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="prise">Prise</label>
-                                <input type="prise" id="prise" name="prise" value={post.prise} />
+                                <input type="prise" id="prise" name="prise" defaultValue={listing.prise} />
                             </div>
-                            <div className="input-wrapper">
+                            {/* <div className="input-wrapper">
                                 <label htmlFor="shipping">Shipping</label>
-                                <input type="shipping" id="shipping" name="shipping" value={post.shipping} />
-                            </div>
+                                <input type="shipping" id="shipping" name="shipping" />
+                            </div> */}
                             <input type="submit" value="Create" />
                         </div>
                     </form>
@@ -146,7 +150,7 @@ function PostEdit({
     );
 }
 
-export default PostEdit;
+export default ListingEdit;
 
 
 

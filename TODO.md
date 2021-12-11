@@ -2,7 +2,8 @@ Client
 
 [ ] - Ask/ navigate to a new page before delete an item. Dialog, Modal, Pannel?
 [ ] - Error handling and error notifications
-[ ] - Delete an item
+[ ] - Delete an item.
+[ ] - To Design the Categories page
 [ ] - Edit an Item.
 [ ] - to create an SVG image to be shown when there is no uploaded image yet.
 [ ] - Deploy to GitPages/Netlify or other service.
@@ -15,6 +16,7 @@ Client
 [ ] - To add Context API to the Details. So the information about the currently selected item can be used by the other nested operations. 
 [ ] - Try to use React Redux
 [ ] - User profile upgrade.
+[ ] - To make the rating stars be dinamic.
 [ ] - History bar.
 [X] - Logout user.
 [X] - Change the header when the session token has expired.
@@ -29,8 +31,8 @@ Server
 [ ] - Global error handler
 [ ] - Deploy to Heroku
 [X] - Logout user
-[ ] - 
-[ ] - 
+[ ] - To create a mongoose model for categories
+[ ] - To create a mongoose model for comments
 [ ] - 
 
 

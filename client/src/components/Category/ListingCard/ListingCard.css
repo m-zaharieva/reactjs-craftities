@@ -1,0 +1,56 @@
+.listing-card {
+    padding: 20px;
+}
+
+.listing-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #cecece;
+    border-radius: 6px;
+}
+
+.listing-image img {
+    position: absolute;
+    width: 120%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0)
+}
+
+.listing-data {
+    padding: 0 10px;
+}
+
+.listing-data h2 {
+    color: var(--prussian-blue);
+    /* color: var(--blue-sapphire); */
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.listing-card .listing-author {
+    color: var(--prussian-blue);
+    font-size: 12px;
+    color: #999999;
+}
+
+.listing-rating {
+    color: var(--blue-green);
+    font-size: 12px;
+    color: #999999;
+}
+
+.listing-prise {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--prussian-blue);
+}
+
+.star {
+    height: 10px;
+}

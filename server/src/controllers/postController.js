@@ -6,16 +6,16 @@ import { authMiddleware } from './../middlewares/authMiddleware.js';
 const router = Router();
 
 
-router.get('/catalog', (req, res) => {
-    postService.allPosts()
-        .then(posts => {
-            res.json(posts);
-        })
-        .catch(error => {
-            // TODO Error Handler
-            console.log('Post Controller Catalog ' + error.message);
-        });
-});
+// router.get('/catalog', (req, res) => {
+//     postService.allPosts()
+//         .then(posts => {
+//             res.json(posts);
+//         })
+//         .catch(error => {
+//             // TODO Error Handler
+//             console.log('Post Controller Catalog ' + error.message);
+//         });
+// });
 
 router.get('/topItems', (req, res) => {
     postService.topFourItems()
@@ -28,6 +28,31 @@ router.get('/topItems', (req, res) => {
         });
 });
 
+
+router.get('/:category', (req, res) => {
+    let category = req.params.category;
+    postService.postsForCategory(category)
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            console.log(err.message);
+            //TODO Error handler
+        })
+})
+
+
+router.get('/:listingId/details', (req, res) => {
+    let listingId = req.params.listingId;
+    postService.postDetails(listingId)
+        .then(post => {
+            return res.json(post)
+        })
+        .catch(error => {
+            //TODO Error handler
+            console.log('Post Controller Details: ' + error.message);
+        })
+});
 
 router.post('/create', authMiddleware, (req, res) => {
     let postData = req.body;
@@ -60,18 +85,6 @@ router.put('/:postId/edit', (req, res) => {
         })
 });
 
-router.get('/:postId', (req, res) => {
-    let postId = req.params.postId;
-
-    postService.postDetails(postId)
-        .then(post => {
-            res.json(post)
-        })
-        .catch(error => {
-            //TODO Error handler
-            console.log('Post Controller Details: ' + error.message);
-        })
-});
 
 router.delete('/:postId/delete', (req, res) => {
     let postId = req.params.postId;

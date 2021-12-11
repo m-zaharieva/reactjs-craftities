@@ -9,16 +9,8 @@ function PostCard(props) {
                     <img src={props.item.imageUrl} alt="" />
                 </div>
                 <div className="card-details-holder">
-
-                    <h3>{props.item.title}</h3>
-                    <p>{props.item.author}</p>
-                    <p><span className="card-votes">4.6</span> / 5 with 1154 votes</p>
-
-                    <div className="row card-prise-info-holder">
-                        <p className="col-7"><span className="card-prise">{props.item.prise}</span> BGN</p>
-                        {/* Optional */}
-                        <p className="col-5"><span className="card-delivery-note">FREE delivery</span></p>
-                    </div>
+                    <a href={`/listing/${props.item._id}`}><h3>{props.item.title}</h3></a>
+                    <a href="/user/profile"><p>by <span>{`${props.item.author.firstName} ${props.item.author.lastName}` }</span></p></a>
                 </div>
             </article>
         </div>

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { storage } from '../../firebaseConfig/firevaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { useContext } from 'react';
 
 import './CreatePost.css';
-import * as postService from '../../services/postService';
+import * as listingService from '../../services/listingService.js';
 import AuthContext from './../../contexts/AuthContext.js';
 
 function CreatePost({ history }) {
@@ -77,7 +76,7 @@ function CreatePost({ history }) {
                             // setUrl(dataUrl);
                             setProgress(0);
                             postData.imageUrl = dataUrl;
-                            postService.addItem(postData)
+                            listingService.addItem(postData)
                                 .then(result => {
                                     return history.push('/')
                                 });

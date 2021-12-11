@@ -32,13 +32,13 @@ function Header() {
 	let userInputs = (
 		<>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/posts">Your posts</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/my-listings">Your posts</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/favourites">Favourites</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/favourites">Favourites</NavLink>
 			</li>
 			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/post/create">Create</NavLink>
+				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/add-new-listing">Add new listing</NavLink>
 			</li>
 			<li className="list-item">
 				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout" onClick={logoutHandler}>Logout</NavLink>
@@ -59,7 +59,7 @@ function Header() {
 							<NavLink className="nav-link" exact activeClassName="active-nav-link" to="/">Home</NavLink>
 						</li>
 						<li className="list-item">
-							<NavLink className="nav-link" activeClassName="active-nav-link" to="/catalogue">Catalogue</NavLink>
+							<NavLink className="nav-link" activeClassName="active-nav-link" to="/c">Categories</NavLink>
 						</li>
 						<li className="list-item">
 							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>

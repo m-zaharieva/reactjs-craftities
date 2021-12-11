@@ -1,24 +1,21 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
-import './PostDetails.css';
-import PostContext from './../../contexts/PostContext.js';
-import * as PostService from './../../services/postService.js';
+import './ListingDetails.css';
+import * as listingService from '../../services/listingService.js';
 
-function PostDetails({ match }) {
-    const { postContext } = useContext(PostContext);
-    let [post, setPost] = useState({});
+function ListingDetails({ match }) {
+    let [listing, setListing] = useState({});
 
-    let postId = match.params.postId;
-
+    let listingId = match.params.listingId;
+    
     useEffect(() => {
-        PostService.getOnePopulated(postId)
-            .then(data => {
-                setPost(data);
-                postContext(data);
+        listingService.getOnePopulated(listingId)
+        .then(data => {                
+                setListing(data);
             })
-    }, [postId])
+    }, [listingId]);
 
 
     return (
@@ -27,22 +24,22 @@ function PostDetails({ match }) {
                 <div className="row details">
                     <div className="col-7">
                         <div className="details-image">
-                            <img src={post.imageUrl} alt="" />
-                            <p className="categorie">{post.category}</p>
+                            <img src={listing.imageUrl} alt="" />
+                            <p className="categorie">{listing.category}</p>
                         </div>
                     </div>
                     <div className="col-5">
                         <div className="post-details">
-                            <p className="author">{`${post.author?.firstName} ${post.author?.lastName}`}</p>
-                            <h1>{post.title}</h1>
-                            <p className="description">{post.description}</p>
-                            <p className="prise">{post.prise} $</p>
-                            <p className="shipping">{post.shipping}</p>
+                            <p className="author">{`${listing.author?.firstName} ${listing.author?.lastName}`}</p>
+                            <h1>{listing.title}</h1>
+                            <p className="description">{listing.description}</p>
+                            <p className="prise">{listing.prise} $</p>
+                            <p className="shipping">{listing.shipping}</p>
                         </div>
                         <div className="details-buttons">
-                            <Link className="link" to={`/post/${post._id}/edit`}>Edit</Link>
-                            <Link className="link" to={`/post/${post._id}/delete`}>Delete</Link>
-                            <Link className="link" to={`/post/${post._id}/like`}>Like</Link>
+                            <Link className="link" to={`/listing/${listing._id}/edit`}>Edit</Link>
+                            <Link className="link" to={`/listing/${listing._id}/delete`}>Delete</Link>
+                            <Link className="link" to={`/listing/${listing._id}/like`}>Like</Link>
                             <p>Likes: 44</p>
                         </div>
                     </div>
@@ -79,4 +76,4 @@ function PostDetails({ match }) {
     );
 }
 
-export default PostDetails;
+export default ListingDetails;

@@ -22,10 +22,10 @@ const postSchema = new mongoose.Schema({
         required: true,
         default: 0,
     },
-    shipping: {
-        type: String,
-        default: 'FREE shipping',
-    },
+    // shipping: {
+    //     type: String,
+    //     default: 'FREE shipping',
+    // },
     author: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
@@ -36,6 +36,9 @@ const postSchema = new mongoose.Schema({
             ref: 'Comment',
         }
     ],
+},
+{
+  timestamps: true
 });
 
 const Post = mongoose.model('Post', postSchema);

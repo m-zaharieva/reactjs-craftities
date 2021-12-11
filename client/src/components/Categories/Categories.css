@@ -1,0 +1,9 @@
+.categories-section {
+    margin-top: 20px;
+}
+
+.categories-section h1 {
+    margin-bottom: 30px;
+    color: var(--blue-sapphire);
+    font-size: 30px;
+}
