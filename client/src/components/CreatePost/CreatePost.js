@@ -4,7 +4,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './CreatePost.css';
 import * as listingService from '../../services/listingService.js';
-import AuthContext from './../../contexts/AuthContext.js';
+import { AuthContext } from './../../contexts/AuthContext.js';
 
 function CreatePost({ history }) {
     const { user } = useContext(AuthContext);

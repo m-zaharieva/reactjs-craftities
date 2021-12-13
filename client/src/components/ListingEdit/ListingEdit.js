@@ -4,7 +4,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './ListingEdit.css';
 import * as listingService from '../../services/listingService.js';
-import AuthContext from '../../contexts/AuthContext.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
 
 function ListingEdit({ history, match }) {
     const { user } = useContext(AuthContext);

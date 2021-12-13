@@ -2,7 +2,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 
 import './Header.css';
-import AuthContext from '../../contexts/AuthContext.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
 import * as userService from './../../services/userService.js';
 
 function Header() {
