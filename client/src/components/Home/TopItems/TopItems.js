@@ -18,7 +18,7 @@ function TopItems() {
     return (
         <section className="top-items-section">
             <div className="container">
-                <h2>Top Items Right Now</h2>
+                <h2>Top Items This Season</h2>
                 <div className="row">
                     
                     {posts.map(x => <PostCard key={x._id} item={x} />)}

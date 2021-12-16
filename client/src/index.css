@@ -3,20 +3,21 @@
 :root {
   --light-cornflower-blue: #8ECAE6;
   --blue-green: #219EBC;
-  --blue-sapphire: #126782;
-  --prussian-blue: #023047;
   --honey-yellow: #FFB703;
   --honey-yellow-tr: #ffb803cb;
   --orange-peel: #FD9E02;
   --orange: #FB8500;
-  --warrning: rgb(218, 33, 33);
-  --success: rgb(18, 175, 88);
-
-  --dark-blue: #03588C;
-  --green-blue: #0396A6;
+  --prussian-blue: #023047;
   --turkoaz: #04BFAD;
   --samon: #F28963;
   --red: #F25C5C;
+  
+  
+  --color-headings: #03588C;
+  --color-subheading: #126782;
+  --green-blue: #0396A6;
+  --success: rgb(18, 175, 88);
+  --warrning: rgb(218, 33, 33);
 }
 
 * {
@@ -31,6 +32,7 @@ body {
     font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #777777;
 }
 
 code {
@@ -43,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.2rem;
   margin-bottom: 0.8rem;
   line-height: 1.2;
+  font-weight: 600;
 }
 
 p {

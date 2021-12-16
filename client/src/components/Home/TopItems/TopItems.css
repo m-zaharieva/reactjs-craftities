@@ -4,8 +4,10 @@
 
 .top-items-section h2 {
     margin-bottom: 25px;
-    color: var(--blue-sapphire);
+    color: var(--color-headings);
     font-size: 28px;
+    font-weight: 600;
+
 }
 
 

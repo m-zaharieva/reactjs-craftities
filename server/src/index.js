@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import dotenv from 'dotenv';
 
 import { PORT } from './config/constants.js';
 import router from './routes.js';
@@ -9,7 +10,7 @@ import { DB_CONNECTION_STRING } from './config/constants.js';
 
 const app = express();
 
-
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve('./src/public')))
