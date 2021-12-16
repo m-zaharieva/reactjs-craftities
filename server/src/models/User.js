@@ -17,10 +17,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    myListings: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Listing',
+        }
+    ],
     favorites: [
         {
             type: mongoose.Types.ObjectId,
-            ref: 'Item',
+            ref: 'Listing',
         }
     ],
 });

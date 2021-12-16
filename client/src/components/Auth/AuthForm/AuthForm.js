@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useContext } from 'react';
 
 import './AuthForm.css';
-import * as userService from './../../services/userService.js';
-import { AuthContext } from '../../contexts/AuthContext.js';
+import * as userService from './../../../services/userService.js';
+import { AuthContext } from './../../../contexts/AuthContext.js';
 
 
 function AuthForm({ match, history }) {

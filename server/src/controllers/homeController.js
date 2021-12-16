@@ -1,5 +1,9 @@
 import { Router } from "express";
 
+import Listing from '../models/Listing.js';
+
+
+
 const router = Router();
 
 

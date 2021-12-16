@@ -36,7 +36,7 @@ function Categories() {
 
                     <div className="col-6">
                         <div className="categorie-wrapper">
-                            <Link to="/c/clothes-and-shues" >
+                            <Link to="/c/clothes-and-shoes" >
                                 <h2>Clothes &amp; Shues</h2>
                             </Link>
                         </div>

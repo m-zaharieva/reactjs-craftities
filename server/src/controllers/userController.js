@@ -2,9 +2,8 @@ import { Router } from "express";
 
 import * as userService from "../services/userService.js";
 
-
-
 const router = Router();
+
 
 
 router.post('/register', (req, res) => {
@@ -28,7 +27,6 @@ router.post('/register', (req, res) => {
             console.log('User Controller Register: ' + error.message);
         });
 });
-
 
 router.post('/login', (req, res) => {
     let data = req.body;
@@ -78,5 +76,8 @@ router.get('/:userId', (req, res) => {
         });
 
 })
+
+
+
 
 export default router;

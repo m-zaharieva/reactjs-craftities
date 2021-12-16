@@ -1,8 +1,7 @@
 Client
 
 [ ] - Unit testing (if I have enough time for it)
-[ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Contexxt.
-[ ] - To create sepparate file for user Context and toe App.js to be free of this responcibility
+[ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.
 [ ] - To use HOC for route guard
 [ ] - Error handling and error notifications
 [ ] - To Design the Categories page
@@ -26,6 +25,32 @@ Client
 [ ] - To change the colors of the icons on the home page. 
 [ ] - Refactor the application.
 [ ] - To add one more section to the home page right after the page banner with advantages in Craftities platform.
+[ ] - Light and Dark theme
+
+
+
+Server
+[ ] - Global error handler
+[ ] - Deploy to Heroku
+[ ] - To create a mongoose model for categories
+[ ] - To create a mongoose model for comments
+
+
+
+Project
+[ ] - Create a README file for the app.
+
+
+
+
+
+
+
+
+
+=================================================================================================
+Client
+[X] - To create sepparate file for user Context and toe App.js to be free of this responcibility
 [X] - Ask/ navigate to a new page before delete an item. Dialog, Modal, Pannel?
 [X] - Delete an item.
 [X] - Edit an Item.
@@ -33,19 +58,8 @@ Client
 [X] - Change the header when the session token has expired.
 [X] - File storage connected to our app. 
 
-
-
 Server
-[ ] - Global error handler
-[ ] - Deploy to Heroku
 [X] - Logout user
-[ ] - To create a mongoose model for categories
-[ ] - To create a mongoose model for comments
-[ ] - 
-
-
 
 Project
-[ ] - Create a README file for the app.
-[ ] - 
-[ ] - 
+

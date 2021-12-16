@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { storage } from '../../firebaseConfig/firevaseConfig.js';
+import { storage } from '../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './ListingEdit.css';

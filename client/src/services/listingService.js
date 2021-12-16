@@ -48,9 +48,21 @@ export const updateItem = (listingId, listingData) => {
 
 export const deleteListing = (listingId) => {
     let token = localStorage.getItem('AUTH_TOKEN');
-
+    
     return fetch(`/post/${listingId}/delete`, {
         method: 'DELETE', 
+        headers: {
+            'user-authorization': token,
+        }
+    })
+    .then(res => res.json());
+}
+
+
+export const userListings = () => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+    return fetch('/post/my-listings', {
+        method: 'GET',
         headers: {
             'user-authorization': token,
         }

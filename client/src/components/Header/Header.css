@@ -5,31 +5,18 @@
     padding: 20px 0;
 }
 
-.navigation {
-    align-items: center;
-}
-
 .nav-brand {
     color: var(--blue-green);
     font-size: 20px;
     font-weight: 700;
 }
 
-.nav-list {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.list-item {
-    margin-left: 30px;
-}
-
 .active-nav-link {
-    padding: 8px;
+    background-color: var(--blue-green);
     border-bottom: 2px solid var(--blue-green);
-    font-size: 14px;
+    color: #ffffff;
 }
 
-.profile+.togle-nav {
+/* .profile+.togle-nav {
     display: none;
-}
+} */

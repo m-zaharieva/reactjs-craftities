@@ -1,24 +1,14 @@
 import { Router } from "express";
 
-import * as postService from './../services/postService.js';
+import * as listingService from './../services/listingService.js';
 import { authMiddleware } from './../middlewares/authMiddleware.js';
+import * as userService from './../services/userService.js';
 
 const router = Router();
 
 
-// router.get('/catalog', (req, res) => {
-//     postService.allPosts()
-//         .then(posts => {
-//             res.json(posts);
-//         })
-//         .catch(error => {
-//             // TODO Error Handler
-//             console.log('Post Controller Catalog ' + error.message);
-//         });
-// });
-
 router.get('/topItems', (req, res) => {
-    postService.topFourItems()
+    listingService.topFourItems()
         .then(result => {
             res.json(result);
         })
@@ -28,10 +18,20 @@ router.get('/topItems', (req, res) => {
         });
 });
 
-
+router.get('/my-listings', (req, res) => {
+    let token = req.headers['user-authorization'];
+    userService.varifyToken(token)
+        .then(user => {
+            return listingService.userListings(user._id)
+        })
+        .then(listings => {
+            res.json(listings);
+        })
+});
+ 
 router.get('/:category', (req, res) => {
     let category = req.params.category;
-    postService.postsForCategory(category)
+    listingService.postsForCategory(category)
         .then(result => {
             res.json(result);
         })
@@ -41,10 +41,9 @@ router.get('/:category', (req, res) => {
         })
 })
 
-
 router.get('/:listingId/details', (req, res) => {
     let listingId = req.params.listingId;
-    postService.postDetails(listingId)
+    listingService.postDetails(listingId)
         .then(post => {
             return res.json(post)
         })
@@ -59,7 +58,7 @@ router.post('/create', authMiddleware, (req, res) => {
     console.log(postData);
 
     // let data = req.body;
-    postService.create(postData)
+    listingService.create(postData)
         .then(newPost => {
             res.json(newPost);
         })
@@ -70,11 +69,12 @@ router.post('/create', authMiddleware, (req, res) => {
 });
 
 
+
 router.put('/:postId/edit', (req, res) => {
     let postId = req.params.postId;
     let data = req.body;
 
-    postService.postUpdate(postId, data)
+    listingService.postUpdate(postId, data)
         .then(updatedPost => {
             res.json(updatedPost)
         })
@@ -84,11 +84,10 @@ router.put('/:postId/edit', (req, res) => {
         })
 });
 
-
 router.delete('/:postId/delete', (req, res) => {
     let postId = req.params.postId;
 
-    postService.postDelete(postId)
+    listingService.postDelete(postId)
         .then(() => {
             res.json({status: 200, message: 'Post was deleted successfully' })
         })
@@ -97,6 +96,9 @@ router.delete('/:postId/delete', (req, res) => {
             console.log('Post Controller Delete: ' + error.message);
         })
 });
+
+
+
 
 
 export default router;

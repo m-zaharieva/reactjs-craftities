@@ -23,8 +23,8 @@ export const loginUser = (userData) => {
 
 export const logout = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
-
-
+    
+    
     return fetch('/users/logout', {
         method: 'GET', 
         headers: {
@@ -34,7 +34,22 @@ export const logout = () => {
     .then(res => {
         localStorage.clear();
         res.json()});
-};
+    };
+    
+    
+export const userProfile = () => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+    let userId = localStorage.getItem('userId');
+
+    return fetch(`/users/${userId}`, {
+        method: 'GET', 
+        headers: {
+            'user-authorization': token,
+        }
+    })
+    .then(res => res.json());
+}
+
 
 export const sessionDataHandler = (token, userId) => {
     localStorage.setItem('AUTH_TOKEN', token);

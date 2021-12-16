@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { storage } from '../../firebaseConfig/firevaseConfig.js';
+import { storage } from './../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './CreatePost.css';
-import * as listingService from '../../services/listingService.js';
-import { AuthContext } from './../../contexts/AuthContext.js';
+import * as listingService from './../../../services/listingService.js';
+import { AuthContext } from './../../../contexts/AuthContext.js';
 
 function CreatePost({ history }) {
     const { user } = useContext(AuthContext);
@@ -123,15 +123,23 @@ function CreatePost({ history }) {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="category">Category</label>
-                                <input type="category" id="category" name="category" />
+                                <select id="category" name="category">
+                                    <option value="">---</option>
+                                    <option value="jewellery-and-accessories">Jewellery and Accessories</option>
+                                    <option value="clothes-and-shoes">Clothes and Shoes</option>
+                                    <option value="home-and-living">Home and Living</option>
+                                    <option value="wedding-and-party">Wedding and Party</option>
+                                    <option value="toys-and-entertainment">Toys and Entertainment</option>
+                                    <option value="art-and-collectibles">Art and Collectibles</option>
+                                </select>
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="prise">Prise</label>
-                                <input type="prise" id="prise" name="prise" />
+                                <input type="number" id="prise" name="prise" />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="shipping">Shipping</label>
-                                <input type="shipping" id="shipping" name="shipping" />
+                                <input type="text" id="shipping" name="shipping" />
                             </div>
                             <input type="submit" value="Create" />
                         </div>

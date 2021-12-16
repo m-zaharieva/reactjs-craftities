@@ -1,78 +1,48 @@
-import { NavLink, useHistory } from 'react-router-dom';
 import { useContext } from 'react';
-
 import './Header.css';
 import { AuthContext } from '../../contexts/AuthContext.js';
-import * as userService from './../../services/userService.js';
+
+import Navbar from './Navbar/Navbar.js';
+import NavItem from './Navbar/NavItem/NavItem.js';
+import DropDownMenu from './Navbar/DropDownMenu/DropDownMenu.js';;
+// import {ReactComponent as SvgIconHere} from 'path-to-the-icon-here'
 
 function Header() {
-	let { user, userContext } = useContext(AuthContext);
-	let history = useHistory();
-
-	const logoutHandler = (e) => {
-		userService.logout()
-			.then(message => {
-				// TODO Show message for successfull/unsuccessful logout before redirect;
-				userContext({});
-				history.push('/');
-			});
-	}
+	let { user } = useContext(AuthContext);
 
 	let guestInputs = (
 		<>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/register">Register</NavLink>
-			</li>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/login">Login</NavLink>
-			</li>
+			<NavItem icon="" text='Register' link='/user/register' />
+			<NavItem icon="" text='Login' link='/user/login' />
 		</>
 	);
 
 	let userInputs = (
-		<>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/my-listings">Your posts</NavLink>
-			</li>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/favourites">Favourites</NavLink>
-			</li>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/profile/add-new-listing">Add new listing</NavLink>
-			</li>
-			<li className="list-item">
-				<NavLink className="nav-link" activeClassName="active-nav-link" to="/user/logout" onClick={logoutHandler}>Logout</NavLink>
-			</li>
-		</>
+		<NavItem icon="😃" text='Me' isActive={true} link='#'>
+			<DropDownMenu />
+		</NavItem>
 	);
 
 
 	return (
 		<header className="header-section">
-			<nav className="container row navigation">
+			<div className="container row">
 				<div className="nav-brand col-3">
 					<p>Craftities</p>
 				</div>
 				<div className="col-9">
-					<ul className="nav-list">
-						<li className="list-item">
-							<NavLink className="nav-link" exact activeClassName="active-nav-link" to="/">Home</NavLink>
-						</li>
-						<li className="list-item">
-							<NavLink className="nav-link" activeClassName="active-nav-link" to="/c">Categories</NavLink>
-						</li>
-						<li className="list-item">
-							<NavLink className="nav-link" activeClassName="active-nav-link" to="/contacts">Contacts</NavLink>
-						</li>
+					<Navbar>
+						<NavItem icon="" text='Home' link='/' />
+						<NavItem icon="" text='Categories' link='/c' />
+						<NavItem icon="" text='Contacts' link='/contacts' />
 
 						{user.email
 							? userInputs
 							: guestInputs
 						}
-
-					</ul>
+					</Navbar>
 				</div>
-			</nav>
+			</div>
 		</header>
 	);
 }

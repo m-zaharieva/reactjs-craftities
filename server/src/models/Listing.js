@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const postSchema = new mongoose.Schema({
+const listingSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -30,6 +30,12 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User',
     },
+    likes: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'User',
+        }
+    ],
     comments: [
         {
             type: mongoose.Types.ObjectId,
@@ -41,6 +47,6 @@ const postSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const Post = mongoose.model('Post', postSchema);
+const Listing = mongoose.model('Listing', listingSchema);
 
-export default Post;
+export default Listing;

@@ -5,6 +5,7 @@ import { TOKEN_SECRET } from './../config/constants.js';
 import User from "../models/User.js";
 
 
+
 export const register = (data) => {
        return findUserByEmail(data.email)
         .then(user => {
@@ -49,6 +50,7 @@ export const findUserByEmail = (email) => {
 export const findUserById = (id) => {
     return User.findById(id);
 }
+
 
 export const createToken = (user) => {
     let payload = {
