@@ -11,6 +11,10 @@ import { authMiddleware } from './middlewares/authMiddleware.js';
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+})
+
 dotenv.config();
 app.use(cors());
 app.use(express.json());
