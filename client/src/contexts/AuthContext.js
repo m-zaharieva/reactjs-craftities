@@ -8,7 +8,7 @@ export const AuthProvider = ({
     children
 }) => {
     let [user, setUser] = useState({});
-    let [error, setError] = useState('');
+    // let [error, setError] = useState('');
 
     useEffect(() => {
         let userId = localStorage.getItem('userId');
@@ -23,7 +23,6 @@ export const AuthProvider = ({
             })
             .then(res => res.json())
             .then(user => {
-                // console.log(user);
                 setUser({
                     firstName: user.firstName,
                     lastName: user.lastName,
@@ -32,7 +31,7 @@ export const AuthProvider = ({
                 });
             })
             .catch(err => {
-                setError(err.message);
+                // setError(err.message);
                 console.log(err.message);
                 // TODO Show error when the session token has expired
             })

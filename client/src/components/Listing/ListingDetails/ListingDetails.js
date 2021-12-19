@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 
 import './ListingDetails.css';
 import * as listingService from './../../../services/listingService.js';
+
 import ListingDelete from '../ListingDelete/ListingDelete.js';
 import Comments from './Comments/Comments.js';
+import { useAuth } from '../../../contexts/AuthContext';
 
 function ListingDetails({ match }) {
+    const { user } = useAuth();
     let [listing, setListing] = useState({});
     let [deleteDialog, setDeleteDialog] = useState(false);
-    let [error, setError] = useState('');
+    // let [error, setError] = useState('');
 
     let listingId = match.params.listingId;
 
@@ -34,14 +37,12 @@ function ListingDetails({ match }) {
         e.preventDefault();
         listingService.addToFavourites(listingId)
             .then(result => {
-                if(result.error) {
-                    return setError(result.error);
+                if (result.error) {
+                    // return setError(result.error);
                 }
                 setListing(result);
             })
     }
-
-    
 
     return (
         <>
@@ -63,19 +64,25 @@ function ListingDetails({ match }) {
                                 <p className="shipping">{listing.shipping}</p>
                             </div>
                             <div className="details-buttons">
-                                <Link className="link" to={`/listing/${listing._id}/edit`}>Edit</Link>
-                                <Link className="link" to={`/listing/${listing._id}/delete`} onClick={showDialog}>Delete</Link>
-                                <a className="link" to={`/listing/${listing._id}/add-to-favoutites`} onClick={addListingToFavourites}>&#10084;</a>
                                 
+                                {
+                                    user._id === listing.author?._id
+                                        ?
+                                            <>
+                                                <Link className="link" to={`/listing/${listing._id}/edit`}>Edit</Link>
+                                                <Link className="link" to={`/listing/${listing._id}/delete`} onClick={showDialog}>Delete</Link>
+                                            </>
+                                        : <button className={listing?.saved && listing?.saved.includes(user._id) ? 'disabled' : 'link'} onClick={addListingToFavourites}>&#10084;</button>
+                                }
+
                             </div>
                         </div>
                     </div>
 
                 </div>
             </section>
-            
+
             <Comments listingId={listingId} />
-            
 
             <ListingDelete show={deleteDialog} changeState={hideDialog} listingId={listing._id} category={listing.category} />
         </>

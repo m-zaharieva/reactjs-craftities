@@ -38,17 +38,18 @@
     margin-top: 20px;
 }
 
-.delete-dialog-buttons a {
+.delete-dialog-buttons button {
     padding: 8px 40px;
     border-radius: 6px;
+    border: none;
 }
 
-.delete-dialog-buttons a:first-child {
+.delete-dialog-buttons button:first-child {
     background-color: var(  --turkoaz);
     color: #ffffff;
 }
 
-.delete-dialog-buttons a:last-child {
+.delete-dialog-buttons button:last-child {
     background-color: var(--warrning);
     color: #ffffff;
 }

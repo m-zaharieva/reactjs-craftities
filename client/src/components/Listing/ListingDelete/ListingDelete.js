@@ -41,8 +41,8 @@ function ListingDelete({ show, changeState, listingId, category }) {
                         <p>You are about to delete this listing. Are you sure?</p>
                     </div>
                     <div className='delete-dialog-buttons'>
-                        <a href="" onClick={goBack}>Cancle</a>
-                        <a href="" onClick={deleteListingHandler}>Yes, delete it</a>
+                        <button onClick={goBack}>Cancle</button>
+                        <button onClick={deleteListingHandler}>Yes, delete it</button>
                     </div>
                     <div className='dialog-messages'>
                         {message.status && (message.status

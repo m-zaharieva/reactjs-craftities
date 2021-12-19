@@ -82,13 +82,23 @@
     align-items: center;
 }
 
-.details-buttons .link, .comments-link {
-    background-color: var(--turkoaz);
+.details-buttons .link, .comments-link, .disabled {
     padding: 8px 40px;
     border-radius: 5px;
+    display: inline-block;
+
+}
+
+.details-buttons .link, .comments-link {
+    background-color: var(--turkoaz);
     cursor: pointer;
     color: #ffffff;
-    display: inline-block;
+}
+
+.disabled {
+    pointer-events: none;
+    color: var(--red);
+    border: 1px solid var(--red);
 }
 
 
@@ -102,6 +112,10 @@
 .comments-section h2 {
     font-size: 25px;
     color: var(--color-headings);
+}
+
+.comments-link {
+    border: none;
 }
 
 .comments-form textarea {

@@ -17,13 +17,12 @@ function Categorie({ match }) {
         'art-and-collectibles': 'Art & Collectibles'
     }
     
-    console.log(categoriesLib[category]);
     useEffect(() => {
         listingService.category(category)
             .then(result => {
                 setListing(result);
             })
-    }, []);
+    }, [category]);
 
 
     return (

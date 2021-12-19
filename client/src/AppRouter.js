@@ -29,7 +29,7 @@ function AppRouter() {
                     <Route path="/user/register" component={AuthForm} />
                     <Route path="/user/login" component={AuthForm} />
                     <Route path="/user/profile/add-new-listing" exact component={isAuth(CreateListing)} />
-                    <Route path="/user/profile" exact component={Profile} />
+                    <Route path="/user/profile" exact component={isAuth(Profile)} />
                     <Route path="/user/profile/favourites" component={MyFavourites} />
                     <Route path="/user/profile/my-listings" component={MyListings} />
                     <Route path="/c" exact component={Categories} />
@@ -37,7 +37,7 @@ function AppRouter() {
 
                     <ListingProvider>
                         <Route path="/listing/:listingId" exact component={ListingDetails} />
-                        <Route path="/listing/:listingId/edit" component={isAuth(ListingEdit)} />
+                        <Route path="/listing/:listingId/edit" component={ListingEdit} />
                     </ListingProvider>
                     {/* <Route path="/user/logout" /> */}
                     {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}

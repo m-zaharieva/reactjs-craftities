@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 
 const ListingContext = createContext();
 
@@ -11,14 +11,19 @@ export const ListingProvider = ({
 }) => {
     let [listing, setListing] = useState({});
 
-    const setListingContext = (data) => {
+    const listingContext = (data) => {
         return setListing(data);
     }
 
     return (
-        <ListingContext.Provider value={{ listing, setListingContext }}>
+        <ListingContext.Provider value={{ listing, listingContext }}>
             {children}
         </ListingContext.Provider>
     );
+}
+
+export const useListingContext = () => {
+    const listingState = useContext(ListingContext);
+    return listingState;
 }
 

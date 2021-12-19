@@ -7,7 +7,7 @@ import { useAuth } from './../../../../contexts/AuthContext.js';
 import NavItem from './NavItem.js';
 
 
-function Navbar(props) {
+function Navbar() {
     let { user, userContext } = useAuth();
 	let history = useHistory();
 
@@ -32,7 +32,7 @@ function Navbar(props) {
         <>
             <NavItem link="/user/profile" text="My profile" />
             <NavItem link="/user/profile/add-new-listing" text="Add new listing" />
-            <NavItem link="/user/logout" text="Logout" logout={logoutHandler} />
+            <button onClick={logoutHandler} className="nav-link">Logout</button>
 		</>
 	);
 

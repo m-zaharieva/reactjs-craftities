@@ -20,7 +20,7 @@ function ListingEdit({ history, match }) {
             .then(result => {
                 setListing(result);
             })
-    }, []);
+    }, [listingId]);
 
     const changeHandler = (e) => {
         const file = e.target.files[0];

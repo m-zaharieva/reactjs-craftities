@@ -37,7 +37,7 @@ function Comments({
 
                         {showForm
                             ? <CommentForm listingId={listingId}  renderNewComments={renderNewComments} />
-                            : <a className="comments-link" to={`/listing/${listingId}/add-to-favoutites`} onClick={showCommentForm}>Comment</a>
+                            : <button className="comments-link" onClick={showCommentForm}>Comment</button>
                         }
 
                     </div>
