@@ -1,5 +1,3 @@
-import { CRAFTITIES_API } from './../config/constants.js';
-
 // CRUD
 export const getOnePopulated = (listingId) => {
     return fetch(`/data/listing/${listingId}/details`)
@@ -90,7 +88,7 @@ export const category = (category) => {
 }
 
 export const topFour = async () => {
-    return await fetch(`${CRAFTITIES_API}/data/collection/top`);
+    return await fetch(`${process.env.REACT_API}/data/collection/top`);
 }
 
 
