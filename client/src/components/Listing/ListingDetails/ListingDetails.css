@@ -24,15 +24,15 @@
     box-shadow: 5px 5px 2px #cccccc;
 }
 
-.details-image .categorie {
+.details-image .category {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: var(--turkoaz);
+    background-color: var(--samon);
     padding: 2px 12px;
     border-radius: 20px;
     color: #ffffff;
-    border: 1px solid var(--dark-turkoaz);
+    border: 1px solid #ffffff;
 }
 
 .post-details {

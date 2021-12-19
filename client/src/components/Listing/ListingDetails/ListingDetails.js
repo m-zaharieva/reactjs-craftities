@@ -51,7 +51,7 @@ function ListingDetails({ match }) {
                         <div className="col-7">
                             <div className="details-image">
                                 <img src={listing.imageUrl} alt="" />
-                                <p className="categorie">{listing.category}</p>
+                                <p className="category">{listing.category}</p>
                             </div>
                         </div>
                         <div className="col-5">

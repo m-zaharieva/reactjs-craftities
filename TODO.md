@@ -1,4 +1,7 @@
 Client
+[ ] - Change the catefory field in edit form
+[ ] - "Top items this season" on home page
+[ ] - Use Etsy api
 [ ] - Deploy to Heroku
 [ ] - Load correct data in the DB 
 [ ] - Route guard!

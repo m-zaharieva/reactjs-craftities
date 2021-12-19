@@ -56,13 +56,8 @@
 
 .card-details-holder h3 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 16px;
 }
-
-.card-details-holder h3:hover {
-    border-bottom: 1px solid var(--prussian-blue)
-}
-
 
 .card-details-holder p span {
     /* text-align: left; */

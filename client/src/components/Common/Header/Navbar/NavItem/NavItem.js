@@ -8,7 +8,7 @@ function NavItem(props) {
 
     return (
         <li className='nav-item'>
-            <NavLink exact to={props.link} className="nav-link" activeClassName={!props.isActive ? "active-nav-link" : ""} onClick={() => setOpen(!open)}>
+            <NavLink exact to={props.link} className="nav-link" activeClassName={!props.isActive ? "active-nav-link" : ""} onClick={() => setOpen(!open)} >
                 {props.text} {props.icon}
             </NavLink>
 

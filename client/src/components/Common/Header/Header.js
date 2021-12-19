@@ -37,7 +37,6 @@ function Header() {
 					<Navbar>
 						<NavItem icon="" text='Home' link='/' />
 						<NavItem icon="" text='Categories' link='/c' />
-						<NavItem icon="" text='Contacts' link='/contacts' />
 
 						{user.email
 							? userInputs
