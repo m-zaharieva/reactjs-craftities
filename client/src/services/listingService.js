@@ -88,7 +88,7 @@ export const category = (category) => {
 }
 
 export const topFour = async () => {
-    return await fetch('/data/collection/top');
+    return await fetch(`${process.env.REACT_APP_API_URL}/data/collection/top`);
 }
 
 
