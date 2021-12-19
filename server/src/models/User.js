@@ -17,13 +17,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imageUrl: {
+        type: String,
+    },
     myListings: [
         {
             type: mongoose.Types.ObjectId,
             ref: 'Listing',
         }
     ],
-    favorites: [
+    favourites: [
         {
             type: mongoose.Types.ObjectId,
             ref: 'Listing',

@@ -1,6 +1,6 @@
 
 export const registerUser = (userData) => {
-    return fetch('/users/register', {
+    return fetch('/auth/register', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -11,7 +11,7 @@ export const registerUser = (userData) => {
 }
 
 export const loginUser = (userData) => {
-    return fetch('/users/login', {
+    return fetch('/auth/login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -25,7 +25,7 @@ export const logout = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     
     
-    return fetch('/users/logout', {
+    return fetch('/auth/logout', {
         method: 'GET', 
         headers: {
             'user-authorization': token,
@@ -41,7 +41,7 @@ export const userProfile = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     let userId = localStorage.getItem('userId');
 
-    return fetch(`/users/${userId}`, {
+    return fetch(`/user/${userId}`, {
         method: 'GET', 
         headers: {
             'user-authorization': token,
@@ -58,4 +58,27 @@ export const sessionDataHandler = (token, userId) => {
 
 export const getUser = () => {
     return localStorage.getItem('user');
+}
+
+export const userListings = () => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+    
+    return fetch('/data/collection/my-listings', {
+        method: 'GET',
+        headers: {
+            'user-authorization': token,
+        }
+    })
+    .then(res => res.json());
+}
+
+export const userFavourites = () => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+    return fetch('/data/collection/favourites', {
+        method: 'GET',
+        headers: {
+            'user-authorization': token,
+        }
+    })
+    .then(res => res.json());
 }

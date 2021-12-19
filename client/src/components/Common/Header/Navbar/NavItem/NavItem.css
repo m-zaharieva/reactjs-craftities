@@ -1,0 +1,18 @@
+.nav-item {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 2px 10px;
+}
+
+.nav-link {
+    padding: 4px 10px;
+    font-size: 17px;
+}
+
+.nav-link svg {
+    width: 15px;
+    margin-left: 4px;
+}
+
+

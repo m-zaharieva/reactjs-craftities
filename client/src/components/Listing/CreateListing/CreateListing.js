@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { storage } from './../../../firebaseConfig/firebaseConfig.js';
+import { storage } from '../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
-import './CreatePost.css';
-import * as listingService from './../../../services/listingService.js';
-import { AuthContext } from './../../../contexts/AuthContext.js';
+import './CreateListing.css';
+import * as listingService from '../../../services/listingService.js';
+import { AuthContext } from '../../../contexts/AuthContext.js';
 
 function CreatePost({ history }) {
     const { user } = useContext(AuthContext);

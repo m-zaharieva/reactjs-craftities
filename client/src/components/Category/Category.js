@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import './Category.css';
 import * as listingService from '../../services/listingService.js';
-import ListingCard from './../ListingCard/ListingCard.js';
+import ListingCard from './../Listing/ListingCard/ListingCard.js';
 
 function Categorie({ match }) {
     let [listing, setListing] = useState([]);
@@ -19,7 +19,7 @@ function Categorie({ match }) {
     
     console.log(categoriesLib[category]);
     useEffect(() => {
-        listingService.listingsForCategory(category)
+        listingService.category(category)
             .then(result => {
                 setListing(result);
             })

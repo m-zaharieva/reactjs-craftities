@@ -1,15 +1,15 @@
 import { Router } from "express";
 
+import authController from './controllers/authController.js';
+import dataController from './controllers/dataController.js';
 import userController from './controllers/userController.js';
-import postController from './controllers/postController.js';
-import homeController from './controllers/homeController.js';
 
 
 
 const router = Router();
-router.use('/', homeController);
-router.use('/users', userController);
-router.use('/post', postController);
+router.use('/auth', authController);
+router.use('/user', userController);
+router.use('/data', dataController);
 
 
 

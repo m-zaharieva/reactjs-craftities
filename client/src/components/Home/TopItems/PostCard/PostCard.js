@@ -3,7 +3,7 @@ import './PostCard.css';
 function PostCard(props) {
     // console.log(props);
     return (
-        <div className="col-3 card-white">
+        <div className="col-6 col-lg-3 card-white">
             <article>
                 <div className="card-image-holder">
                     <img src={props.item.imageUrl} alt="" />

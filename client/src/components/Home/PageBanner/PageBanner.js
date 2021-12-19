@@ -1,7 +1,12 @@
+import { useContext } from 'react';
+
 import './PageBanner.css';
+import { AuthContext } from '../../../contexts/AuthContext';
+
 
 function PageBanner() {
-
+    let { user } = useContext(AuthContext);
+    
     return (
         <section className="banner-section">
             <div className="page-banner">
@@ -11,9 +16,10 @@ function PageBanner() {
 
                 <div className="banner-content">
                     <div className="container">
-                        <h1>Wellcome to Craftities.<br/>We give your work a space to shine.</h1>
-                        <p>We make things our way, so to give the best you deserve.<br/>Lorem ipsum dolor sit amet</p>
-                        <p></p>
+                        {user.firstName 
+                        ? <h1>{user.firstName} {user.lastName},<br/> Wellcome to Craftities.</h1>
+                        : <h1>Wellcome to Craftities.<br/>We give your work a space to shine.</h1>
+                         }
                     </div>
                 </div>
             </div>

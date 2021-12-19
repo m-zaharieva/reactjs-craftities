@@ -44,7 +44,7 @@
 }
 
 .delete-dialog-buttons a:first-child {
-    background-color: var(--blue-sapphire);
+    background-color: var(  --turkoaz);
     color: #ffffff;
 }
 

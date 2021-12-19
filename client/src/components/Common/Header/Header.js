@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import './Header.css';
-import { AuthContext } from '../../contexts/AuthContext.js';
+import { Link } from 'react-router-dom';
 
+import './Header.css';
+import { AuthContext } from './../../../contexts/AuthContext.js';
 import Navbar from './Navbar/Navbar.js';
 import NavItem from './Navbar/NavItem/NavItem.js';
-import DropDownMenu from './Navbar/DropDownMenu/DropDownMenu.js';;
-// import {ReactComponent as SvgIconHere} from 'path-to-the-icon-here'
+import DropDownMenu from './Navbar/DropDownMenu/DropDownMenu.js';
+import { ReactComponent as ArrowDown } from './arrow-down.svg';
 
 function Header() {
 	let { user } = useContext(AuthContext);
@@ -18,7 +19,7 @@ function Header() {
 	);
 
 	let userInputs = (
-		<NavItem icon="😃" text='Me' isActive={true} link='#'>
+		<NavItem icon={<ArrowDown />} text='Me' isActive={true} link='#'>
 			<DropDownMenu />
 		</NavItem>
 	);
@@ -26,11 +27,13 @@ function Header() {
 
 	return (
 		<header className="header-section">
-			<div className="container row">
-				<div className="nav-brand col-3">
-					<p>Craftities</p>
+			<div className="row">
+				<div className="nav-brand col-12 col-md-3">
+					<Link to="/">
+						<img src="/img/logo-craftities.svg" alt="" />
+					</Link>
 				</div>
-				<div className="col-9">
+				<div className="col-12 col-md-3">
 					<Navbar>
 						<NavItem icon="" text='Home' link='/' />
 						<NavItem icon="" text='Categories' link='/c' />

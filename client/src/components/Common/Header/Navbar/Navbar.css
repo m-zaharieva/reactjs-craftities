@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-nav {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
+    
+}
+

@@ -1,9 +1,11 @@
 .banner-section {
     margin-bottom: 70px;
+    background-color: #cccccc;
 }
 
 .page-banner {
     position: relative;
+    margin: auto;
 }
 
 .banner-image-holder {
@@ -12,8 +14,10 @@
 }
 
 .page-banner img {
-    width: 100%;
+    width: auto;
     position: relative;
+    margin: auto;
+    display: block;
     top: 0;
 }
 

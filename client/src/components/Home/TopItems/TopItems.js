@@ -8,7 +8,7 @@ function TopItems() {
     let [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        listingService.topItems()
+        listingService.topFour()
             .then(res => res.json())
             .then(result => {
                 setPosts(result);

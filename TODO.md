@@ -1,13 +1,16 @@
 Client
+[ ] - Deploy to Heroku
+[ ] - Load correct data in the DB 
+[ ] - Route guard!
+[ ] - Check if I can use Listing context for saving the listing data for further actions. 
+[ ] - To Design the Categories page
 
 [ ] - Unit testing (if I have enough time for it)
 [ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.
 [ ] - To use HOC for route guard
 [ ] - Error handling and error notifications
-[ ] - To Design the Categories page
 [ ] - to create an SVG image to be shown when there is no uploaded image yet.
 [ ] - Deploy to GitPages/Netlify or other service.
-[ ] - Header User dropdown with "My profile", "Favourites", "Logout", "Create".
 [ ] - Idea! In "My items for sale" they can be displayed as a table, like in mongoose Compas app.  
 [ ] - Idea! When Creating new item - the server to add the owner automatically. 
 [ ] - Contact page
@@ -50,6 +53,8 @@ Project
 
 =================================================================================================
 Client
+[X] - Header User dropdown with "My profile", "Favourites", "Logout", "Create".
+[X] - Display comments in listing details page
 [X] - To create sepparate file for user Context and toe App.js to be free of this responcibility
 [X] - Ask/ navigate to a new page before delete an item. Dialog, Modal, Pannel?
 [X] - Delete an item.

@@ -1,68 +1,23 @@
-import bcrypt from 'bcrypt';
-
-import * as jwt from './../helpers/jwtHelper.js';
-import { TOKEN_SECRET } from './../config/constants.js';
 import User from "../models/User.js";
 
-
-
-export const register = (data) => {
-       return findUserByEmail(data.email)
-        .then(user => {
-            if (user) {
-                throw new Error ('This email is already taken. Would you like to login instead?');
-            }
-
-            return bcrypt.hash(data.password, 10);
-        })
-        .then(hash => {
-            data.password = hash;
-            return User.create(data);
-        });
-};
-
-export const login = (data) => {
-    return findUserByEmail(data.email)
-        .then(user => {
-            if (!user) {
-                throw new Error ('Incorrect email or password.');
-            }
-            return Promise.all([bcrypt.compare(data.password, user.password), user]);
-        })
-        .then(([isValid, user]) => {
-            if (!isValid) {
-                throw new Error ('Incorrect email or password.');
-            }
-
-            return user;
-        });
-}
-
-export const logout = (token) => {
-    console.log('logout service');
-    return jwt.verify(token, TOKEN_SECRET);
-}
-
+// Use it for login and register
 export const findUserByEmail = (email) => {
     return User.findOne({email});
 }
 
+// Any other request for user data
 export const findUserById = (id) => {
-    return User.findById(id);
+    return User.findById(id).select('-password').populate('favourites');
 }
 
-
-export const createToken = (user) => {
-    let payload = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        _id: user._id,
-    }
-
-    return jwt.sign(payload, TOKEN_SECRET);
+export const addToFavourites = (userId, postId) => {
+    return User.findById(userId)
+        .then(user => {
+            if (user.favourites.includes(postId)) {
+                throw new Error ('You have already add this item to your favourites list');
+            }
+            user.favourites.push(postId);
+            return user.save();
+        });
 }
 
-export const varifyToken = (token) => {
-    return jwt.verify(token, TOKEN_SECRET);
-}

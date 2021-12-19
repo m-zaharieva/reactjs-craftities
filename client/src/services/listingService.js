@@ -1,27 +1,13 @@
-
+// CRUD
 export const getOnePopulated = (listingId) => {
-    return fetch(`/post/${listingId}/details`)
+    return fetch(`/data/listing/${listingId}/details`)
         .then(res => res.json());
-}
-
-export const allPosts = () => {
-    return fetch('/post/catalog')
-        .then(res => res.json());
-}
-
-export const listingsForCategory = (category) => {
-    return fetch(`/post/${category}`)
-        .then(res => res.json());
-}
-
-export const topItems = async () => {
-    return await fetch('/post/topItems');
 }
 
 export const addItem = (postData) => {
     let token = localStorage.getItem('AUTH_TOKEN');
     
-    return fetch('/post/create', {
+    return fetch('/data/listing/create', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
@@ -35,7 +21,7 @@ export const addItem = (postData) => {
 export const updateItem = (listingId, listingData) => {
     let token = localStorage.getItem('AUTH_TOKEN');
 
-    return fetch(`/post/${listingId}/edit`, {
+    return fetch(`/data/listing/${listingId}/edit`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -49,7 +35,7 @@ export const updateItem = (listingId, listingData) => {
 export const deleteListing = (listingId) => {
     let token = localStorage.getItem('AUTH_TOKEN');
     
-    return fetch(`/post/${listingId}/delete`, {
+    return fetch(`/data/listing/${listingId}/delete`, {
         method: 'DELETE', 
         headers: {
             'user-authorization': token,
@@ -59,9 +45,12 @@ export const deleteListing = (listingId) => {
 }
 
 
-export const userListings = () => {
+
+// ==================
+
+export const addToFavourites = (listingId) => {
     let token = localStorage.getItem('AUTH_TOKEN');
-    return fetch('/post/my-listings', {
+    return fetch(`/data/listing/${listingId}/add-to-favoutites`, {
         method: 'GET',
         headers: {
             'user-authorization': token,
@@ -69,3 +58,40 @@ export const userListings = () => {
     })
     .then(res => res.json());
 }
+
+export const addNewComment = (listingId, comment) => {
+    let token = localStorage.getItem('AUTH_TOKEN');
+
+    return fetch(`/data/listing/${listingId}/comments`, {
+        method: 'POST', 
+        headers: {
+            'content-type': 'application/json',
+            'user-authorization': token,
+        },
+        body: JSON.stringify(comment)
+    })
+        .then(res => res.json())
+}
+
+export const listingComments = (listingId) => {
+    console.log(listingId);
+    return fetch(`/data/listing/${listingId}/comments`)
+        .then(res => res.json());
+}
+
+
+// ==================
+
+export const category = (category) => {
+    return fetch(`/data/collection/${category}`)
+        .then(res => res.json());
+}
+
+export const topFour = async () => {
+    return await fetch('/data/collection/top');
+}
+
+
+
+
+

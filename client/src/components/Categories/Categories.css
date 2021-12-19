@@ -7,3 +7,11 @@
     color: var(--blue-sapphire);
     font-size: 30px;
 }
+
+.category-wrapper a h2 {
+    background-color: var(--color-subheading);
+    padding: 20px;
+    margin: 20px;
+    color: #ffffff;
+    border-radius: 5px;
+}

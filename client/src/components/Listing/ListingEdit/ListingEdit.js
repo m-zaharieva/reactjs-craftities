@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { storage } from '../../firebaseConfig/firebaseConfig.js';
+import { storage } from './../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './ListingEdit.css';
-import * as listingService from '../../services/listingService.js';
-import { AuthContext } from '../../contexts/AuthContext.js';
+import * as listingService from './../../../services/listingService.js';
+import { AuthContext } from './../../../contexts/AuthContext.js';
 
 function ListingEdit({ history, match }) {
     const { user } = useContext(AuthContext);

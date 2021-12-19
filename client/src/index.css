@@ -1,23 +1,27 @@
 /* General Rules for the application */
 
 :root {
+  --color-headings: #03588C;
+  --green-blue: #0396A6;
+  --blue: #009DD8;
+  --samon: #F28963;
+  --red: #F25C5C;
+  --turkoaz: #24C7A4;
+  --dark-turkoaz: #159c7f;
+  --prussian-blue: #023047;
+
+  /* --turkoaz: #04BFAD; */
+  
+  --success: rgb(18, 175, 88);
+  --warrning: rgb(218, 33, 33);
+  
   --light-cornflower-blue: #8ECAE6;
   --blue-green: #219EBC;
   --honey-yellow: #FFB703;
   --honey-yellow-tr: #ffb803cb;
   --orange-peel: #FD9E02;
   --orange: #FB8500;
-  --prussian-blue: #023047;
-  --turkoaz: #04BFAD;
-  --samon: #F28963;
-  --red: #F25C5C;
-  
-  
-  --color-headings: #03588C;
   --color-subheading: #126782;
-  --green-blue: #0396A6;
-  --success: rgb(18, 175, 88);
-  --warrning: rgb(218, 33, 33);
 }
 
 * {
@@ -32,7 +36,7 @@ body {
     font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #777777;
+  color: #555555;
 }
 
 code {
@@ -55,12 +59,12 @@ p {
 
 a {
   text-decoration: none;
-  color: #333333;
+  color: #444444;
   transition: all 0.1s ease-out;
 }
 
 a:hover {
-  color: #80add7;
+  color: var(--blue);
 }
 
 ul {
@@ -89,13 +93,12 @@ input:focus, textarea:focus {
 
 input[type="submit"] {
   border: none;
-  background-color: #80add7;
+  background-color: var(--turkoaz);
   color: #ffffff;
   padding: 10px 30px;
   font-size: 16px;
   border-radius: 4px;
-  /* right: 30px; */
-  /* position: absolute; */
+  margin-top: 10px;
   float: right;
 }
 

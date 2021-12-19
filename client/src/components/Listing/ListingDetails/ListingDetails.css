@@ -1,6 +1,7 @@
 .details-section {
-    margin-top: 60px;
+    padding-top: 60px;
     padding-bottom: 60px;
+    background-color: #eeeeee;
 }
 
 .details {
@@ -27,10 +28,11 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #6bf8f8;
+    background-color: var(--turkoaz);
     padding: 2px 12px;
     border-radius: 20px;
-    color: #105858;
+    color: #ffffff;
+    border: 1px solid var(--dark-turkoaz);
 }
 
 .post-details {
@@ -38,15 +40,13 @@
 }
 
 .post-details h1 {
+    color: var(--color-headings);
+    font-size: 30px;
     text-align: left;
-    color: #ffffff;
-    background-color: #276b65;
-    padding: 10px 0px 14px 15px;
     border-radius: 6px;
 }
 
 .post-details .description {
-    padding-left: 14px;
     margin-top: 20px;
 }
 
@@ -58,16 +58,20 @@
 
 .post-details .author {
     margin-bottom: 30px;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 300;
+    font-size: 20px;
 }
 
-
 .post-details .prise {
-    padding-left: 10px;
-    font-size: 50px;
-    margin-top: 30px;
-    font-weight: 700;
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.post-details .prise span {
+    font-size: 35px;
+    font-weight: 600;
+    margin-right: 5px;
 }
 
 .details-buttons {
@@ -78,31 +82,40 @@
     align-items: center;
 }
 
-.details-buttons .link {
-    background-color: #dddddd;
+.details-buttons .link, .comments-link {
+    background-color: var(--turkoaz);
     padding: 8px 40px;
     border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    display: inline-block;
 }
-
-.comments {
-    margin-top: 40px;
-}
-
-.comments h2 {
-    font-size: 25px;
-    color: #276b65;
-}
-
-
-
 
 
 /* Commets */
 
+.comments-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.comments-section h2 {
+    font-size: 25px;
+    color: var(--color-headings);
+}
+
+.comments-form textarea {
+    width: 100%;
+}
+
 .comment-holder {
-    border-top: 1px solid #868686;
-    padding-top: 20px;
     margin-top: 30px;
+}
+
+.comment-holder .row {
+    border-top: 1px solid #868686;
+    padding: 20px;
+    margin-right: 20px;
 }
 
 .avatar {

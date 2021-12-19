@@ -15,7 +15,7 @@ export const AuthProvider = ({
         let token = localStorage.getItem('AUTH_TOKEN');
 
         if (userId) {
-            fetch(`/users/${userId}`, {
+            fetch(`/user/${userId}`, {
                 method: 'GET',
                 headers: {
                     'user-authorization': token,
@@ -23,6 +23,7 @@ export const AuthProvider = ({
             })
             .then(res => res.json())
             .then(user => {
+                // console.log(user);
                 setUser({
                     firstName: user.firstName,
                     lastName: user.lastName,

@@ -1,0 +1,36 @@
+.header-section {
+    background-color: #ffffff;
+    padding: 5px 0px;
+}
+
+.header-section .row {
+    align-items: center;
+}
+
+.nav-brand a {
+    margin: auto;
+    display: block;
+}
+
+.nav-brand img {
+    height: 80px;
+    margin: auto;
+    display: block;
+}
+
+.active-nav-link {
+    border-bottom: 2px solid var(--blue);
+    color: var(--blue);
+}
+
+
+@media (min-width: 768px) {
+    .nav-brand img {
+        margin-left: auto;
+        display: inline;
+    }
+
+    .header-section {
+        padding: 5px 50px;
+    }
+}

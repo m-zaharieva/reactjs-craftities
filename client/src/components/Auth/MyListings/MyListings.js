@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
 import './MyListings.css';
-import * as listingService from './../../../services/listingService.js';
-import ListingCard from '../../ListingCard/ListingCard';
+import * as userService from './../../../services/userService.js';
+import ListingCard from './../../Listing/ListingCard/ListingCard.js';
 
 
 function MyListings() {
     let [listings, setListings] = useState([]);
     useEffect(() => {
-        listingService.userListings()
+        userService.userListings()
         .then(result => {
                 setListings(result)
             })

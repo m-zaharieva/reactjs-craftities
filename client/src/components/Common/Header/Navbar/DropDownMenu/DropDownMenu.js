@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
 
-import { AuthContext } from './../../../../contexts/AuthContext.js';
+import { AuthContext } from './../../../../../contexts/AuthContext.js';
 import NavItem from '../NavItem/NavItem.js';
-import * as userService from './../../../../services/userService.js';
+import * as userService from './../../../../../services/userService.js';
 import './DropDownMenu.css';
 
 function DropDownMenu() {
@@ -27,7 +27,7 @@ function DropDownMenu() {
             <NavItem icon="" text='My favourites' link='/user/profile/favourites'  />
             <NavItem icon="" text='Add new listing' link='/user/profile/add-new-listing' />
 
-			<NavLink to="/user/logout" onClick={logoutHandler}>Logout</NavLink>
+			<NavLink to="/user/logout" className="nav-link" onClick={logoutHandler}>Logout</NavLink>
         </div>
     );
 }

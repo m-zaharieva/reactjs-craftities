@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './ListingDelete.css';
-import * as listingService from './../../services/listingService.js';
+import * as listingService from './../../../services/listingService.js';
 
 function ListingDelete({ show, changeState, listingId, category }) {
     let [message, setMessage] = useState('');
