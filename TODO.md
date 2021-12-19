@@ -71,3 +71,6 @@ Server
 
 Project
 
+
+
+! git subtree push --prefix server heroku master
