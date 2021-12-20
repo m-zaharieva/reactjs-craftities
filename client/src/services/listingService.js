@@ -90,7 +90,7 @@ export const category = (category) => {
 }
 
 export const topFour = async () => {
-    return await fetch(`${CRAFTITIES_API}/data/collection/top`);
+    return await fetch(`https://craftities-api.herokuapp.com/data/collection/top`);
 }
 
 
