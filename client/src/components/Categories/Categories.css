@@ -15,3 +15,16 @@
     color: #ffffff;
     border-radius: 5px;
 }
+
+.all-listings-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+}
+
+.all-listings-button a {
+    background-color: #eeeeee;
+    border: 1px solid  #444444;
+    padding: 8px 25px;
+    border-radius: 6px;
+}

@@ -57,7 +57,7 @@ function Categories() {
                     </div>
                 </div>
                 
-                <div className='col-12'>
+                <div className='col-12 all-listings-button'>
                     <Link to="/listing/all">See all listed items</Link>
                 </div>
 

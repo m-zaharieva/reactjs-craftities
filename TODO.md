@@ -1,8 +1,10 @@
 Client
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
-[ ] - Error handling and error notifications, data validation
+[ ] - Error handling and error notifications, data validation (debauncer?)
 [ ] - Change the catefory field in edit form
 [ ] - Use Etsy api
+[ ] - Create global requester
+[ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it.
 [ ] - Load correct data in the DB 
 [ ] - Route guard!
 [ ] - Check if I can use Listing context for saving the listing data for further actions. 
@@ -41,6 +43,7 @@ Server
 [X] - Deploy to Heroku
 [X] - To create a mongoose model for comments
 [X] - Logout user
+[ ] - create an auth middleware
 
 
 Project

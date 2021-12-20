@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-
 import './ListingDetails.css';
 import * as listingService from './../../../services/listingService.js';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 import ListingDelete from '../ListingDelete/ListingDelete.js';
 import Comments from './Comments/Comments.js';
-import { useAuthContext } from '../../../contexts/AuthContext';
+
+
 
 function ListingDetails({ match }) {
     const { user } = useAuthContext();
@@ -66,13 +67,15 @@ function ListingDetails({ match }) {
                             <div className="details-buttons">
                                 
                                 {
-                                    user._id === listing.author?._id
-                                        ?
+                                    user._id === listing.author?._id 
+                                        &&
                                             <>
                                                 <Link className="link" to={`/listing/${listing._id}/edit`}>Edit</Link>
                                                 <Link className="link" to={`/listing/${listing._id}/delete`} onClick={showDialog}>Delete</Link>
                                             </>
-                                        : <button className={listing?.saved && listing?.saved.includes(user._id) ? 'disabled' : 'link'} onClick={addListingToFavourites}>&#10084;</button>
+                                }
+                                {
+                                user._id && <button className={listing?.saved && listing?.saved.includes(user._id) ? 'disabled' : 'link'} onClick={addListingToFavourites}>&#10084;</button>
                                 }
 
                             </div>
