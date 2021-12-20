@@ -51,12 +51,6 @@ export const userProfile = () => {
     .then(res => res.json());
 }
 
-
-export const sessionDataHandler = (token, userId) => {
-    localStorage.setItem('AUTH_TOKEN', token);
-    localStorage.setItem('userId', userId);
-}
-
 export const getUser = () => {
     return localStorage.getItem('user');
 }
@@ -82,4 +76,11 @@ export const userFavourites = () => {
         }
     })
     .then(res => res.json());
+}
+
+
+
+export const sessionDataHandler = async (token, userId) => {
+    await localStorage.setItem('AUTH_TOKEN', token);
+    await localStorage.setItem('userId', userId);
 }

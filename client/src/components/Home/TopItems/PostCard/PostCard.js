@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './PostCard.css';
 
 function PostCard(props) {
@@ -9,8 +10,8 @@ function PostCard(props) {
                     <img src={props.item.imageUrl} alt="" />
                 </div>
                 <div className="card-details-holder">
-                    <a href={`/listing/${props.item._id}`}><h3>{props.item.title}</h3></a>
-                    <a href="/user/profile"><p>by <span>{`${props.item.author.firstName} ${props.item.author.lastName}` }</span></p></a>
+                    <Link to={`/listing/${props.item._id}`}><h3>{props.item.title}</h3></Link>
+                    <Link to="/user/profile"><p>by <span>{`${props.item.author.firstName} ${props.item.author.lastName}`}</span></p></Link>
                 </div>
             </article>
         </div>

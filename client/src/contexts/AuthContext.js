@@ -1,4 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
+// import useLocalStorage from '../hooks/useLocalStorage.js';
+
+const { REACT_APP_CRAFTITIES_API } = process.env;
 
 export const AuthContext = createContext();
 
@@ -15,7 +18,7 @@ export const AuthProvider = ({
         let token = localStorage.getItem('AUTH_TOKEN');
 
         if (userId) {
-            fetch(`/user/${userId}`, {
+            fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
                 method: 'GET',
                 headers: {
                     'user-authorization': token,
@@ -23,6 +26,7 @@ export const AuthProvider = ({
             })
             .then(res => res.json())
             .then(user => {
+                console.log(user);
                 setUser({
                     firstName: user.firstName,
                     lastName: user.lastName,

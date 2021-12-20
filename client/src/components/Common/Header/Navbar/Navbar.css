@@ -21,6 +21,25 @@
     white-space: nowrap;
 }
 
+.navbar .button {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.navbar .button svg {
+    width: 20px;
+    cursor: pointer;
+    fill: #444444;
+    transition: ease-in-out .1s;
+}
+
+.navbar .button svg:hover {
+    fill: var(--blue);
+    
+}
+
+
 @media (min-width: 768px) {
     .navbar-nav {
         justify-content: flex-end;

@@ -23,6 +23,12 @@ router.post('/create', (req, res) => {
         });
 });
 
+router.get('/all', (req, res) => {
+    return dataService.allPosts()
+        .then(listings => {
+            res.json(listings);
+        })
+})
 
 router.get('/:listingId/details', (req, res) => {
     let listingId = req.params.listingId;

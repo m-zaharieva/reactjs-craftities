@@ -3,7 +3,7 @@ import Comment from '../models/Comment.js';
 
 
 export const allPosts = () => {
-    return Listing.find({});
+    return Listing.find({}).populate('author', '_id firstName lastName email').lean();
 }
 
 export const postsForCategory = (category) => {

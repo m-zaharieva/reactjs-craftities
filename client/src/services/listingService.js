@@ -46,7 +46,10 @@ export const deleteListing = (listingId) => {
         .then(res => res.json());
 }
 
-
+export const getAllListings = () => {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/all`)
+        .then(res => res.json());
+}
 
 // ==================
 

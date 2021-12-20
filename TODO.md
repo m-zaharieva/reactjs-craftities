@@ -2,21 +2,19 @@ Client
 [ ] - Change the catefory field in edit form
 [ ] - "Top items this season" on home page
 [ ] - Use Etsy api
-[ ] - Deploy to Heroku
 [ ] - Load correct data in the DB 
 [ ] - Route guard!
 [ ] - Check if I can use Listing context for saving the listing data for further actions. 
 [ ] - To Design the Categories page
+[ ] - Add a readme document to the application
 
 [ ] - Unit testing (if I have enough time for it)
 [ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.
 [ ] - To use HOC for route guard
 [ ] - Error handling and error notifications
 [ ] - to create an SVG image to be shown when there is no uploaded image yet.
-[ ] - Deploy to GitPages/Netlify or other service.
 [ ] - Idea! In "My items for sale" they can be displayed as a table, like in mongoose Compas app.  
 [ ] - Idea! When Creating new item - the server to add the owner automatically. 
-[ ] - Contact page
 [ ] - Image proccessing library
 [ ] - Redesign Register and Login
 [ ] - 404 page
@@ -28,10 +26,12 @@ Client
 [ ] - User profile upgrade.
 [ ] - To make the rating stars be dinamic.
 [ ] - History bar.
-[ ] - To change the colors of the icons on the home page. 
 [ ] - Refactor the application.
 [ ] - To add one more section to the home page right after the page banner with advantages in Craftities platform.
 [ ] - Light and Dark theme
+[X] - Deploy to Heroku
+[X] - Deploy to GitPages/Netlify or other service.
+[X] - To change the colors of the icons on the home page. 
 
 
 

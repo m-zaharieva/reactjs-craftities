@@ -3,6 +3,7 @@ import { useHistory, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import * as userService from './../../../../services/userService.js';
 import { useAuth } from './../../../../contexts/AuthContext.js';
+import { ReactComponent as Logout } from './logout.svg';
 
 import NavItem from './NavItem.js';
 
@@ -32,7 +33,7 @@ function Navbar() {
         <>
             <NavItem link="/user/profile" text="My profile" />
             <NavItem link="/user/profile/add-new-listing" text="Add new listing" />
-            <button onClick={logoutHandler} className="nav-link">Logout</button>
+            <button onClick={logoutHandler} className="button"><Logout /></button>
 		</>
 	);
 

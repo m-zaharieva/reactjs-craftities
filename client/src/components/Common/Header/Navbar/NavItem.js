@@ -6,7 +6,7 @@ function NavItem({
 }) {
     return (
         <li>
-            <NavLink to={link} className="nav-link" activeClassName='active-nav-link'>{text}</NavLink>
+            <NavLink to={link} exact className="nav-link" activeClassName='active-nav-link'>{text}</NavLink>
         </li>
     )
 }

@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './App.css';
+import {isAuth} from './hoc/isAuth.js';
 
 import Header from './components/Common/Header/Header.js';
 import Footer from './components/Common/Footer/Footer.js';
@@ -14,8 +15,7 @@ import ListingEdit from './components/Listing/ListingEdit/ListingEdit.js';
 import Profile from './components/Auth/Profile/Profile.js';
 import MyListings from './components/Auth/MyListings/MyListings.js';
 import MyFavourites from './components/Auth/MyFavourites/MyFavourites.js';
-import { ListingProvider } from './contexts/ListingContext.js';
-import {isAuth} from './hoc/isAuth.js';
+import AllListings from './components/Listing/AllListings/AllListings.js';
 
 
 function AppRouter() {
@@ -34,11 +34,9 @@ function AppRouter() {
                     <Route path="/user/profile/my-listings" component={MyListings} />
                     <Route path="/c" exact component={Categories} />
                     <Route path="/c/:category" exact component={Category} />
-
-                    <ListingProvider>
-                        <Route path="/listing/:listingId" exact component={ListingDetails} />
-                        <Route path="/listing/:listingId/edit" component={ListingEdit} />
-                    </ListingProvider>
+                    <Route path="/listing/all" exact component={AllListings} />
+                    <Route path="/listing/:listingId" exact component={ListingDetails} />
+                    <Route path="/listing/:listingId/edit" component={ListingEdit} />
                     {/* <Route path="/user/logout" /> */}
                     {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                 </Switch>

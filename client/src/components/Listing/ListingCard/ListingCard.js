@@ -5,7 +5,7 @@ import { ReactComponent as RatingStar } from './star.svg'
 
 function ListingCard({ props }) {
     return (
-        <div className="col-3 listing-card">
+        <div className="col-6 col-lg-3 listing-card">
             <article>
                 <div className="listing-image">
                     <img src={props.imageUrl} alt="" />
