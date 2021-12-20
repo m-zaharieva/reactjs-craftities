@@ -14,7 +14,7 @@ function Profile() {
             .then(user => {
                 setUser(user);
             })
-    }, []);
+    }, [token]);
 
     return (
         <section className="profile-section">
