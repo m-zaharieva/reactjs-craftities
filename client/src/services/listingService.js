@@ -1,3 +1,5 @@
+const { REACT_APP_CRAFTITIES_API } = process.env;
+
 // CRUD
 export const getOnePopulated = (listingId) => {
     return fetch(`/data/listing/${listingId}/details`)
@@ -6,9 +8,9 @@ export const getOnePopulated = (listingId) => {
 
 export const addItem = (postData) => {
     let token = localStorage.getItem('AUTH_TOKEN');
-    
+
     return fetch('/data/listing/create', {
-        method: 'POST', 
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-Authorization': token,
@@ -16,7 +18,7 @@ export const addItem = (postData) => {
         body: JSON.stringify(postData)
     })
         .then(res => res.json());
-} 
+}
 
 export const updateItem = (listingId, listingData) => {
     let token = localStorage.getItem('AUTH_TOKEN');
@@ -29,19 +31,19 @@ export const updateItem = (listingId, listingData) => {
         },
         body: JSON.stringify(listingData)
     })
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 export const deleteListing = (listingId) => {
     let token = localStorage.getItem('AUTH_TOKEN');
-    
+
     return fetch(`/data/listing/${listingId}/delete`, {
-        method: 'DELETE', 
+        method: 'DELETE',
         headers: {
             'user-authorization': token,
         }
     })
-    .then(res => res.json());
+        .then(res => res.json());
 }
 
 
@@ -56,14 +58,14 @@ export const addToFavourites = (listingId) => {
             'user-authorization': token,
         }
     })
-    .then(res => res.json());
+        .then(res => res.json());
 }
 
 export const addNewComment = (listingId, comment) => {
     let token = localStorage.getItem('AUTH_TOKEN');
 
     return fetch(`/data/listing/${listingId}/comments`, {
-        method: 'POST', 
+        method: 'POST',
         headers: {
             'content-type': 'application/json',
             'user-authorization': token,
@@ -88,7 +90,7 @@ export const category = (category) => {
 }
 
 export const topFour = async () => {
-    return await fetch(`${process.env.REACT_APP_CRAFTITIES_API}/data/collection/top`);
+    return await fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/top`);
 }
 
 
