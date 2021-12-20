@@ -6,6 +6,15 @@ import './ListingEdit.css';
 import * as listingService from './../../../services/listingService.js';
 import { AuthContext } from './../../../contexts/AuthContext.js';
 
+let categoriesLib ={
+    "jewellery-and-accessories": 'Jewellery and Accessories',
+    "clothes-and-shoes": 'Clothes and Shoes',
+    "home-and-living": 'Home and Living',
+    "wedding-and-party": 'Wedding and Party',
+    "toys-and-entertainment": 'Toys and Entertainment',
+    "art-and-collectibles": 'Art and Collectibles',
+}
+
 function ListingEdit({ history, match }) {
     const { user } = useContext(AuthContext);
     const [image, setImage] = useState('');
@@ -101,6 +110,9 @@ function ListingEdit({ history, match }) {
         }
     }
 
+    const changeCategoryHandler = (e) => {
+        setListing(oldState => ({...oldState, category: e.target.value}))};
+
     return (
         <section className="create-form-section">
             <div className="container">
@@ -135,16 +147,14 @@ function ListingEdit({ history, match }) {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="category">Category</label>
-                                <input type="category" id="category" name="category" defaultValue={listing.category} />
+                                <select id="category" name="category" value={listing.category} onChange={changeCategoryHandler}>
+                                    {Object.keys(categoriesLib).map(key => <option key={key} value={key}>{categoriesLib[key]}</option>)}
+                                </select>
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="prise">Prise</label>
                                 <input type="prise" id="prise" name="prise" defaultValue={listing.prise} />
                             </div>
-                            {/* <div className="input-wrapper">
-                                <label htmlFor="shipping">Shipping</label>
-                                <input type="shipping" id="shipping" name="shipping" />
-                            </div> */}
                             <input type="submit" value="Update" />
                         </div>
                     </form>

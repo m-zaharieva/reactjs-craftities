@@ -137,10 +137,6 @@ function CreatePost({ history }) {
                                 <label htmlFor="prise">Prise</label>
                                 <input type="number" id="prise" name="prise" />
                             </div>
-                            <div className="input-wrapper">
-                                <label htmlFor="shipping">Shipping</label>
-                                <input type="text" id="shipping" name="shipping" />
-                            </div>
                             <input type="submit" value="Create" />
                         </div>
                     </form>

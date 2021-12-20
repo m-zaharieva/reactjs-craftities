@@ -2,7 +2,6 @@ Client
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
 [ ] - Error handling and error notifications, data validation
 [ ] - Change the catefory field in edit form
-[ ] - "Top items this season" on home page
 [ ] - Use Etsy api
 [ ] - Load correct data in the DB 
 [ ] - Route guard!
@@ -24,6 +23,7 @@ Client
 [ ] - To make the rating stars be dinamic.
 [ ] - History bar.
 [ ] - To add one more section to the home page right after the page banner with advantages in Craftities platform.
+[X] - "Top items this season" on home page
 [X] - Deploy to GitPages/Netlify or other service.
 [X] - To change the colors of the icons on the home page. 
 [X] - Header User dropdown with "My profile", "Favourites", "Logout", "Create".
