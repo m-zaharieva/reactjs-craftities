@@ -1,61 +1,45 @@
-import { createContext, useState, useEffect, useContext } from 'react';
-// import useLocalStorage from '../hooks/useLocalStorage.js';
+import { createContext, useContext } from 'react';
 
-const { REACT_APP_CRAFTITIES_API } = process.env;
+import useLocalStorage from '../hooks/useLocalStorage.js';
+
 
 export const AuthContext = createContext();
 
+const initialUserState = {
+    _id: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    token: '',
+};
+
+const initialTokenState = {token: ''};
 
 
-export const AuthProvider = ({
-    children
-}) => {
-    let [user, setUser] = useState({});
+export const AuthProvider = ({ children }) => {
+    let [user, setUser] = useLocalStorage('user', initialUserState);
+    let [token, setToken] = useLocalStorage('AUTH_TOKEN', initialTokenState);
     // let [error, setError] = useState('');
-
-    useEffect(() => {
-        let userId = localStorage.getItem('userId');
-        let token = localStorage.getItem('AUTH_TOKEN');
-
-        if (userId) {
-            fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
-                method: 'GET',
-                headers: {
-                    'user-authorization': token,
-                }
-            })
-            .then(res => res.json())
-            .then(user => {
-                console.log(user);
-                setUser({
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    email: user.email,
-                    _id: user._id,
-                });
-            })
-            .catch(err => {
-                // setError(err.message);
-                console.log(err.message);
-                // TODO Show error when the session token has expired
-            })
-        }
-
-    }, [])
-
-    const userContext = (userData) => {
-        return setUser(userData);
+    
+    const login = (authData, token) => {
+        setUser(authData);
+        setToken({token: token})
+    }
+    
+    const logout = () => {
+        setUser(initialUserState);
+        setToken(initialTokenState);
     }
 
     return (
-        <AuthContext.Provider value={{ user, userContext }}>
+        <AuthContext.Provider value={{ user, token, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
 
-export const useAuth = () => {
+export const useAuthContext = () => {
     const authState = useContext(AuthContext);
     return authState;
 }

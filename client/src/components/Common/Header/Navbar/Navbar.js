@@ -2,22 +2,20 @@ import { useHistory, NavLink } from 'react-router-dom';
 
 import './Navbar.css'
 import * as userService from './../../../../services/userService.js';
-import { useAuth } from './../../../../contexts/AuthContext.js';
+import { useAuthContext } from './../../../../contexts/AuthContext.js';
 import { ReactComponent as Logout } from './logout.svg';
 
 import NavItem from './NavItem.js';
 
 
 function Navbar() {
-    let { user, userContext } = useAuth();
+    let { user, logout, token } = useAuthContext();
 	let history = useHistory();
-
+    
     const logoutHandler = (e) => {
-        console.log('handler');
-		userService.logout()
+		userService.logout(token)
 			.then(message => {
-				// TODO Show message for successfull/unsuccessful logout before redirect;
-				userContext({});
+                logout();
 				history.push('/');
 			});
 	}

@@ -1,43 +1,35 @@
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import './AuthForm.css';
 import * as userService from './../../../services/userService.js';
-import { AuthContext } from './../../../contexts/AuthContext.js';
+import { useAuthContext } from './../../../contexts/AuthContext.js';
 
 
 function AuthForm({ match, history }) {
-    const { userContext } = useContext(AuthContext);
+    const { login } = useAuthContext();
     let [error, setError] = useState('');
     let register = match.path.includes('login') ? false : true;
 
-
     const userRegisterHandler = (e) => {
         e.preventDefault();
+        let userInput = Object.fromEntries(new FormData(e.currentTarget));
 
-        let formData = new FormData(e.currentTarget);
-        if (formData.get('password') !== formData.get('repeatPassword')) {
+        if (userInput.password !== userInput.repeatPassword) {
             setError('Passwords don\'t match.');
         }
 
-        let userData = {
-            firstName: formData.get('firstName'),
-            lastName: formData.get('lastName'),
-            email: formData.get('email'),
-            password: formData.get('password'),
-        }
-
-        userService.registerUser(userData)
+        userService.registerUser(userInput)
             .then(({ token, userId }) => {
-                userContext({
-                    firstName: userData.firstName,
-                    lastName: userData.lastName,
-                    email: userData.email,
+                let userData = {
+                    firstName: userInput.firstName,
+                    lastName: userInput.lastName,
+                    email: userInput.email,
                     _id: userId,
-                });
+                }
 
-                userService.sessionDataHandler(token, userId);
+                login(userData, token);
+
                 history.push('/')
             })
             .catch(err => {
@@ -47,20 +39,15 @@ function AuthForm({ match, history }) {
 
     const userLoginHandler = (e) => {
         e.preventDefault();
+        let userInput = Object.fromEntries(new FormData(e.currentTarget));
 
-        let formData = new FormData(e.currentTarget);
-        let userData = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-        }
-
-        userService.loginUser(userData)
+        userService.loginUser(userInput)
             .then(({ token, userId }) => {
-                userContext({
-                    email: userData.email,
+                login({
+                    email: userInput.email,
                     _id: userId,
-                });
-                userService.sessionDataHandler(token, userId);
+                }, token);
+
                 history.push('/')
             })
             .catch(err => {

@@ -37,7 +37,7 @@ function AppRouter() {
                     <Route path="/listing/all" exact component={AllListings} />
                     <Route path="/listing/:listingId" exact component={ListingDetails} />
                     <Route path="/listing/:listingId/edit" component={ListingEdit} />
-                    {/* <Route path="/user/logout" /> */}
+
                     {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                 </Switch>
             </main>

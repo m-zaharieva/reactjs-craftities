@@ -1,5 +1,7 @@
 const { REACT_APP_CRAFTITIES_API } = process.env;
 
+
+
 export const registerUser = (userData) => {
     return fetch(`${REACT_APP_CRAFTITIES_API}/auth/register`, {
         method: 'POST',
@@ -22,14 +24,12 @@ export const loginUser = (userData) => {
     .then(res => res.json());
 };
 
-export const logout = () => {
-    let token = localStorage.getItem('AUTH_TOKEN');
-    
-    
+export const logout = (token) => {
+    console.log(token);
     return fetch(`${REACT_APP_CRAFTITIES_API}/auth/logout`, {
         method: 'GET', 
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
     .then(res => {
@@ -37,9 +37,7 @@ export const logout = () => {
         res.json()});
     };
     
-    
-export const userProfile = () => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+export const userProfile = (token) => {
     let userId = localStorage.getItem('userId');
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
@@ -77,8 +75,6 @@ export const userFavourites = () => {
     })
     .then(res => res.json());
 }
-
-
 
 export const sessionDataHandler = async (token, userId) => {
     await localStorage.setItem('AUTH_TOKEN', token);

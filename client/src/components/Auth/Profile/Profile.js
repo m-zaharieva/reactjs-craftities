@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 import './Profile.css'
 import * as userService from './../../../services/userService.js';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 function Profile() {
     let [user, setUser] = useState({});
+    let { token } = useAuthContext();
 
     useEffect(() => {
-        userService.userProfile()
+        userService.userProfile(token)
             .then(user => {
                 setUser(user);
             })

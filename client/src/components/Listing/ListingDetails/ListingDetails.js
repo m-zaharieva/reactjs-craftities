@@ -7,10 +7,10 @@ import * as listingService from './../../../services/listingService.js';
 
 import ListingDelete from '../ListingDelete/ListingDelete.js';
 import Comments from './Comments/Comments.js';
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 function ListingDetails({ match }) {
-    const { user } = useAuth();
+    const { user } = useAuthContext();
     let [listing, setListing] = useState({});
     let [deleteDialog, setDeleteDialog] = useState(false);
     // let [error, setError] = useState('');

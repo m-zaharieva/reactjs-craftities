@@ -1,10 +1,10 @@
 import { useHistory } from 'react-router-dom';
-import { useAuth } from './../contexts/AuthContext.js';
+import { useAuthContext } from './../contexts/AuthContext.js';
 
 export function isAuth(Component) {
 
     function WrapperComponent (props) {
-        const { user } = useAuth(); 
+        const { user } = useAuthContext(); 
         const history = useHistory();
 
         if (!user.email) {
