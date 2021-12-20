@@ -1,5 +1,3 @@
-import { CRAFTITIES_API } from './../config/constants.js'
-
 // CRUD
 export const getOnePopulated = (listingId) => {
     return fetch(`/data/listing/${listingId}/details`)
