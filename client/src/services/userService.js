@@ -1,6 +1,7 @@
+const { REACT_APP_CRAFTITIES_API } = process.env;
 
 export const registerUser = (userData) => {
-    return fetch('/auth/register', {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -11,7 +12,7 @@ export const registerUser = (userData) => {
 }
 
 export const loginUser = (userData) => {
-    return fetch('/auth/login', {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -25,7 +26,7 @@ export const logout = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     
     
-    return fetch('/auth/logout', {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/logout`, {
         method: 'GET', 
         headers: {
             'user-authorization': token,
@@ -41,7 +42,7 @@ export const userProfile = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     let userId = localStorage.getItem('userId');
 
-    return fetch(`/user/${userId}`, {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
         method: 'GET', 
         headers: {
             'user-authorization': token,
@@ -63,7 +64,7 @@ export const getUser = () => {
 export const userListings = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     
-    return fetch('/data/collection/my-listings', {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/my-listings`, {
         method: 'GET',
         headers: {
             'user-authorization': token,
@@ -74,7 +75,7 @@ export const userListings = () => {
 
 export const userFavourites = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
-    return fetch('/data/collection/favourites', {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/favourites`, {
         method: 'GET',
         headers: {
             'user-authorization': token,
