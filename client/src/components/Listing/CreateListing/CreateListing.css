@@ -1,7 +1,21 @@
+.create-form-section {
+    height: 950px;
+}
+
 .create-form-section .container {
-    background-color: #ebf2ea;
+    background-color: #eeeeee;
     position: relative;
-    height: 300px;
+    height: 600px;
+}
+
+@media (min-width: 768px) {
+    .create-form-section {
+        height: auto;
+    }
+
+    .create-form-section .container {
+        height: 300px;
+    }
 }
 
 .create-form-wrapper {

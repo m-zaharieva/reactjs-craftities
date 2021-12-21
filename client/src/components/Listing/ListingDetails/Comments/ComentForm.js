@@ -20,7 +20,7 @@ function CommentForm({
         <form className="comments-form" onSubmit={addNewComment}>
             <div>
                 {/* <label htmlFor="comment">Comment:</label> */}
-                <textarea type="text" id="comment" name="comment" placeholder="Comment here"></textarea>
+                <textarea type="text" id="comment" name="comment" placeholder="Comment here" cols={30} rows={5}></textarea>
                 <input type="submit" value="Add" />
             </div>
         </form>

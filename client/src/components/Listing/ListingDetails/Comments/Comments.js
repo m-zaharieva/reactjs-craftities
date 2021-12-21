@@ -31,7 +31,7 @@ function Comments({
 
 
     const commentsForm = (
-        <div className='col-8 margin-auto'>
+        <div className='col-10 margin-auto'>
 
             {showForm
                 ? <CommentForm listingId={listingId} renderNewComments={renderNewComments} />

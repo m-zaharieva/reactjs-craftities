@@ -1,5 +1,4 @@
 .details-section {
-    padding-top: 60px;
     padding-bottom: 60px;
     background-color: #eeeeee;
 }
@@ -13,7 +12,6 @@
 .details-image {
     height: 400px;
     overflow: hidden;
-    border-radius: 10px;
 }
 
 .details-image img {
@@ -36,12 +34,12 @@
 }
 
 .post-details {
-    padding: 10px 0px 10px 40px;
+    padding: 10px 10px 10px 10px;
 }
 
 .post-details h1 {
     color: var(--color-headings);
-    font-size: 30px;
+    font-size: 25px;
     text-align: left;
     border-radius: 6px;
 }
@@ -100,6 +98,33 @@
     color: var(--red);
     border: 1px solid var(--red);
 }
+
+.savedCounter {
+    margin-right: 40px;
+}
+
+
+@media (min-width: 576px) {
+    .details-section {
+        padding-top: 60px;
+    } 
+    
+    .details-image {
+        border-radius: 10px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .post-details {
+        padding: 10px 0px 10px 40px;
+    }
+}
+
+
+
+
+
 
 
 /* Commets */

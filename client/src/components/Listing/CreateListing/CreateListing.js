@@ -85,7 +85,7 @@ function CreatePost({ history }) {
                     <h2>Add New Post</h2>
                     <form className="create-form row" onSubmit={addPostHandler} >
 
-                        <div className="input-wrapper col-5">
+                        <div className="input-wrapper col-12 col-md-5">
                             <div className="image-preview">
 
                                 {error
@@ -101,7 +101,7 @@ function CreatePost({ history }) {
                         </div>
 
 
-                        <div className="col-6">
+                        <div className="col-12 col-md-6">
                             <div className="input-wrapper">
                                 <label htmlFor="title">Title</label>
                                 <input type="text" id="title" name="title" />

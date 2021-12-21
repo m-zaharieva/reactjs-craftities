@@ -38,9 +38,9 @@ function HomeCategories() {
                         </Link>
                     </div>
                 </div>
-                <div className="more-button">
+                {/* <div className="more-button">
                     <Link to="/c">All categories</Link>
-                </div>
+                </div> */}
             </div>
         </section>
     );

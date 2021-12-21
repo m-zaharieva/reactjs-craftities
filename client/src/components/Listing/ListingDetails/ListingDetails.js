@@ -50,13 +50,13 @@ function ListingDetails({ match }) {
             <section className="details-section">
                 <div className="container">
                     <div className="row details">
-                        <div className="col-7">
+                        <div className="col-12 col-lg-7">
                             <div className="details-image">
                                 <img src={listing.imageUrl} alt="" />
                                 <p className="category">{listing.category}</p>
                             </div>
                         </div>
-                        <div className="col-5">
+                        <div className="col-12 col-lg-5">
                             <div className="post-details">
                                 <h1>{listing.title}</h1>
                                 <p className="author">{`${listing.author?.firstName} ${listing.author?.lastName}`}</p>
@@ -89,8 +89,8 @@ function ListingDetails({ match }) {
 
                                 {
                                     listing?.saved?.includes(user._id) 
-                                        ? <p>Saved by: You {listing?.savedLength - 1 > 0 ? `and ${listing?.savedLength -1} more user(s)` : ''} </p>
-                                        : <p>Saved by: {listing?.savedLength} {listing?.savedLength === 1 ? 'user' : 'users'}</p>
+                                        ? <p className='savedCounter'>Saved by: You {listing?.savedLength - 1 > 0 ? `and ${listing?.savedLength -1} more user(s)` : ''} </p>
+                                        : <p className='savedCounter'>Saved by: {listing?.savedLength} {listing?.savedLength === 1 ? 'user' : 'users'}</p>
                                 }
                             </div>
                         </div>

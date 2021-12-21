@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './ListingEdit.css';
+// import './ListingEdit.css';
 import { storage } from './../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import * as listingService from './../../../services/listingService.js';
@@ -118,7 +118,7 @@ function ListingEdit({ history, match }) {
                     <h2>Add New Post</h2>
                     <form className="create-form row" onSubmit={updatePostHandler} >
 
-                        <div className="input-wrapper col-5">
+                        <div className="input-wrapper col-12 col-md-5">
                             <div className="image-preview">
 
                                 {error
@@ -134,7 +134,7 @@ function ListingEdit({ history, match }) {
                         </div>
 
 
-                        <div className="col-6">
+                        <div className="col-12 col-md-6">
                             <div className="input-wrapper">
                                 <label htmlFor="title">Title</label>
                                 <input type="text" id="title" name="title" defaultValue={listing.title} />
