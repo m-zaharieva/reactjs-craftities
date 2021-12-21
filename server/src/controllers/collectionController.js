@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import * as dataService from '../services/dataService.js';
 import * as authService from '../services/authService.js';
+import * as userService from '../services/userService.js';
 
 
 const router = Router();
@@ -32,12 +33,16 @@ router.get('/my-listings', (req, res) => {
 router.get('/favourites', (req, res) => {
     let token = req.headers['user-authorization'];
 
-    // authService.varifyToken(token)
-    // .then(user => {
-    //     return authService.userFavourites(user._id)
-    // });
-})
+    authService.varifyToken(token)
+    .then(user => {
+        return userService.findUserById(user._id)
+    })
+    .then(user => {
+        res.json(user);
+    });
+});
  
+
 router.get('/:category', (req, res) => {
     let category = req.params.category;
     dataService.postsForCategory(category)

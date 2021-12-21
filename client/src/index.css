@@ -91,7 +91,7 @@ input:focus, textarea:focus {
   font-size: 16px;
 }
 
-input[type="submit"] {
+input[type="submit"]  {
   border: none;
   background-color: var(--turkoaz);
   color: #ffffff;
@@ -102,7 +102,17 @@ input[type="submit"] {
   float: right;
 }
 
-
+.warrning {
+  border: none;
+  background-color: var(--samon);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-right: 20px;
+  float: right;
+}
 
 label {
   margin-bottom: 4px;

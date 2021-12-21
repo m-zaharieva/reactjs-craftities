@@ -21,3 +21,9 @@ export const addToFavourites = (userId, postId) => {
         });
 }
 
+export const updateUser = (userId, body) => {
+    return User.findByIdAndUpdate(userId, {...body}, {returnOriginal: false})
+        .then(user => {
+            return user.save();
+        })
+}

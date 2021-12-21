@@ -7,13 +7,13 @@ export const getOnePopulated = (listingId) => {
 }
 
 export const addItem = (postData) => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+    let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/create`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'X-Authorization': token,
+            'content-type': 'application/json',
+            'user-authorization': token.token,
         },
         body: JSON.stringify(postData)
     })
@@ -21,13 +21,13 @@ export const addItem = (postData) => {
 }
 
 export const updateItem = (listingId, listingData) => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+    let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/edit`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json',
-            'X-Authorization': token,
+            'content-type': 'application/json',
+            'user-authorization': token.token,
         },
         body: JSON.stringify(listingData)
     })
@@ -35,12 +35,12 @@ export const updateItem = (listingId, listingData) => {
 }
 
 export const deleteListing = (listingId) => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+    let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/delete`, {
         method: 'DELETE',
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
         .then(res => res.json());
@@ -54,11 +54,11 @@ export const getAllListings = () => {
 // ==================
 
 export const addToFavourites = (listingId) => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+    let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/add-to-favoutites`, {
         method: 'GET',
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
         .then(res => res.json());
@@ -66,12 +66,13 @@ export const addToFavourites = (listingId) => {
 
 export const addNewComment = (listingId, comment) => {
     let token = localStorage.getItem('AUTH_TOKEN');
+    token = JSON.parse(token);
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/comments`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'user-authorization': token,
+            'user-authorization': token.token,
         },
         body: JSON.stringify(comment)
     })

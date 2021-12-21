@@ -1,6 +1,7 @@
 .header-section {
     background-color: #ffffff;
     padding: 5px 0px;
+    box-shadow: 0px 2px 4px #cccccc;
 }
 
 .header-section .row {

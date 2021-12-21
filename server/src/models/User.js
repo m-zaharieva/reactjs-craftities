@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
     },
+    description: {
+        type: String,
+    },
     myListings: [
         {
             type: mongoose.Types.ObjectId,

@@ -7,7 +7,7 @@ function MyFavourites() {
     let [user, setUser] = useState({});
 
     useEffect(() => {
-        userService.userProfile()
+        userService.userFavourites()
             .then(user => {
                 setUser(user);
             })

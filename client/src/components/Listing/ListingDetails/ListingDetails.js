@@ -74,10 +74,24 @@ function ListingDetails({ match }) {
                                                 <Link className="link" to={`/listing/${listing._id}/delete`} onClick={showDialog}>Delete</Link>
                                             </>
                                 }
+
                                 {
-                                user._id && <button className={listing?.saved && listing?.saved.includes(user._id) ? 'disabled' : 'link'} onClick={addListingToFavourites}>&#10084;</button>
+                                    user._id && user._id !== listing.author?._id  
+                                    && 
+                                        <button 
+                                            className={listing?.saved && listing?.saved?.includes(user._id) ? 'disabled' : 'link'} 
+                                            onClick={addListingToFavourites} 
+                                            title="Add to yout favourites"
+                                        >
+                                            &#10084;
+                                        </button>
                                 }
 
+                                {
+                                    listing?.saved?.includes(user._id) 
+                                        ? <p>Saved by: You {listing?.savedLength - 1 > 0 ? `and ${listing?.savedLength -1} more user(s)` : ''} </p>
+                                        : <p>Saved by: {listing?.savedLength} {listing?.savedLength === 1 ? 'user' : 'users'}</p>
+                                }
                             </div>
                         </div>
                     </div>
@@ -85,7 +99,7 @@ function ListingDetails({ match }) {
                 </div>
             </section>
 
-            <Comments listingId={listingId} />
+            <Comments listingId={listingId} authorId={listing.author?._id} />
 
             <ListingDelete show={deleteDialog} changeState={hideDialog} listingId={listing._id} category={listing.category} />
         </>

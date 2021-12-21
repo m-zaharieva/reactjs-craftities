@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import CommentForm from "./ComentForm";
 import Comment from "./Comment.js";
 import * as listingService from './../../../../services/listingService.js';
+import { useAuthContext } from "../../../../contexts/AuthContext";
 
 function Comments({
-    listingId
+    listingId,
+    authorId,
 }) {
+    let { user } = useAuthContext();
     let [comments, setComments] = useState([]);
     let [showForm, setShowForm] = useState(false);
     
@@ -19,7 +22,6 @@ function Comments({
 
     const showCommentForm = (e) => {
         setShowForm(!showForm)
-        console.log(showForm);
     }
 
     const renderNewComments = (comment) => {
@@ -27,20 +29,30 @@ function Comments({
         return setComments(newComments);
     }
 
+
+    const commentsForm = (
+        <div className='col-8 margin-auto'>
+
+            {showForm
+                ? <CommentForm listingId={listingId} renderNewComments={renderNewComments} />
+                : <button className="comments-link" onClick={showCommentForm}>Comment</button>
+            }
+
+        </div>
+    )
+
     return (
         <section className='comments-section'>
             <div className='container'>
                 <h2 className="">Commets</h2>
                 <div className="row">
 
-                    <div className='col-8 margin-auto'>
+                    {
+                        user._id && user._id !== authorId 
+                            && commentsForm
 
-                        {showForm
-                            ? <CommentForm listingId={listingId}  renderNewComments={renderNewComments} />
-                            : <button className="comments-link" onClick={showCommentForm}>Comment</button>
-                        }
+                    }
 
-                    </div>
                     {
                         comments.length > 0
                             ? comments.map(comment => comment = <Comment key={comment._id} comment={comment} />)

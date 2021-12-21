@@ -46,16 +46,7 @@ function CreatePost({ history }) {
     const addPostHandler = (e) => {
         e.preventDefault();
 
-        let formData = new FormData(e.currentTarget);
-        let postData = {
-            title: formData.get('title'),
-            description: formData.get('description'),
-            category: formData.get('category'),
-            prise: formData.get('prise'),
-            shipping: formData.get('shipping'),
-            author: user._id,
-            imageUrl: '',
-        }
+        let postData = Object.fromEntries(new FormData(e.currentTarget));
 
         if (imageFile) {
             const storageRef = ref(storage, `posts-images/ + ${imageFile.name}`);

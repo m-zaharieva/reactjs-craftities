@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { storage } from './../../../firebaseConfig/firebaseConfig.js';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { Link } from 'react-router-dom';
 
 import './ListingEdit.css';
+import { storage } from './../../../firebaseConfig/firebaseConfig.js';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import * as listingService from './../../../services/listingService.js';
 import { AuthContext } from './../../../contexts/AuthContext.js';
 
@@ -57,9 +58,6 @@ function ListingEdit({ history, match }) {
         reader.readAsDataURL(e.target.files[0])
     }
 
-
-
-    // console.log(history);
     const updatePostHandler = (e) => {
         e.preventDefault();
 
@@ -156,6 +154,7 @@ function ListingEdit({ history, match }) {
                                 <input type="prise" id="prise" name="prise" defaultValue={listing.prise} />
                             </div>
                             <input type="submit" value="Update" />
+                            <Link to={`/listing/${listing._id}`} className='warrning' >Go back</Link>
                         </div>
                     </form>
                 </div>

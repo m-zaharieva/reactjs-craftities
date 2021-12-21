@@ -1,15 +1,46 @@
 .profile-section {
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .profile-section h1 {
     margin-bottom: 30px;
+    color: var(--color-headings);
+    font-size: 28px;
 }
 
 .profile-img {
-    width: 300px;
-    height: 350px;
+    width: 150px;
+    height: 150px;
     background-color: #cccccc;
+    border-radius: 50%;
+}
+
+.user-data h2 {
+    text-align: left;
+}
+
+.user-data form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.user-data form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-data form button {
+    float: right;
+    margin-top: 10px;
+}
+
+.add-description {
+    background-color: #ffffff;
+    border: none;
+    color: var(--turkoaz);
+    border-bottom: 1px solid var(--turkoaz);
+    cursor: pointer;
 }
 
 .user-links {
@@ -18,10 +49,20 @@
     padding-top: 20px;
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .user-links {
+        flex-direction: row;
+    }
 }
 
 .user-links a {
-    background-color: #cccccc;
+    background-color: var(--turkoaz);
+    color: #ffffff;
     padding: 10px 30px;
     border-radius: 3px;
+    margin-bottom: 15px;
+    text-align: center;
 }

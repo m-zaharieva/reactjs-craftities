@@ -25,7 +25,7 @@ export const loginUser = (userData) => {
 };
 
 export const logout = (token) => {
-    console.log(token);
+
     return fetch(`${REACT_APP_CRAFTITIES_API}/auth/logout`, {
         method: 'GET', 
         headers: {
@@ -38,12 +38,12 @@ export const logout = (token) => {
     };
     
 export const userProfile = (token) => {
-    let userId = localStorage.getItem('userId');
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${user._id}`, {
         method: 'GET', 
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
     .then(res => res.json());
@@ -55,22 +55,24 @@ export const getUser = () => {
 
 export const userListings = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
-    
+    token = JSON.parse(token);
+
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/my-listings`, {
         method: 'GET',
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
     .then(res => res.json());
 }
 
 export const userFavourites = () => {
-    let token = localStorage.getItem('AUTH_TOKEN');
+    let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
+
     return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/favourites`, {
         method: 'GET',
         headers: {
-            'user-authorization': token,
+            'user-authorization': token.token,
         }
     })
     .then(res => res.json());
@@ -79,4 +81,16 @@ export const userFavourites = () => {
 export const sessionDataHandler = async (token, userId) => {
     await localStorage.setItem('AUTH_TOKEN', token);
     await localStorage.setItem('userId', userId);
+}
+
+export const addDescription = (userId, description, token) => {
+    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'user-authorization': token.token,
+        },
+        body: JSON.stringify({description})
+    })
+    .then(res => res.json());
 }

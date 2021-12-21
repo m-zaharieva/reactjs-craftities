@@ -1,5 +1,12 @@
 .auth-form-section {
     margin-bottom: 50px;
+    height: 650px;
+}
+
+@media (min-width: 768px) {
+    .auth-form-section {
+        height: auto;
+    }
 }
 
 .auth-form-section .container {
@@ -24,8 +31,8 @@
     position: absolute;
     right: 15px;
     top: 10px;
-    background-color: #0abda0;
-    border: 2px solid #09aa8f;
+    background-color: var(--turkoaz);
+    border: 2px solid #0eb99d;
     padding: 1px;
     border-radius: 20px;
 }
@@ -44,14 +51,31 @@
 .swith-buttons .active-radio-auth-links {
     background-color: #ffffff;
     box-shadow: 0px 0px 4px #1d7062;
-    color: #0abda0;
+    color: var(--turkoaz);
+}
+
+.auth-form-image-holder {
+    height: 120px;
+    overflow: hidden;
 }
 
 .auth-form-image-holder img {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-top-left-radius: 9px;
-    border-bottom-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+@media (min-width: 768px) {
+    .auth-form-image-holder {
+        height: auto;
+    }
+    .auth-form-image-holder img {
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+    }
 }
 
 .auth-form-holder {

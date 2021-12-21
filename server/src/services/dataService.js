@@ -11,12 +11,12 @@ export const postsForCategory = (category) => {
 }
 
 export const topFour = () => {
-    return Listing.find({}, {}, {sort: {'createdAt': -1}}).populate('author', '_id firstName lastName').limit(4).lean();
+    return Listing.find({}, {}, {sort: {'savedLength': -1}}).populate('author', '_id firstName lastName').limit(4).lean();
     // TODO the filtering of  the top four items
 }
 
-export const create = (data) => {
-    return Listing.create({...data});
+export const create = (data, userId) => {
+    return Listing.create({...data, author: userId});
 }
 
 export const postUpdate = (id, data) => {
@@ -37,9 +37,14 @@ export const userListings = (userId) => {
 }
 
 export const savedByUser = (userId, postId) => {
-    return Listing.findById(postId).populate('author', '_id firstName lastName email')
+    return Listing.findByIdAndUpdate(postId, 
+        {
+            "$push": {"saved": userId},
+            "$inc": {"savedLength": 1}
+        }, 
+        {returnDocument: 'after'}
+    ).populate('author', '_id firstName lastName email')
         .then(listing => {
-            listing.saved.push(userId);
             return listing.save();
         })
 }

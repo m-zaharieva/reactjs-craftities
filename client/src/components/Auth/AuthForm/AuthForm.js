@@ -86,10 +86,10 @@ function AuthForm({ match, history }) {
                         <NavLink activeClassName="active-radio-auth-links" className="auth-link" to="/user/register">Register</NavLink>
                         <NavLink activeClassName="active-radio-auth-links" className="auth-link" to="/user/login">Login</NavLink>
                     </div>
-                    <div className="auth-form-image-holder col-4">
+                    <div className="auth-form-image-holder col-12 col-md-4">
                         <img className="auth-form-image" src="/img/curved-layers-colored-papers-close-up.jpg" alt="" />
                     </div>
-                    <div className="auth-form-holder col-8">
+                    <div className="auth-form-holder col-12 col-md-8">
                         {register ? <h1>Register Form</h1> : <h1>Login Form</h1>}
 
                         <form className="auth-form" onSubmit={register ? userRegisterHandler : userLoginHandler}>

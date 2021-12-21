@@ -36,12 +36,10 @@ const listingSchema = new mongoose.Schema({
             ref: 'User',
         }
     ],
-    // comments: [
-    //     {
-    //         type: mongoose.Types.ObjectId,
-    //         ref: 'Comment',
-    //     }
-    // ],
+    savedLength: {
+        type: Number,
+        default: 0,
+    },
 },
 {
   timestamps: true

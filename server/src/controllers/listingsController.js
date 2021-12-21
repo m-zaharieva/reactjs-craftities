@@ -10,10 +10,12 @@ const router = Router();
 
 router.post('/create', (req, res) => {
     let postData = req.body;
-    console.log(postData);
-
-    // let data = req.body;
-    dataService.create(postData)
+    let token = req.headers['user-authorization'];
+    
+    authService.varifyToken(token)
+        .then(user => {
+             return  dataService.create(postData, user._id)
+        })
         .then(newPost => {
             res.json(newPost);
         })
@@ -44,10 +46,14 @@ router.get('/:listingId/details', (req, res) => {
 
 
 router.put('/:postId/edit', (req, res) => {
+    let token = req.headers['user-authorization'];
     let postId = req.params.postId;
     let data = req.body;
 
-    dataService.postUpdate(postId, data)
+    authService.varifyToken(token)
+        .then(user => {
+             return dataService.postUpdate(postId, data)
+        })
         .then(updatedPost => {
             res.json(updatedPost)
         })
@@ -59,8 +65,12 @@ router.put('/:postId/edit', (req, res) => {
 
 router.delete('/:postId/delete', (req, res) => {
     let postId = req.params.postId;
+    let token = req.headers['user-authorization'];
 
-    dataService.postDelete(postId)
+    authService.varifyToken(token)
+        .then(user => {
+            return dataService.postDelete(postId)
+        })
         .then(() => {
             res.json({status: 200, message: 'Post was deleted successfully' })
         })
