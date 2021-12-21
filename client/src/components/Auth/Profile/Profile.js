@@ -27,7 +27,7 @@ function Profile({
                 logout();
                 history.push('/user/login')
             })
-    }, [token]);
+    }, [history, logout, showNotification, token]);
 
     const showTextboxHandler = (e) => {
         setShowTextbox(!showTextbox);
