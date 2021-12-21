@@ -1,13 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { storage } from '../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './CreateListing.css';
 import * as listingService from '../../../services/listingService.js';
-import { AuthContext } from '../../../contexts/AuthContext.js';
 
 function CreatePost({ history }) {
-    const { user } = useContext(AuthContext);
     const [image, setImage] = useState('https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'); //TODO Edit the defailt photo
     const [imageFile, setImageFile] = useState('');
     // const [url, setUrl] = useState('');
