@@ -3,17 +3,29 @@ import { Link } from 'react-router-dom';
 
 import './Profile.css'
 import * as userService from './../../../services/userService.js';
-import { useAuthContext } from '../../../contexts/AuthContext';
+import { useAuthContext } from '../../../contexts/AuthContext.js';
+import { useNotificationContext } from '../../../contexts/NotificationContext.js';
 
-function Profile() {
+function Profile({
+    history
+}) {
     let [user, setUser] = useState({});
     let [showTextbox, setShowTextbox] = useState(false);
-    let { token } = useAuthContext();
+    let { token, logout } = useAuthContext();
+    let { showNotification } = useNotificationContext();
 
     useEffect(() => {
         userService.userProfile(token)
-            .then(user => {
-                setUser(user);
+            .then(response => {
+                if (response.error) {
+                    throw response;
+                }
+                setUser(response);
+            })
+            .catch(err => {
+                showNotification(err.error, 'error');
+                logout();
+                history.push('/user/login')
             })
     }, [token]);
 

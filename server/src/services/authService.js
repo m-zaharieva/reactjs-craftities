@@ -38,7 +38,7 @@ export const login = (data) => {
 
 export const logout = (token) => {
     console.log('logout service');
-    return jwt.verify(token, TOKEN_SECRET);
+    return varifyToken(token);
 }
 
 

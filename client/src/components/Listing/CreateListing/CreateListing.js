@@ -4,8 +4,10 @@ import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import './CreateListing.css';
 import * as listingService from '../../../services/listingService.js';
+import { useNotificationContext } from './../../../contexts/NotificationContext.js'
 
 function CreatePost({ history }) {
+    const { showNotification } = useNotificationContext();
     const [image, setImage] = useState('https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'); //TODO Edit the defailt photo
     const [imageFile, setImageFile] = useState('');
     // const [url, setUrl] = useState('');
@@ -67,7 +69,8 @@ function CreatePost({ history }) {
                             postData.imageUrl = dataUrl;
                             listingService.addItem(postData)
                                 .then(result => {
-                                    return history.push('/')
+                                    showNotification('Your listing was added successfully', 'success')
+                                    return history.push(`/c/${result.category}`)
                                 });
                         });
                 }

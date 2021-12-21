@@ -75,6 +75,7 @@
         height: 100%;
         border-top-left-radius: 9px;
         border-bottom-left-radius: 9px;
+        border-top-right-radius: 0px;
     }
 }
 

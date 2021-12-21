@@ -4,9 +4,11 @@ import { NavLink } from 'react-router-dom';
 import './AuthForm.css';
 import * as userService from './../../../services/userService.js';
 import { useAuthContext } from './../../../contexts/AuthContext.js';
+import { useNotificationContext } from './../../../contexts/NotificationContext';
 
 
 function AuthForm({ match, history }) {
+    const { showNotification } = useNotificationContext();
     const { login } = useAuthContext();
     let [error, setError] = useState('');
     let register = match.path.includes('login') ? false : true;
@@ -29,7 +31,7 @@ function AuthForm({ match, history }) {
                 }
 
                 login(userData, token);
-
+                showNotification('Successful registration! Welcome to Craftities', 'success')
                 history.push('/')
             })
             .catch(err => {
@@ -47,7 +49,7 @@ function AuthForm({ match, history }) {
                     email: userInput.email,
                     _id: userId,
                 }, token);
-
+                showNotification('Successful login! Welcome to Craftities', 'success')
                 history.push('/')
             })
             .catch(err => {
@@ -75,7 +77,6 @@ function AuthForm({ match, history }) {
             </div>
         </div>
     );
-
 
 
     return (

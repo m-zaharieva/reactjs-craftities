@@ -10,16 +10,15 @@
   --dark-turkoaz: #159c7f;
   --prussian-blue: #023047;
 
-  /* --turkoaz: #04BFAD; */
-  
   --success: rgb(18, 175, 88);
-  --warrning: rgb(218, 33, 33);
+  --danger: rgb(218, 33, 33);
+  --warning: #FD9E02;
+  --info: #009DD8;
   
   --light-cornflower-blue: #8ECAE6;
   --blue-green: #219EBC;
   --honey-yellow: #FFB703;
   --honey-yellow-tr: #ffb803cb;
-  --orange-peel: #FD9E02;
   --orange: #FB8500;
   --color-subheading: #126782;
 }

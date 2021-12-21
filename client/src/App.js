@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 import { AuthProvider } from './contexts/AuthContext.js';
+import { NotificationProvider } from './contexts/NotificationContext.js';
 import AppRouter from './AppRouter.js';
 
 
@@ -11,9 +12,11 @@ function App() {
 
     return (
         <AuthProvider>
-            <div className="App">
-                <AppRouter />
-            </div>
+            <NotificationProvider>
+                <div className="App">
+                    <AppRouter />
+                </div>
+            </NotificationProvider>
         </AuthProvider>
     );
 }

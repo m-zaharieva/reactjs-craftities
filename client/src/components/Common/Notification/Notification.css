@@ -1,0 +1,46 @@
+.notification {
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    top: 190px;
+    width: 250px;
+    background-color: #ffffff;
+    padding: 10px 10px 10px 20px;
+    box-shadow: 0px 0px 10px #aaaaaa;
+}
+
+@media (min-width: 576px) {
+    .notification {
+        right: 30px;
+        top: 150px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .notification {
+        right: 70px;
+        top: 110px;
+    }
+}
+
+.notification.error {
+    border-left: 10px solid var(--danger);
+}
+
+.notification.success {
+    border-left: 10px solid var(--success);
+}
+
+.notification.warning {
+    border-left: 10px solid var(--warning);
+}
+
+.notification.info {
+    border-left: 10px solid var(--info);
+}
+
+
+/* .warning */
+/* .info */
+/* .success  --success */

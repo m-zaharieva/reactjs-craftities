@@ -12,7 +12,6 @@ router.post('/register', (req, res) => {
     
     authService.register(userData)
         .then(user => {
-            console.log(user);
             return Promise.all([authService.createToken(user), user]) 
         })
         .then(([token, user]) => {
@@ -23,8 +22,8 @@ router.post('/register', (req, res) => {
             res.json(result); 
         })
         .catch(error => {
-            // TODO error handler
-            console.log('User Controller Register: ' + error.message);
+            console.log(error.message);
+            res.json({error: error.message});
         });
 });
 
@@ -51,11 +50,11 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
     let token = req.headers['user-authorization'];
     authService.logout(token)
-        .then(decodedToken => {
-            res.json({"message": "You have been successfully loged out."})
-            //TODO Ckeck if the token is outdated and return proper response
+        .then(user => {
+            res.status(200).json({message: "You have been successfully logged out."})
         })
         .catch(err => {
+            res.status(403).json({error: "Your session token has expired. Please, login to your account"})
             console.log(err);
         })
 });

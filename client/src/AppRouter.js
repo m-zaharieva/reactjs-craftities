@@ -4,6 +4,7 @@ import './App.css';
 import {isAuth} from './hoc/isAuth.js';
 
 import Header from './components/Common/Header/Header.js';
+import Notification from './components/Common/Notification/Notification.js';
 import Footer from './components/Common/Footer/Footer.js';
 import Home from './components/Home/Home.js';
 import AuthForm from './components/Auth/AuthForm/AuthForm.js';
@@ -23,6 +24,7 @@ function AppRouter() {
     return (
         <BrowserRouter>
             <Header />
+            <Notification />
             <main>
                 <Switch>
                     <Route path="/" exact component={Home} />

@@ -1,13 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // import './ListingEdit.css';
 import { storage } from './../../../firebaseConfig/firebaseConfig.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import * as listingService from './../../../services/listingService.js';
-import { AuthContext } from './../../../contexts/AuthContext.js';
+import { useAuthContext } from './../../../contexts/AuthContext.js';
+import { useNotificationContext } from './../../../contexts/NotificationContext.js';
 
-let categoriesLib ={
+let categoriesLib = {
     "jewellery-and-accessories": 'Jewellery and Accessories',
     "clothes-and-shoes": 'Clothes and Shoes',
     "home-and-living": 'Home and Living',
@@ -17,7 +18,8 @@ let categoriesLib ={
 }
 
 function ListingEdit({ history, match }) {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuthContext();
+    const { showNotification } = useNotificationContext();
     const [image, setImage] = useState('');
     const [imageFile, setImageFile] = useState('');
     const [progress, setProgress] = useState(0);
@@ -25,6 +27,7 @@ function ListingEdit({ history, match }) {
     const [listing, setListing] = useState({});
 
     let listingId = match.params.listingId;
+
     useEffect(() => {
         listingService.getOnePopulated(listingId)
             .then(result => {
@@ -87,13 +90,13 @@ function ListingEdit({ history, match }) {
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref)
                         .then(dataUrl => {
-                            // setUrl(dataUrl);
                             setProgress(0);
                             postData.imageUrl = dataUrl;
-                            listingService.updateItem(listingId, postData)
-                                .then(result => {
-                                    return history.push(`/listing/${listingId}`)
-                                });
+                            return listingService.updateItem(listingId, postData)
+                        })
+                        .then(result => {
+                            showNotification('Your listing was successfully updated', 'success');
+                            return history.push(`/listing/${listingId}`)
                         });
                 }
             );
@@ -101,6 +104,7 @@ function ListingEdit({ history, match }) {
         } else if (!imageFile) {
             listingService.updateItem(listingId, postData)
                 .then(result => {
+                    showNotification('Your listing was successfully updated', 'success');
                     return history.push(`/listing/${listingId}`)
                 });
         } else {
@@ -109,7 +113,8 @@ function ListingEdit({ history, match }) {
     }
 
     const changeCategoryHandler = (e) => {
-        setListing(oldState => ({...oldState, category: e.target.value}))};
+        setListing(oldState => ({ ...oldState, category: e.target.value }))
+    };
 
     return (
         <section className="create-form-section">

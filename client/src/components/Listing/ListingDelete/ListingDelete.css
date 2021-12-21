@@ -50,7 +50,7 @@
 }
 
 .delete-dialog-buttons button:last-child {
-    background-color: var(--warrning);
+    background-color: var(--danger);
     color: #ffffff;
 }
 
@@ -72,6 +72,6 @@
 }
 
 .dialog-messages .failed {
-    background-color: var(--warrning);
+    background-color: var(--danger);
 }
 

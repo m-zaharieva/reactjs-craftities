@@ -8,7 +8,9 @@ function ListingCard({ props }) {
         <div className="col-6 col-lg-3 listing-card">
             <article>
                 <div className="listing-image">
-                    <img src={props.imageUrl} alt="" />
+                    <Link to={`/listing/${props._id}`}>
+                        <img src={props.imageUrl} alt="" />
+                    </Link>
                 </div>
                 <div className="listing-data">
 

@@ -16,7 +16,7 @@ function Navbar() {
 		userService.logout(token)
 			.then(message => {
                 logout();
-				history.push('/');
+				history.push('/user/login');
 			});
 	}
 
