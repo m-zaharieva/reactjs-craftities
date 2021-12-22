@@ -160,8 +160,13 @@
 .avatar {
     width: 70px;
     height: 70px;
-    background-color: #cccccc;
+    border: 1px solid #cccccc;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
 }
 
 .comment-holder h3 {

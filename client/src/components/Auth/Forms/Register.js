@@ -16,6 +16,16 @@ import { submitFormValidation } from './../../../validations/authFormValidation.
 
 import ValidationError from './../../Common/Errors/ValidationError.js';
 
+let avatarImage = [
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-6.png?alt=media&token=a72983d5-8d1f-4622-8938-8bfa4d920a21', 
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-5.png?alt=media&token=efaa04c2-de9e-406b-ba89-2466c9df86e6',
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-4.png?alt=media&token=5abdc09c-812c-4285-8066-8d0ebbbcf46d',
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-3.png?alt=media&token=c9325c5f-1c96-4014-8111-b7a9c41f5213',
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-2.png?alt=media&token=d0fae45a-afac-493c-b1a7-2a2eef532c60',
+    'https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20avatar-1.png?alt=media&token=a848c97d-a39b-449d-8a74-97b3a367cdbe',
+
+]
+
 function Register({ match, history }) {
     const { showNotification } = useNotificationContext();
     const { login } = useAuthContext();
@@ -28,6 +38,7 @@ function Register({ match, history }) {
     const userRegisterHandler = (e) => {
         e.preventDefault();
         let userInput = Object.fromEntries(new FormData(e.currentTarget));
+        userInput.imageUrl = avatarImage[Math.floor(Math.random() * avatarImage.length)];
 
         if (userInput.password !== userInput.repeatPassword) {
             return setError(oldState => ({ ...oldState, repeatPassword: 'Both passwords should match.' }));

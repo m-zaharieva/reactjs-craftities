@@ -52,7 +52,7 @@ function Profile({
                 <div className="row col-7 margin-auto">
                     <div className="col-12 col-md-3">
                         <div className="profile-img margin-auto">
-                            <img src="" alt="" />
+                            <img src={user.imageUrl} alt="" />
                         </div>
                     </div>
                     <div className="col-12 col-md-8">

@@ -5,7 +5,7 @@ function Comment({ comment }) {
             <div className='row'>
                 <div className=" col-3 col-xl-2">
                     <div className="avatar">
-                        <img src="images/avatar.png" alt="" />
+                        <img src={comment.author.imageUrl} alt="" />
                     </div>
                 </div>
                 <div className="col-9 col-xl-10">

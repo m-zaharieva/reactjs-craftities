@@ -12,8 +12,13 @@
 .profile-img {
     width: 150px;
     height: 150px;
-    background-color: #cccccc;
+    border: 1px solid #cccccc;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-img img {
+    width: 100%;
 }
 
 .user-data h2 {

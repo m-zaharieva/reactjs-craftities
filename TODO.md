@@ -1,7 +1,6 @@
 Client
 [ ] - Owner guards!
 [ ] - Route guard!
-[ ] - Error handling
 [ ] - Visible user another user profile without authentication;
 [ ] - When you are in a category page, to have a section on the top wuth all your listings, if any;
 [ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
@@ -10,6 +9,7 @@ Client
 [ ] - User profile upgrade.
 [ ] - Use Etsy api
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
+[X] - Error handling
 [X] - Notifications
 [X] - Data validation
 [X] - 404 page
@@ -65,3 +65,4 @@ Server
 
 
 ! git subtree push --prefix server heroku master
+! heroku git:remote -a craftities-api
