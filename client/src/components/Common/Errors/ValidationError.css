@@ -1,0 +1,9 @@
+.alert {
+    padding: 3px 10px;
+    margin-top: 3px;
+    transition: ease-in-out .5s;
+}
+
+.message-danger {
+    color: var(--red);
+}

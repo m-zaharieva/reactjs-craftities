@@ -1,24 +1,18 @@
 Client
-[ ] - When you are in a category page, to have a section on the top wuth all your listings, if any;
 [ ] - Owner guards!
-[ ] - Solve the problem with f5 on production
-[ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
-[ ] - Error handling and error notifications, data validation (debauncer?)
-[ ] - Use Etsy api
-[ ] - Create global requester
-[ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
-[ ] - Load correct data in the DB 
 [ ] - Route guard!
-[ ] - Check if I can use Listing context for saving the listing data for further actions. 
+[ ] - Error handling and error notifications, data validation (debauncer?)
+[ ] - When you are in a category page, to have a section on the top wuth all your listings, if any;
+[ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
 [ ] - To Design the Categories page
 [ ] - Add a readme document to the application
-[ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.
-[ ] - to create an SVG image to be shown when there is no uploaded image yet.
-[ ] - 404 page
-[ ] - Insteade of like button on Details page, to add Rate button and to have an Dialog that has from 1 to 5 vode options. 
-[ ] - To add Context API to the Details. So the information about the currently selected item can be used by the other nested operations. 
 [ ] - User profile upgrade.
-[ ] - To make the rating stars be dinamic.
+[ ] - Use Etsy api
+[ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
+[X] - 404 page
+[X] - to create an SVG image to be shown when there is no uploaded image yet.
+[X] - Load correct data in the DB 
+[X] - Solve the problem with f5 on production
 [X] - Change the catefory field in edit form
 [X] - Idea! When Creating new item - the server to add the owner automatically. 
 [X] - Redesign Register and Login
@@ -36,6 +30,12 @@ Client
 [X] - Logout user.
 [X] - Change the header when the session token has expired.
 [X] - File storage connected to our app. 
+[ ] - Create global requester
+[ ] - Check if I can use Listing context for saving the listing data for further actions. 
+[ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.
+[ ] - Insteade of like button on Details page, to add Rate button and to have an Dialog that has from 1 to 5 vode options. 
+[ ] - To add Context API to the Details. So the information about the currently selected item can be used by the other nested operations. 
+[ ] - To make the rating stars be dinamic.
 [ ] - Idea! In "My items for sale" they can be displayed as a table, like in mongoose Compas app.  
 [ ] - Unit testing (if I have enough time for it)
 [ ] - History bar.
@@ -47,7 +47,7 @@ Server
 [X] - Deploy to Heroku
 [X] - To create a mongoose model for comments
 [X] - Logout user
-[ ] - create an auth middleware
+[X] - create an auth middleware
 
 
 

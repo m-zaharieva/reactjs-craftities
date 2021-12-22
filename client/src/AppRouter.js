@@ -8,7 +8,7 @@ import Notification from './components/Common/Notification/Notification.js';
 import Footer from './components/Common/Footer/Footer.js';
 import Home from './components/Home/Home.js';
 import AuthForm from './components/Auth/AuthForm/AuthForm.js';
-import CreateListing from './components/Listing/CreateListing/CreateListing.js';
+import ListingCreate from './components/Listing/ListingCreate/ListingCreate.js';
 import Categories from './components/Categories/Categories.js';
 import Category from './components/Category/Category.js';
 import ListingDetails from './components/Listing/ListingDetails/ListingDetails.js';
@@ -17,6 +17,7 @@ import Profile from './components/Auth/Profile/Profile.js';
 import MyListings from './components/Auth/MyListings/MyListings.js';
 import MyFavourites from './components/Auth/MyFavourites/MyFavourites.js';
 import AllListings from './components/Listing/AllListings/AllListings.js';
+import NotFound from './components/NotFound/NotFound.js';
 
 
 function AppRouter() {
@@ -28,17 +29,18 @@ function AppRouter() {
             <main>
                 <Switch>
                     <Route path="/" exact component={Home} />
-                    <Route path="/user/register" component={AuthForm} />
-                    <Route path="/user/login" component={AuthForm} />
-                    <Route path="/user/profile/add-new-listing" exact component={isAuth(CreateListing)} />
+                    <Route path="/user/register" exact component={AuthForm} />
+                    <Route path="/user/login" exact component={AuthForm} />
+                    <Route path="/user/profile/add-new-listing" exact component={isAuth(ListingCreate)} />
                     <Route path="/user/profile" exact component={isAuth(Profile)} />
-                    <Route path="/user/profile/favourites" component={isAuth(MyFavourites)} />
-                    <Route path="/user/profile/my-listings" component={isAuth(MyListings)} />
+                    <Route path="/user/profile/favourites" exact component={isAuth(MyFavourites)} />
+                    <Route path="/user/profile/my-listings" exact component={isAuth(MyListings)} />
                     <Route path="/c" exact component={Categories} />
                     <Route path="/c/:category" exact component={Category} />
                     <Route path="/listing/all" exact component={AllListings} />
                     <Route path="/listing/:listingId" exact component={ListingDetails} />
-                    <Route path="/listing/:listingId/edit" component={isAuth(ListingEdit)} />
+                    <Route path="/listing/:listingId/edit" exact component={isAuth(ListingEdit)} />
+                    <Route path="*" component={NotFound} />
 
                     {/* <Route path="/" exact render={(props) => <Home props={props} />} /> */}
                 </Switch>
