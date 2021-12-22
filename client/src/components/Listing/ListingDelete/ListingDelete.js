@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import './ListingDelete.css';
 import * as listingService from './../../../services/listingService.js';
+import { useNotificationContext } from './../../../contexts/NotificationContext.js';
 
 function ListingDelete({ show, changeState, listingId, category }) {
-    let [message, setMessage] = useState('');
+    const { showNotification } = useNotificationContext();
     let history = useHistory();
 
 
@@ -23,12 +23,14 @@ function ListingDelete({ show, changeState, listingId, category }) {
     const deleteListingHandler = (e) => {
         e.preventDefault();
         listingService.deleteListing(listingId)
-            .then(response => {
-                setMessage(response);
-
+            .then(result => {
+                if (result.error) {
+                    throw result;
+                }
                 setTimeout(() => {
+                    showNotification( 'Deleted', 'success');
                     history.push(`/c/${category}`);
-                }, 2000);
+                }, 1000);
             })
     }
 
@@ -43,12 +45,6 @@ function ListingDelete({ show, changeState, listingId, category }) {
                     <div className='delete-dialog-buttons'>
                         <button onClick={goBack}>Cancle</button>
                         <button onClick={deleteListingHandler}>Yes, delete it</button>
-                    </div>
-                    <div className='dialog-messages'>
-                        {message.status && (message.status
-                            ? <p className='successfull'>Status green message</p>
-                            : <p className='failed'>Status red message</p>)
-                        }
                     </div>
                 </div>
             </div>

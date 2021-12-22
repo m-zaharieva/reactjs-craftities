@@ -22,7 +22,6 @@ function CreatePost({ history }) {
     const [image, setImage] = useState('https://firebasestorage.googleapis.com/v0/b/craftities-1f750.appspot.com/o/posts-images%2F%20%2B%20no-image.png?alt=media&token=58d1936a-ce40-4a3f-8671-9eb555a994ea'); //TODO Edit the defailt photo
     const [imageFile, setImageFile] = useState('');
     const [progress, setProgress] = useState(0);
-    // const [error, setError] = useState('');
     const [error, setError] = useState(errorInitialValue);
 
     const addError = (field, message) => {
@@ -57,9 +56,10 @@ function CreatePost({ history }) {
 
     const submitFormHandler = (e) => {
         e.preventDefault();
-        let {...postData} = Object.fromEntries(new FormData(e.currentTarget));
+        let postData = Object.fromEntries(new FormData(e.currentTarget));
         
         submitFormValidation(postData, addError);
+        
         if (Object.values(error).some(x => x !== false)) {
             return;
         }
@@ -168,7 +168,11 @@ function CreatePost({ history }) {
                                 <label htmlFor="category">
                                     Category <span className='required'>*</span>
                                 </label>
-                                <select id="category" name="category" onChange={categoryValidationHandler.bind(null, addError)}>
+                                <select 
+                                    id="category" 
+                                    name="category" 
+                                    onChange={categoryValidationHandler.bind(null, addError)}
+                                >
                                     <option value="">---</option>
                                     <option value="jewellery-and-accessories">Jewellery and Accessories</option>
                                     <option value="clothes-and-shoes">Clothes and Shoes</option>
@@ -193,7 +197,6 @@ function CreatePost({ history }) {
                                     onBlur={priseValidationHandler.bind(null, addError)}
                                 />
                             </div>
-
                             {error.prise ? <ValidationError message={error.prise} /> : null}
 
                             <input type="submit" value="Create" />

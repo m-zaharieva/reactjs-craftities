@@ -3,12 +3,14 @@ import { useHistory, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import * as userService from './../../../../services/userService.js';
 import { useAuthContext } from './../../../../contexts/AuthContext.js';
+import { useNotificationContext } from './../../../../contexts/NotificationContext.js';
 import { ReactComponent as Logout } from './logout.svg';
 
 import NavItem from './NavItem.js';
 
 
 function Navbar() {
+    const { showNotification } = useNotificationContext();
     let { user, logout, token } = useAuthContext();
 	let history = useHistory();
     
@@ -16,6 +18,7 @@ function Navbar() {
 		userService.logout(token)
 			.then(message => {
                 logout();
+                showNotification('You logout successfully! Hope you enjoyed Craftities. ', 'success');
 				history.push('/user/login');
 			});
 	}

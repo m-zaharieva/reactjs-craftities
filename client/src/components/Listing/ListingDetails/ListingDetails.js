@@ -10,7 +10,7 @@ import Comments from './Comments/Comments.js';
 
 
 
-function ListingDetails({ match }) {
+function ListingDetails({ match, history }) {
     const { user } = useAuthContext();
     let [listing, setListing] = useState({});
     let [deleteDialog, setDeleteDialog] = useState(false);
@@ -21,9 +21,16 @@ function ListingDetails({ match }) {
     useEffect(() => {
         listingService.getOnePopulated(listingId)
             .then(data => {
+                if (data.error) {
+                    throw data;
+                }
                 setListing(data);
             })
-    }, [listingId]);
+            .catch(err => {
+                console.log(err);
+                history.push('/page-not-found')
+            })
+    }, [listingId, history]);
 
     const showDialog = (e) => {
         e.preventDefault();

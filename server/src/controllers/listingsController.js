@@ -30,6 +30,10 @@ router.get('/all', (req, res) => {
         .then(listings => {
             res.json(listings);
         })
+        .catch(err => {
+            console.log(error.message);
+            res.status(404).json({error: 'Resource not found'});
+        })
 })
 
 router.get('/:listingId/details', (req, res) => {
@@ -39,8 +43,8 @@ router.get('/:listingId/details', (req, res) => {
             return res.json(post)
         })
         .catch(error => {
-            //TODO Error handler
-            console.log('Post Controller Details: ' + error.message);
+            console.log(error.message);
+            res.status(404).json({error: 'Resource not found'});
         })
 });
 

@@ -24,6 +24,9 @@ export const loginUser = (userData) => {
     .then(res => res.json());
 };
 
+
+
+
 export const logout = (token) => {
 
     return fetch(`${REACT_APP_CRAFTITIES_API}/auth/logout`, {

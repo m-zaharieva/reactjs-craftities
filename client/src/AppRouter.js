@@ -7,7 +7,8 @@ import Header from './components/Common/Header/Header.js';
 import Notification from './components/Common/Notification/Notification.js';
 import Footer from './components/Common/Footer/Footer.js';
 import Home from './components/Home/Home.js';
-import AuthForm from './components/Auth/AuthForm/AuthForm.js';
+import Register from './components/Auth/Forms/Register.js';
+import Login from './components/Auth/Forms/Login.js';
 import ListingCreate from './components/Listing/ListingCreate/ListingCreate.js';
 import Categories from './components/Categories/Categories.js';
 import Category from './components/Category/Category.js';
@@ -29,8 +30,8 @@ function AppRouter() {
             <main>
                 <Switch>
                     <Route path="/" exact component={Home} />
-                    <Route path="/user/register" exact component={AuthForm} />
-                    <Route path="/user/login" exact component={AuthForm} />
+                    <Route path="/user/register" exact component={Register} />
+                    <Route path="/user/login" exact component={Login} />
                     <Route path="/user/profile/add-new-listing" exact component={isAuth(ListingCreate)} />
                     <Route path="/user/profile" exact component={isAuth(Profile)} />
                     <Route path="/user/profile/favourites" exact component={isAuth(MyFavourites)} />

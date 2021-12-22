@@ -17,7 +17,7 @@ function ListingCard({ props }) {
                     <Link to={`/listing/${props._id}`}><h2>{props.title}</h2></Link>
                     
                     <Link to="/user/profile"><p className='listing-author'>{`${props.author.firstName} ${props.author.lastName}`}</p></Link>
-                    <RatingStar className="star" /><span className="card-votes">(120)</span>
+                    <RatingStar className="star" /><span className="card-votes"></span>
                     {/* <p className='listing-rating'><span className="card-votes">4.6</span> / 5 with 1154 votes</p> */}
 
                     <p className="listing-prise">{props.prise} BGN</p>

@@ -23,7 +23,7 @@ router.post('/register', (req, res) => {
         })
         .catch(error => {
             console.log(error.message);
-            res.json({error: error.message});
+            res.status(403).json({error: error.message});
         });
 });
 
@@ -42,8 +42,8 @@ router.post('/login', (req, res) => {
             res.json(result); 
         })
         .catch(error => {
-            // TODO error handler
-            console.log('User Controller Register: ' + error.message);
+            console.log(error.message);
+            res.status(403).json({error: error.message});
         });
 });
 
