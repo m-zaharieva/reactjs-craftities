@@ -27,6 +27,7 @@ export const postDetails = (id) => {
     return Listing.findById(id).populate('author', '_id firstName lastName email').lean();
 }
 
+
 export const postDelete = (id) => {
     return Listing.findByIdAndDelete(id);
 }

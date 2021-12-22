@@ -6,16 +6,18 @@ import * as userService from './../../../services/userService.js';
 import { useAuthContext } from '../../../contexts/AuthContext.js';
 import { useNotificationContext } from '../../../contexts/NotificationContext.js';
 
-function Profile({
-    history
-}) {
+function Profile({ match, history }) {
+    
     let [user, setUser] = useState({});
     let [showTextbox, setShowTextbox] = useState(false);
     let { token, logout } = useAuthContext();
     let { showNotification } = useNotificationContext();
 
+    // let personId = match.params.personId;
+
     useEffect(() => {
         userService.userProfile(token)
+        // userService.userProfileView(personId, token)
             .then(response => {
                 if (response.error) {
                     throw response;

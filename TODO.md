@@ -1,13 +1,12 @@
 Client
 [ ] - Owner guards!
-[ ] - Route guard!
-[ ] - Visible user another user profile without authentication;
 [ ] - When you are in a category page, to have a section on the top wuth all your listings, if any;
 [ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
-[ ] - To Design the Categories page
 [ ] - Add a readme document to the application
 [ ] - Use Etsy api
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
+[X] - To Design the Categories page
+[X] - Route guard!
 [X] - User profile upgrade.
 [X] - Error handling
 [X] - Notifications
@@ -33,6 +32,7 @@ Client
 [X] - Logout user.
 [X] - Change the header when the session token has expired.
 [X] - File storage connected to our app. 
+[ ] - Visible user another user profile without authentication;
 [ ] - Create global requester
 [ ] - Check if I can use Listing context for saving the listing data for further actions. 
 [ ] - To Split my Routes so they could have a logical tree and try to use Reduser and Context.

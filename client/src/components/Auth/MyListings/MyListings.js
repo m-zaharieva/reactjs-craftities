@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 import './MyListings.css';
 import * as userService from './../../../services/userService.js';
@@ -19,9 +20,16 @@ function MyListings() {
             <div className='container'>
                 <h1>My listings</h1>
                 <div className='row'>
-                    {listings.map(x =>
-                        <ListingCard key={x._id} props={x} />
-                    )}
+                    
+                    {
+                    listings[0] 
+                    ? listings.map(x => <ListingCard key={x._id} props={x} />)
+                    : <div className='no-uploads'>
+                        <h2>Oh, you have no uploaded listings.</h2>
+                        <p>Wold you like to give it a try? </p>
+                        <Link to='/user/profile/add-new-listing'>Upload your first project</Link>
+                      </div>
+                    }
                 </div>
             </div>
         </section>

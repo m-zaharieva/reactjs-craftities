@@ -16,7 +16,6 @@ function ListingDetails({ match, history }) {
     const { showNotification } = useNotificationContext();
     let [listing, setListing] = useState({});
     let [deleteDialog, setDeleteDialog] = useState(false);
-    // let [error, setError] = useState('');
 
     let listingId = match.params.listingId;
 

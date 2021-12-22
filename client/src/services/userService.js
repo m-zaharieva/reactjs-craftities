@@ -1,9 +1,10 @@
-const { REACT_APP_CRAFTITIES_API } = process.env;
+// const { REACT_APP_CRAFTITIES_API } = process.env;
+const api = process.env.REACT_APP_CRAFTITIES_API;
 
 
 
 export const registerUser = (userData) => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/register`, {
+    return fetch(`${api}/auth/register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -14,7 +15,7 @@ export const registerUser = (userData) => {
 }
 
 export const loginUser = (userData) => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/login`, {
+    return fetch(`${api}/auth/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -26,10 +27,9 @@ export const loginUser = (userData) => {
 
 
 
-
 export const logout = (token) => {
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/auth/logout`, {
+    return fetch(`${api}/auth/logout`, {
         method: 'GET', 
         headers: {
             'user-authorization': token.token,
@@ -43,7 +43,7 @@ export const logout = (token) => {
 export const userProfile = (token) => {
     let user = JSON.parse(localStorage.getItem('user'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${user._id}`, {
+    return fetch(`${api}/user/${user._id}`, {
         method: 'GET', 
         headers: {
             'user-authorization': token.token,
@@ -56,11 +56,22 @@ export const getUser = () => {
     return localStorage.getItem('user');
 }
 
+// export const userProfileView = (personId, token) => {
+
+//     return fetch(`${api}/user/${personId}`, {
+//         method: 'GET',
+//         headers: {
+//             'user-authorization': token.token,
+//         }
+//     })
+//     .then(res => res.json());
+// }
+
 export const userListings = () => {
     let token = localStorage.getItem('AUTH_TOKEN');
     token = JSON.parse(token);
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/my-listings`, {
+    return fetch(`${api}/data/collection/my-listings`, {
         method: 'GET',
         headers: {
             'user-authorization': token.token,
@@ -72,7 +83,7 @@ export const userListings = () => {
 export const userFavourites = () => {
     let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/favourites`, {
+    return fetch(`${api}/data/collection/favourites`, {
         method: 'GET',
         headers: {
             'user-authorization': token.token,
@@ -87,7 +98,7 @@ export const sessionDataHandler = async (token, userId) => {
 }
 
 export const addDescription = (userId, description, token) => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/user/${userId}`, {
+    return fetch(`${api}/user/${userId}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',

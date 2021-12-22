@@ -10,6 +10,7 @@ export const findUserById = (id) => {
     return User.findById(id).select('-password').populate('favourites');
 }
 
+
 export const addToFavourites = (userId, postId) => {
     return User.findById(userId)
         .then(user => {

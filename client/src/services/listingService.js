@@ -1,15 +1,16 @@
-const { REACT_APP_CRAFTITIES_API } = process.env;
+// const { REACT_APP_CRAFTITIES_API } = process.env;
+const api = process.env.REACT_APP_CRAFTITIES_API;
 
 // CRUD
 export const getOnePopulated = (listingId) => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/details`)
+    return fetch(`${api}/data/listing/${listingId}/details`)
         .then(res => res.json());
 }
 
 export const addItem = (postData) => {
     let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/create`, {
+    return fetch(`${api}/data/listing/create`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -23,7 +24,7 @@ export const addItem = (postData) => {
 export const updateItem = (listingId, listingData) => {
     let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/edit`, {
+    return fetch(`${api}/data/listing/${listingId}/edit`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
@@ -37,7 +38,7 @@ export const updateItem = (listingId, listingData) => {
 export const deleteListing = (listingId) => {
     let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/delete`, {
+    return fetch(`${api}/data/listing/${listingId}/delete`, {
         method: 'DELETE',
         headers: {
             'user-authorization': token.token,
@@ -47,7 +48,7 @@ export const deleteListing = (listingId) => {
 }
 
 export const getAllListings = () => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/all`)
+    return fetch(`${api}/data/listing/all`)
         .then(res => res.json());
 }
 
@@ -55,7 +56,7 @@ export const getAllListings = () => {
 
 export const addToFavourites = (listingId) => {
     let token = JSON.parse(localStorage.getItem('AUTH_TOKEN'));
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/add-to-favoutites`, {
+    return fetch(`${api}/data/listing/${listingId}/add-to-favoutites`, {
         method: 'GET',
         headers: {
             'user-authorization': token.token,
@@ -68,7 +69,7 @@ export const addNewComment = (listingId, comment) => {
     let token = localStorage.getItem('AUTH_TOKEN');
     token = JSON.parse(token);
 
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/comments`, {
+    return fetch(`${api}/data/listing/${listingId}/comments`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -81,7 +82,7 @@ export const addNewComment = (listingId, comment) => {
 
 export const listingComments = (listingId) => {
     console.log(listingId);
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/listing/${listingId}/comments`)
+    return fetch(`${api}/data/listing/${listingId}/comments`)
         .then(res => res.json());
 }
 
@@ -89,12 +90,12 @@ export const listingComments = (listingId) => {
 // ==================
 
 export const category = (category) => {
-    return fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/${category}`)
+    return fetch(`${api}/data/collection/${category}`)
         .then(res => res.json());
 }
 
 export const topFour = async () => {
-    return await fetch(`${REACT_APP_CRAFTITIES_API}/data/collection/top`);
+    return await fetch(`${api}/data/collection/top`);
 }
 
 

@@ -1,0 +1,30 @@
+.my-listings-section {
+    margin-top: 30px;
+}
+
+.my-listings-section h1 {
+    color: var(--color-headings);
+    font-size: 26px;
+}
+
+.no-uploads {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.no-uploads p {
+    font-size: 18px;
+}
+
+.no-uploads a {
+    background-color: var(--turkoaz);
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
