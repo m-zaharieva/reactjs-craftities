@@ -17,6 +17,8 @@ function Comments({
         listingService.listingComments(listingId)
             .then(result => {
                 setComments(result)
+            }).catch(err => {
+                // TODO: Error handler
             })
     }, [listingId]);
 

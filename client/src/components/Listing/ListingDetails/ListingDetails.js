@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './ListingDetails.css';
 import * as listingService from './../../../services/listingService.js';
-import { useAuthContext } from '../../../contexts/AuthContext';
+import { useAuthContext } from '../../../contexts/AuthContext.js';
+import { useNotificationContext } from '../../../contexts/NotificationContext.js';
 
 import ListingDelete from '../ListingDelete/ListingDelete.js';
 import Comments from './Comments/Comments.js';
@@ -12,6 +13,7 @@ import Comments from './Comments/Comments.js';
 
 function ListingDetails({ match, history }) {
     const { user } = useAuthContext();
+    const { showNotification } = useNotificationContext();
     let [listing, setListing] = useState({});
     let [deleteDialog, setDeleteDialog] = useState(false);
     // let [error, setError] = useState('');
@@ -46,9 +48,12 @@ function ListingDetails({ match, history }) {
         listingService.addToFavourites(listingId)
             .then(result => {
                 if (result.error) {
-                    // return setError(result.error);
+                    throw result;
                 }
                 setListing(result);
+            })
+            .catch(err => {
+                showNotification(err.error, 'error');
             })
     }
 

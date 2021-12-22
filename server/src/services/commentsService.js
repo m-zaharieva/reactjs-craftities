@@ -7,6 +7,9 @@ export const getAllComments = (postId) => {
 export const addNewComment = (userId, postId, comment) => {
     return Comment.create({itemId: postId, author: userId, message: comment.comment, date: new Date().toDateString() })
     .then(result => {
+        return result.populate('author')
+    })
+    .then(result => {
         return result.save();
     });
 }

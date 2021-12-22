@@ -6,9 +6,9 @@ Client
 [ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
 [ ] - To Design the Categories page
 [ ] - Add a readme document to the application
-[ ] - User profile upgrade.
 [ ] - Use Etsy api
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
+[X] - User profile upgrade.
 [X] - Error handling
 [X] - Notifications
 [X] - Data validation
