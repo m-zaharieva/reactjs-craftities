@@ -8,6 +8,7 @@ function TopItems() {
     let [posts, setPosts] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         listingService.topFour()
             .then(res => res.json())
             .then(result => {

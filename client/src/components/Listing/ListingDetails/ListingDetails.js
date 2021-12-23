@@ -20,6 +20,7 @@ function ListingDetails({ match, history }) {
     let listingId = match.params.listingId;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         listingService.getOnePopulated(listingId)
             .then(data => {
                 if (data.error) {

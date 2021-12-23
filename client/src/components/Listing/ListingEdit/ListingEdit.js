@@ -37,6 +37,7 @@ function ListingEdit({ history, match }) {
     let listingId = match.params.listingId;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         listingService.getOnePopulated(listingId)
             .then(result => {
                 setListing(result);

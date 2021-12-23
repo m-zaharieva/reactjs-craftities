@@ -8,6 +8,7 @@ function AllListings({ history }) {
     let [listings, setListings] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         listingService.getAllListings()
             .then(listings => {
                 if (listings.error) {

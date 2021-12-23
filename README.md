@@ -6,52 +6,48 @@ Craftities is a web application for handmade creative goods.
 
 ## Public Part (Accessible without authentication) - access control
 * The public part of the project is visible without authentication
-* Home page containing basic information and hot links to the most favourited goods. 
+* Home page containing basic information and hot links to the most rated goods. 
 * Navigation menu, giving access only to the pages, intended for users with free access - home page, categories, user login and registration of a new user
 * Ability to view the all categories and their content and a full catalog of all listed goods
-* Access to detailed information about each listing - image, author name, description, category and prise.
+* Access to detailed information about each listing - image, author name, description, category, prise and comments.
 * No access to edit and delete buttons
 * No access to "add to favourites" button 
 
 
 ## Private Part (Available for Registered Users) - access control
 
-<!-- * Registration of users comes into effect after successful verification of their e-mail address -->
 * Registered users have personal areas in the web application accessible after their successful login:
 1. Home page giving access to their profile page.
-    <!-- - Personalized welcoming screen showing current user's name and a "Continue" button that takes them below to the categorization section -->
 2. Profile page containing information about the current user:
-    - Identification number, username, email, contributions count - the total number of cards created, level of the user based on his contribution to the total number of cards in the database, information about the date of account creation
-    - Implantation of personal titles according to the user level - maximum level 100
-    - Ability to upload a personal profile picture
-    - Functionality to delete the personal account from the database
-3. Access to user's personal library of flashcards created by them, sorted by category
-4. Access to flashcard's details page
-- Option to edit or delete current flashcard, visible buttons only for the creator of the card
-    - Edit button - gives the functionality to change current flashcard's parameters - question and/or answer
-    - Category cannot be changed once the flashcard has been created
-    - Delete button removes the current flashcard from the database - both from the main library, visible to all unregistered users, and from the list of personal flashcards of the registered user
+    - Personal data, email and option to add description
+3. Access to user's personal catalogue of goods created by them.
+4. Access to user's favourite listings.
+5. Access to listing details page
+- Option to edit or delete current listing, visible buttons only for its creator
+    - Edit button - gives the functionality to change current listing parameters - image, title, description, category and prise.
+    - Delete button removes the current listing from the database - both from the main listing library, visible to all unregistered users, and from the list of personal listings of the registered user
+    - Option to favourite current listing, visible button only for non-creators of this listing. 
+6. Create new listing - which add it to the personal collection of listings and to the main library.
 
 
 ## Technologies
-* HTML, CSS, JavaScript, React.JS
-* Dependencies: Parse, React notifications, React Scripts, React Scroll, React Spinners
-* Heroku, Back4app as BAAS
+* React.JS, NodeJS, ExpressJS, MongoDB, JavaScript, CSS, HTML 
+* Heroku, Firebase, Netlify
 
 
 
 ## Satisfaction of requirements
 Web application uses the following technologies, frameworks, and development techniques:
-* It has at least 3 different dynamic pages - My cards, Profile page, Practice List, Create, Edit, etc.
+* It has at least 3 different dynamic pages - Profile page, page for each category, Add new listing, Edit listing, Create, Edit, etc.
 * Has the required views:
-    - Catalog – list of all created records (Flashcards Library)
-    - Details – information about a specific record (Flashcard details)
-    - One collection, different from the User collection, with all CRUD operations (create, read, update, delete) - Flashcard collection
-* Logged in users – create records and request to the REST API, interaction with the records (add to Practice List)
+    - Categories and All items – list of all created records
+    - Details – information about a specific record (listing og good)
+    - One collection, different from the User collection, with all CRUD operations (create, read, update, delete) - Listing collection
+* Logged in users – create records and request to the REST API, interaction with the records - Add to favourites an leave a comment
 * Logged in user (owner) is able to Edit / Delete their records
 * A Guest has access to basic website information (library, details), but not to the functional activities
 * React.js is used for the client-side
-* Communicate to a remote service (Back4App)
+* Communicate to a remote service (REST API deployed to Heroku)
 * Implemented authentication
 * Implemented client-side routing
 * Demonstrates use of programming concepts, specific to the React library: stateless and state full components, bound forms, synthetic events, Component Styling, etc.
@@ -60,16 +56,16 @@ Web application uses the following technologies, frameworks, and development tec
 
 
 ## Screens (Pages)
-* **Welcome Page** (landing page) - home page for unregistered users
-* **Login / Register** - registration with e-mail, username, password
-* **Flashcards Library** - a list of all flashcards created by users
-* **Home Page** - a page for registered users, pointing to libraries with the three main categories of flashcards
-* **Profile Page** - information about the current user, with the possibility to delete the profile
-* **My Cards** - a library of flashcards created by the current user
-* **Details Page** - a page giving information about a specific flashcard, with the ability to edit and delete
-* **Practice List Page** - a page where the user can find all the cards created by other users, but he himself wants to practice
-* **Create Page** - page for creating flashcards
-* **Edit Page** - edit created flashcards, their questions and answers
+* **Home Page** (home page) - home page for unregistered users
+* **Login / Register** - registration with first and last name, e-mail and password
+* **Categories** - a list of all available categories 
+* **Category** - all listings related to this category
+* **All listings** - All listings, not filterd by category
+* **Profile Page** - information about the current user
+* **My listed items** - a library of listings created by the current user
+* **Details Page** - a page giving information about a specific listing, with the ability to edit and delete
+* **Create Page** - page for creating new listing
+* **Edit Page** - edit created listing
 
 
 

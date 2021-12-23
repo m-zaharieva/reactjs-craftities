@@ -8,7 +8,9 @@ import ListingCard from './../../Listing/ListingCard/ListingCard.js';
 
 function MyListings() {
     let [listings, setListings] = useState([]);
+
     useEffect(() => {
+        window.scrollTo(0, 0);
         userService.userListings()
         .then(result => {
                 setListings(result)

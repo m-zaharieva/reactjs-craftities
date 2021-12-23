@@ -18,6 +18,7 @@ function Categorie({ match }) {
     }
     
     useEffect(() => {
+        window.scrollTo(0, 0);
         listingService.category(category)
             .then(result => {
                 setListing(result);

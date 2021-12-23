@@ -7,6 +7,7 @@ function MyFavourites() {
     let [user, setUser] = useState({});
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         userService.userFavourites()
             .then(user => {
                 setUser(user);

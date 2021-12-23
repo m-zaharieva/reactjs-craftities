@@ -1,10 +1,10 @@
 Client
 [ ] - Owner guards!
 [ ] - When you are in a category page, to have a section on the top wuth all your listings, if any;
-[ ] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
 [ ] - Add a readme document to the application
 [ ] - Use Etsy api
 [ ] - Demonstrate use of programming concepts, specific to the React library: statless and statefull components, bound forms, syntetic events, Component Styling, etc. 
+[X] - If I need Scroll to top- in react-router-dom v5 there are documentation about it. part 2 ~ 30min;
 [X] - To Design the Categories page
 [X] - Route guard!
 [X] - User profile upgrade.

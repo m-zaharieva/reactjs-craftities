@@ -1,8 +1,14 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Categories.css';
 
 function Categories() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
+
     return (
         <section className="categories-section">
             <div className="container">

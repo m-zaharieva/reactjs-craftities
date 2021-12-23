@@ -16,6 +16,7 @@ function Profile({ match, history }) {
     // let personId = match.params.personId;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         userService.userProfile(token)
         // userService.userProfileView(personId, token)
             .then(response => {
